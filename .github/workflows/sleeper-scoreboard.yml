@@ -1,0 +1,62 @@
+name: Sleeper Fantasy Scoreboard
+
+on:
+  # Manual trigger
+  workflow_dispatch:
+    inputs:
+      week:
+        description: 'Week number to fetch scores for'
+        required: false
+        default: '1'
+        type: string
+  
+  # Scheduled to run Tuesdays at 6 AM EST (after Monday Night Football)
+  schedule:
+    - cron: '0 11 * * 2'  # 11 AM UTC = 6 AM EST on Tuesdays
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  fetch-scores:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm install
+    
+    - name: Fetch fantasy scores
+      run: |
+        WEEK_NUMBER="${{ github.event.inputs.week || '1' }}"
+        echo "Fetching scores for week $WEEK_NUMBER"
+        node generate-html-tabs.js $WEEK_NUMBER
+    
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+    
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './docs'
+    
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

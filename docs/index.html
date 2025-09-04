@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fantasy Scoreboard - thegamethepodcast</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #1a365d 0%, #2d4a66 100%);
+      min-height: 100vh;
+      color: #333;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .header {
+      text-align: center;
+      color: white;
+      margin-bottom: 30px;
+    }
+    
+    .header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .tab-button {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+    
+    .tab-button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    
+    .tab-button.active {
+      background: linear-gradient(135deg, #DC143C, #B91C1C);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4);
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .champion-card {
+      background: linear-gradient(135deg, #DC143C, #B91C1C);
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      color: white;
+    }
+    
+    .champion-card h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    
+    .champion-name {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    
+    .champion-score {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #F7FAFC;
+    }
+    
+    .champion-league {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      opacity: 0.8;
+    }
+    
+    .league-table {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+    
+    .table-header {
+      background: #1a365d;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .table-header h3 {
+      font-size: 1.5rem;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    thead {
+      background: #2d4a66;
+      color: white;
+    }
+    
+    th {
+      padding: 15px;
+      text-align: left;
+      font-weight: 600;
+    }
+    
+    th:last-child, td:last-child {
+      text-align: center;
+    }
+    
+    tbody tr:nth-child(even) {
+      background: #f8f9fa;
+    }
+    
+    tbody tr:hover {
+      background: #e9ecef;
+      transition: background 0.3s ease;
+    }
+    
+    td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #dee2e6;
+    }
+    
+    .points {
+      font-weight: bold;
+      color: #DC143C;
+      font-size: 1.1rem;
+    }
+    
+    .top-scorer {
+      background: linear-gradient(135deg, #DC143C, #B91C1C) !important;
+      font-weight: bold;
+    }
+    
+    .top-scorer td {
+      color: white;
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .stat-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+    
+    .stat-value {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    .week-updated {
+      text-align: center;
+      color: white;
+      opacity: 0.8;
+      font-size: 0.9rem;
+      margin-top: 20px;
+    }
+    
+    .footer {
+      text-align: center;
+      color: white;
+      margin-top: 30px;
+      opacity: 0.8;
+    }
+    
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .tabs {
+        justify-content: center;
+      }
+      
+      .tab-button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+      }
+      
+      .champion-card {
+        padding: 20px;
+      }
+      
+      .champion-name {
+        font-size: 2rem;
+      }
+      
+      .champion-score {
+        font-size: 2.5rem;
+      }
+      
+      table {
+        font-size: 0.9rem;
+      }
+      
+      th, td {
+        padding: 10px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>🏈 Fantasy Football Scoreboard</h1>
+      <p>Season Results for thegamethepodcast</p>
+    </header>
+    
+    <div class="tabs">
+      <button class="tab-button active" onclick="showWeek(1)">Week 1</button>
+    </div>
+    
+    
+      <div id="week1" class="tab-content active">
+        <div class="stats">
+          <div class="stat-card">
+            <div class="stat-value">106</div>
+            <div class="stat-label">Total Leagues</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">1</div>
+            <div class="stat-label">Week Number</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">TBD</div>
+            <div class="stat-label">Highest Score</div>
+          </div>
+        </div>
+        
+        
+        <div class="champion-card">
+          <h2>🏆 Week 1 Champion</h2>
+          <div class="champion-name">Week 1 hasn't started yet!</div>
+          <div class="champion-league">Check back after games begin</div>
+        </div>
+        
+        
+        <div class="league-table">
+          <div class="table-header">
+            <h3>📊 Week 1 League Leaderboard</h3>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>League Name</th>
+                <th>Top Scorer</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+      <tr class="top-scorer">
+        <td>1</td>
+        <td>A QUEEN IS NEVER LATE</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>2</td>
+        <td>Griddy Little Liars</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>3</td>
+        <td>We Built This Griddy:</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>4</td>
+        <td>Get Lucky</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>5</td>
+        <td>Loving Him Was Redzone</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>6</td>
+        <td>Pink Pony Chubb: </td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>7</td>
+        <td>Watt's Love Got to Do With It?</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>8</td>
+        <td>Can't Fight the Steeling:</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>9</td>
+        <td>Breaking the Glass Steeling</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>10</td>
+        <td>Sass Interference</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>11</td>
+        <td>Mr. Steel Your Girl</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>12</td>
+        <td>Charbonnet Sauvignon</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>13</td>
+        <td>Third and Long Live</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>14</td>
+        <td>Lights, Karmara, Action</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>15</td>
+        <td>Lamar You Serious</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>16</td>
+        <td>I'm Sorry Ms. Jackson</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>17</td>
+        <td>For Kyron Out Loud</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>18</td>
+        <td>Getting Jeanty With It</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>19</td>
+        <td>Gronkey Kong</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>20</td>
+        <td>Pats on the Back</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>21</td>
+        <td>Boston TE Party</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>22</td>
+        <td>Stefon the Gas</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>23</td>
+        <td>Golden Hour</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>24</td>
+        <td>Micah Drop</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>25</td>
+        <td>Love Story</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>26</td>
+        <td>First Down Bad</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>27</td>
+        <td>Hey Darnold</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>28</td>
+        <td>Hawk Tua</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>29</td>
+        <td>How I Metcalf Your Mother</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>30</td>
+        <td>I Tua You Were Trouble</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>31</td>
+        <td>All Too Sewell</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>32</td>
+        <td>Amon a Roll</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>33</td>
+        <td>Here Comes the Sungod</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>34</td>
+        <td>Gibbs Me More</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>35</td>
+        <td>No This is (Tim) Patrick</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>36</td>
+        <td>Love Thy Nabers</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>37</td>
+        <td>Go Birds</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>38</td>
+        <td>Philly Special Forces</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>39</td>
+        <td>Je Ne Sequon</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>40</td>
+        <td>Truth Hurts</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>41</td>
+        <td>Fly Eagles Fly</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>42</td>
+        <td>Cam You Feel It</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>43</td>
+        <td>Brown Eyed Girl </td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>44</td>
+        <td>Devonta Swifties</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>45</td>
+        <td>No Pain, No Gainwell</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>46</td>
+        <td>Here for the DCC</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>47</td>
+        <td>I Diggs You</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>48</td>
+        <td>Dak to the Future</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>49</td>
+        <td>The Grid Reaper</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>50</td>
+        <td>They CeeDee Rollin'</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>51</td>
+        <td>Put Your Penix Away</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>52</td>
+        <td>PACHECO THE RING CAMERAS</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>53</td>
+        <td>Mahomes Alone</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>54</td>
+        <td>Karma</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>55</td>
+        <td>Pink Toney Club</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>56</td>
+        <td>Herby Fully Loaded</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>57</td>
+        <td>Face Down Pass Rush</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>58</td>
+        <td>Mike Drop</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>59</td>
+        <td>Seal Team Nix</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>60</td>
+        <td>Bo Meets World</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>61</td>
+        <td>Pay My Bills</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>62</td>
+        <td>Allen the Hips</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>63</td>
+        <td>She Cooked Here</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>64</td>
+        <td>Life of a Joe Girl</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>65</td>
+        <td>Whodey and the Joefish</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>66</td>
+        <td>Super Ja'Marrio Brothers</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>67</td>
+        <td>Santosrini Vacation</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>68</td>
+        <td>Bear Force One</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>69</td>
+        <td>Lamar the Merrier</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>70</td>
+        <td>That's So Raven(s)</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>71</td>
+        <td>Kittle Me This</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>72</td>
+        <td>Purdy Please</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>73</td>
+        <td>Brock You LIke a Hurricante</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>74</td>
+        <td>Stop It, Bosa You</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>75</td>
+        <td>Bosa Believe It</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>76</td>
+        <td>For the Sourdough of it All</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>77</td>
+        <td>Jimmy Kittle Live</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>78</td>
+        <td>Love Island USA</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>79</td>
+        <td>TORTURED PANTHERS DEPT</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>80</td>
+        <td>Teardrops on My Lamar</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>81</td>
+        <td>All About That Pace</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>82</td>
+        <td>Hunter Wives</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>83</td>
+        <td>Baby Got DAK</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>84</td>
+        <td>ALLEN TOO WELL</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>85</td>
+        <td>Ball Too Well</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>86</td>
+        <td>Hurts Like That Only Happens Once </td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>87</td>
+        <td>Shake it Goff</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>88</td>
+        <td>Turn Down for Watt</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>89</td>
+        <td>Scoop of Herbert</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>90</td>
+        <td>Bang Bang Niner Gang</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>91</td>
+        <td>BTS</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>92</td>
+        <td>To Live for the Hutch of It All</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>93</td>
+        <td>Olave Maria </td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>94</td>
+        <td>Somewhere Over the RainBO Nix</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>95</td>
+        <td>NOTHING BEATS A JET(S) 2 HOLIDAY</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>96</td>
+        <td>Nice to Sea You</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>97</td>
+        <td>The Summer I Turned Purdy</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>98</td>
+        <td>Good Nabers</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>99</td>
+        <td>BEG, BURROW, STEAL</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>100</td>
+        <td>ALLEN THE STALLION</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>101</td>
+        <td>Sacks and the City </td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>102</td>
+        <td>Baby Don't Hurts Me</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>103</td>
+        <td>I Love You, but Goff My Lawn</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>104</td>
+        <td>This Just-In (Jefferson) </td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>105</td>
+        <td>Death by a Thousand Punts</td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+      <tr class="">
+        <td>106</td>
+        <td>Living in a Fantasy </td>
+        <td>Unknown</td>
+        <td class="points">0</td>
+      </tr>
+    
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="week-updated">
+          <p>Week 1 updated: 9/4/2025, 3:48:18 PM</p>
+        </div>
+      </div>
+    
+    
+    <footer class="footer">
+      <p>Data powered by Sleeper API</p>
+      <p>Last site update: 9/4/2025, 3:48:18 PM</p>
+    </footer>
+  </div>
+
+  <script>
+    function showWeek(week) {
+      // Hide all tab contents
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Remove active class from all tab buttons
+      document.querySelectorAll('.tab-button').forEach(button => {
+        button.classList.remove('active');
+      });
+      
+      // Show selected week content
+      document.getElementById('week' + week).classList.add('active');
+      
+      // Add active class to selected tab button
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
