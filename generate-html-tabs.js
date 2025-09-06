@@ -27,13 +27,21 @@ async function getTopScorersForWeek(week = 1) {
       
       await api.delay(100);
       
-      const [users, matchups] = await Promise.all([
+      const [users, rosters, matchups] = await Promise.all([
         api.getLeagueUsers(league.league_id),
+        api.getLeagueRosters(league.league_id),
         api.getWeekMatchups(league.league_id, week)
       ]);
       
+      // Create user map: user_id -> user
       const userMap = users.reduce((acc, user) => {
         acc[user.user_id] = user;
+        return acc;
+      }, {});
+      
+      // Create roster map: roster_id -> owner_id
+      const rosterMap = rosters.reduce((acc, roster) => {
+        acc[roster.roster_id] = roster.owner_id;
         return acc;
       }, {});
       
@@ -43,7 +51,14 @@ async function getTopScorersForWeek(week = 1) {
       for (const matchup of matchups) {
         if (matchup.points > topScore) {
           topScore = matchup.points;
-          topScorer = userMap[matchup.roster_id] ? userMap[matchup.roster_id] : { display_name: 'Unknown', user_id: matchup.roster_id };
+          const ownerId = rosterMap[matchup.roster_id];
+          const user = ownerId && userMap[ownerId] ? userMap[ownerId] : { display_name: 'Unknown', user_id: matchup.roster_id };
+          const teamName = user?.metadata?.team_name || user?.display_name || 'No Team Name';
+          
+          topScorer = {
+            ...user,
+            teamName: teamName
+          };
         }
       }
       
@@ -56,6 +71,7 @@ async function getTopScorersForWeek(week = 1) {
       leagueResults.push({
         leagueName: league.name,
         topScorer: topScorer?.display_name || 'Unknown',
+        teamName: topScorer?.teamName || 'No Team Name',
         topScore: topScore
       });
       
@@ -70,7 +86,10 @@ async function getTopScorersForWeek(week = 1) {
       week,
       userName: user.display_name,
       leagueResults,
-      overallTopScorer: overallTopScorer?.display_name || 'Unknown',
+      overallTopScorer: {
+        display_name: overallTopScorer?.display_name || 'Unknown',
+        teamName: overallTopScorer?.metadata?.team_name || overallTopScorer?.display_name || 'No Team Name'
+      },
       overallTopScore,
       overallTopLeague,
       totalLeagues: leagues.length,
@@ -123,7 +142,12 @@ function generateTabbedHTML(allData) {
       <tr class="${index === 0 ? 'top-scorer' : ''}">
         <td>${index + 1}</td>
         <td>${league.leagueName}</td>
-        <td>${league.topScorer}</td>
+        <td>
+          <div class="scorer-info">
+            <div class="team-name">${league.teamName}</div>
+            <div class="username">@${league.topScorer}</div>
+          </div>
+        </td>
         <td class="points">${league.topScore}</td>
       </tr>
     `).join('');
@@ -148,7 +172,8 @@ function generateTabbedHTML(allData) {
         ${weekData.overallTopScore > 0 ? `
         <div class="champion-card">
           <h2>🏆 Week ${week} Champion</h2>
-          <div class="champion-name">${weekData.overallTopScorer}</div>
+          <div class="champion-name">${weekData.overallTopScorer?.teamName || weekData.overallTopScorer?.display_name || 'No Team Name'}</div>
+          <div class="champion-username">@${weekData.overallTopScorer?.display_name || weekData.overallTopScorer}</div>
           <div class="champion-score">${weekData.overallTopScore} pts</div>
           <div class="champion-league">from "${weekData.overallTopLeague}"</div>
         </div>
@@ -169,7 +194,7 @@ function generateTabbedHTML(allData) {
               <tr>
                 <th>Rank</th>
                 <th>League Name</th>
-                <th>Top Scorer</th>
+                <th>Team & Owner</th>
                 <th>Points</th>
               </tr>
             </thead>
@@ -300,6 +325,12 @@ function generateTabbedHTML(allData) {
       margin: 10px 0;
     }
     
+    .champion-username {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 15px;
+    }
+    
     .champion-score {
       font-size: 3rem;
       font-weight: bold;
@@ -378,6 +409,26 @@ function generateTabbedHTML(allData) {
     
     .top-scorer td {
       color: white;
+    }
+    
+    .scorer-info {
+      text-align: left;
+    }
+    
+    .team-name {
+      font-weight: bold;
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+    
+    .username {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      color: #666;
+    }
+    
+    .top-scorer .username {
+      color: rgba(255, 255, 255, 0.8);
     }
     
     .stats {
