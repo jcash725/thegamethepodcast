@@ -152,6 +152,21 @@ function generateTabbedHTML(allData) {
       </tr>
     `).join('');
 
+    // Generate mobile cards
+    const mobileCards = weekData.leagueResults.map((league, index) => `
+      <div class="league-card ${index === 0 ? 'top-scorer' : ''}">
+        <div class="league-info">
+          <div class="league-rank">#${index + 1}</div>
+          <div class="league-name-mobile">${league.leagueName}</div>
+          <div class="team-info-mobile">
+            <div class="team-name-mobile">${league.teamName}</div>
+            <div class="username-mobile">@${league.topScorer}</div>
+          </div>
+        </div>
+        <div class="points-mobile">${league.topScore}</div>
+      </div>
+    `).join('');
+
     return `
       <div id="week${week}" class="tab-content ${isActive ? 'active' : ''}">
         <div class="stats">
@@ -189,19 +204,28 @@ function generateTabbedHTML(allData) {
           <div class="table-header">
             <h3>📊 Week ${week} League Leaderboard</h3>
           </div>
-          <table>
-            <thead>
-              <tr>
-                <th>Rank</th>
-                <th>League Name</th>
-                <th>Team & Owner</th>
-                <th>Points</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${leagueRows}
-            </tbody>
-          </table>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>League Name</th>
+                  <th>Team & Owner</th>
+                  <th>Points</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${leagueRows}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div class="mobile-league-list">
+          <div class="table-header">
+            <h3>📊 Week ${week} League Leaderboard</h3>
+          </div>
+          ${mobileCards}
         </div>
         
         <div class="week-updated">
@@ -473,38 +497,215 @@ function generateTabbedHTML(allData) {
       opacity: 0.8;
     }
     
+    /* Mobile card-based layout */
+    .mobile-league-list {
+      display: none;
+    }
+    
+    .league-card {
+      background: white;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .league-info {
+      flex: 1;
+    }
+    
+    .league-rank {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #DC143C;
+      margin-bottom: 5px;
+    }
+    
+    .league-name-mobile {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1a365d;
+      margin-bottom: 8px;
+    }
+    
+    .team-info-mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    
+    .team-name-mobile {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .username-mobile {
+      font-size: 0.8rem;
+      color: #666;
+    }
+    
+    .points-mobile {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #DC143C;
+      text-align: right;
+      flex-shrink: 0;
+      margin-left: 15px;
+    }
+    
+    .league-card.top-scorer {
+      background: linear-gradient(135deg, #DC143C, #B91C1C);
+    }
+    
+    .league-card.top-scorer .league-rank,
+    .league-card.top-scorer .league-name-mobile,
+    .league-card.top-scorer .team-name-mobile,
+    .league-card.top-scorer .points-mobile {
+      color: white;
+    }
+    
+    .league-card.top-scorer .username-mobile {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
     @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+      
       .header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+      }
+      
+      .header p {
+        font-size: 1rem;
       }
       
       .tabs {
-        justify-content: center;
+        justify-content: flex-start;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 5px;
+      }
+      
+      .tabs::-webkit-scrollbar {
+        height: 4px;
+      }
+      
+      .tabs::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      
+      .tabs::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
       }
       
       .tab-button {
-        padding: 10px 15px;
-        font-size: 0.9rem;
+        padding: 12px 20px;
+        font-size: 0.95rem;
+        flex-shrink: 0;
+        min-width: 80px;
+      }
+      
+      .stats {
+        grid-template-columns: 1fr;
+        gap: 15px;
       }
       
       .champion-card {
-        padding: 20px;
+        padding: 20px 15px;
       }
       
       .champion-name {
-        font-size: 2rem;
+        font-size: 1.8rem;
+      }
+      
+      .champion-username {
+        font-size: 1rem;
       }
       
       .champion-score {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+      }
+      
+      .champion-league {
+        font-size: 1rem;
+      }
+      
+      /* Hide desktop table and show mobile cards */
+      .league-table {
+        display: none;
+      }
+      
+      .mobile-league-list {
+        display: block;
+      }
+      
+      .week-updated {
+        font-size: 0.85rem;
+        margin-top: 15px;
+      }
+      
+      .footer {
+        margin-top: 20px;
+        font-size: 0.85rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 10px;
+      }
+      
+      .header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .champion-card {
+        padding: 15px 10px;
+      }
+      
+      .champion-name {
+        font-size: 1.5rem;
+      }
+      
+      .champion-score {
+        font-size: 2rem;
+      }
+      
+      .stats {
+        gap: 10px;
+      }
+      
+      .stat-card {
+        padding: 15px 10px;
+      }
+      
+      .stat-value {
+        font-size: 1.5rem;
       }
       
       table {
-        font-size: 0.9rem;
+        min-width: 550px;
+        font-size: 0.8rem;
       }
       
       th, td {
-        padding: 10px 8px;
+        padding: 6px 4px;
+      }
+      
+      .team-name {
+        font-size: 0.85rem;
+      }
+      
+      .username {
+        font-size: 0.7rem;
       }
     }
   </style>
