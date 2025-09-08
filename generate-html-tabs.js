@@ -5,7 +5,7 @@ import path from 'path';
 const USERNAME = 'thegamethepodcast';
 const DATA_FILE = 'docs/weekly-data.json';
 
-async function getTopScorersForWeek(week = 1) {
+async function getTopScorersForWeek(week = 1, existingFlexSettings = {}) {
   const api = new SleeperAPI();
   
   try {
@@ -17,15 +17,38 @@ async function getTopScorersForWeek(week = 1) {
     const leagues = await api.getUserLeagues(user.user_id);
     console.log(`Found ${leagues.length} leagues\n`);
     
+    const flexSettings = { ...existingFlexSettings };
+    
     const leagueResults = [];
+    const oneFlexLeagues = [];
+    const twoFlexLeagues = [];
     let overallTopScore = 0;
     let overallTopScorer = null;
     let overallTopLeague = null;
+    let oneFlexTopScore = 0;
+    let oneFlexTopScorer = null;
+    let oneFlexTopLeague = null;
+    let twoFlexTopScore = 0;
+    let twoFlexTopScorer = null;
+    let twoFlexTopLeague = null;
 
     for (const league of leagues) {
       console.log(`Processing league: ${league.name}`);
       
       await api.delay(100);
+      
+      // Check if we already have flex settings for this league
+      let flexCount = flexSettings[league.league_id];
+      
+      if (flexCount === undefined) {
+        console.log(`  Fetching flex settings for ${league.name}...`);
+        const leagueSettings = await api.getLeagueSettings(league.league_id);
+        flexCount = leagueSettings.roster_positions?.filter(pos => pos === 'FLEX').length || 0;
+        flexSettings[league.league_id] = flexCount;
+        console.log(`  Cached ${flexCount} FLEX positions for ${league.name}`);
+      } else {
+        console.log(`  Using cached flex settings: ${flexCount} FLEX positions`);
+      }
       
       const [users, rosters, matchups] = await Promise.all([
         api.getLeagueUsers(league.league_id),
@@ -68,11 +91,41 @@ async function getTopScorersForWeek(week = 1) {
         overallTopLeague = league.name;
       }
       
+      // Track flex-specific champions
+      if (flexCount === 1) {
+        if (topScore > oneFlexTopScore) {
+          oneFlexTopScore = topScore;
+          oneFlexTopScorer = topScorer;
+          oneFlexTopLeague = league.name;
+        }
+        oneFlexLeagues.push({
+          leagueName: league.name,
+          topScorer: topScorer?.display_name || 'Unknown',
+          teamName: topScorer?.teamName || 'No Team Name',
+          topScore: topScore,
+          flexCount: 1
+        });
+      } else if (flexCount === 2) {
+        if (topScore > twoFlexTopScore) {
+          twoFlexTopScore = topScore;
+          twoFlexTopScorer = topScorer;
+          twoFlexTopLeague = league.name;
+        }
+        twoFlexLeagues.push({
+          leagueName: league.name,
+          topScorer: topScorer?.display_name || 'Unknown',
+          teamName: topScorer?.teamName || 'No Team Name',
+          topScore: topScore,
+          flexCount: 2
+        });
+      }
+      
       leagueResults.push({
         leagueName: league.name,
         topScorer: topScorer?.display_name || 'Unknown',
         teamName: topScorer?.teamName || 'No Team Name',
-        topScore: topScore
+        topScore: topScore,
+        flexCount: flexCount
       });
       
       console.log(`  Top scorer: ${topScorer?.display_name || 'Unknown'} with ${topScore} points`);
@@ -81,19 +134,38 @@ async function getTopScorersForWeek(week = 1) {
     
     // Sort leagues by top score descending
     leagueResults.sort((a, b) => b.topScore - a.topScore);
+    oneFlexLeagues.sort((a, b) => b.topScore - a.topScore);
+    twoFlexLeagues.sort((a, b) => b.topScore - a.topScore);
     
     return {
       week,
       userName: user.display_name,
       leagueResults,
+      oneFlexLeagues,
+      twoFlexLeagues,
       overallTopScorer: {
         display_name: overallTopScorer?.display_name || 'Unknown',
         teamName: overallTopScorer?.metadata?.team_name || overallTopScorer?.display_name || 'No Team Name'
       },
       overallTopScore,
       overallTopLeague,
+      oneFlexTopScorer: {
+        display_name: oneFlexTopScorer?.display_name || 'Unknown',
+        teamName: oneFlexTopScorer?.teamName || 'No Team Name'
+      },
+      oneFlexTopScore,
+      oneFlexTopLeague,
+      twoFlexTopScorer: {
+        display_name: twoFlexTopScorer?.display_name || 'Unknown',
+        teamName: twoFlexTopScorer?.teamName || 'No Team Name'
+      },
+      twoFlexTopScore,
+      twoFlexTopLeague,
       totalLeagues: leagues.length,
-      lastUpdated: new Date().toLocaleString()
+      oneFlexCount: oneFlexLeagues.length,
+      twoFlexCount: twoFlexLeagues.length,
+      lastUpdated: new Date().toLocaleString(),
+      flexSettings: flexSettings
     };
     
   } catch (error) {
@@ -111,7 +183,7 @@ function loadExistingData() {
   } catch (error) {
     console.log('No existing data found, starting fresh');
   }
-  return { weeks: {}, lastUpdated: new Date().toLocaleString() };
+  return { weeks: {}, leagueFlexSettings: {}, lastUpdated: new Date().toLocaleString() };
 }
 
 function saveWeeklyData(allData) {
@@ -138,7 +210,8 @@ function generateTabbedHTML(allData) {
     const weekData = allData.weeks[week];
     const isActive = week === latestWeek;
     
-    const leagueRows = weekData.leagueResults.map((league, index) => `
+    // Generate 1-flex league content
+    const oneFlexRows = (weekData.oneFlexLeagues || []).map((league, index) => `
       <tr class="${index === 0 ? 'top-scorer' : ''}">
         <td>${index + 1}</td>
         <td>${league.leagueName}</td>
@@ -152,8 +225,36 @@ function generateTabbedHTML(allData) {
       </tr>
     `).join('');
 
-    // Generate mobile cards
-    const mobileCards = weekData.leagueResults.map((league, index) => `
+    const oneFlexMobileCards = (weekData.oneFlexLeagues || []).map((league, index) => `
+      <div class="league-card ${index === 0 ? 'top-scorer' : ''}">
+        <div class="league-info">
+          <div class="league-rank">#${index + 1}</div>
+          <div class="league-name-mobile">${league.leagueName}</div>
+          <div class="team-info-mobile">
+            <div class="team-name-mobile">${league.teamName}</div>
+            <div class="username-mobile">@${league.topScorer}</div>
+          </div>
+        </div>
+        <div class="points-mobile">${league.topScore}</div>
+      </div>
+    `).join('');
+
+    // Generate 2-flex league content
+    const twoFlexRows = (weekData.twoFlexLeagues || []).map((league, index) => `
+      <tr class="${index === 0 ? 'top-scorer' : ''}">
+        <td>${index + 1}</td>
+        <td>${league.leagueName}</td>
+        <td>
+          <div class="scorer-info">
+            <div class="team-name">${league.teamName}</div>
+            <div class="username">@${league.topScorer}</div>
+          </div>
+        </td>
+        <td class="points">${league.topScore}</td>
+      </tr>
+    `).join('');
+
+    const twoFlexMobileCards = (weekData.twoFlexLeagues || []).map((league, index) => `
       <div class="league-card ${index === 0 ? 'top-scorer' : ''}">
         <div class="league-info">
           <div class="league-rank">#${index + 1}</div>
@@ -175,8 +276,12 @@ function generateTabbedHTML(allData) {
             <div class="stat-label">Total Leagues</div>
           </div>
           <div class="stat-card">
-            <div class="stat-value">${week}</div>
-            <div class="stat-label">Week Number</div>
+            <div class="stat-value">${weekData.oneFlexCount || 0}</div>
+            <div class="stat-label">1-Flex Leagues</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">${weekData.twoFlexCount || 0}</div>
+            <div class="stat-label">2-Flex Leagues</div>
           </div>
           <div class="stat-card">
             <div class="stat-value">${weekData.overallTopScore > 0 ? weekData.overallTopScore : 'TBD'}</div>
@@ -184,25 +289,42 @@ function generateTabbedHTML(allData) {
           </div>
         </div>
         
-        ${weekData.overallTopScore > 0 ? `
+        ${weekData.oneFlexTopScore > 0 ? `
         <div class="champion-card">
-          <h2>🏆 Week ${week} Champion</h2>
-          <div class="champion-name">${weekData.overallTopScorer?.teamName || weekData.overallTopScorer?.display_name || 'No Team Name'}</div>
-          <div class="champion-username">@${weekData.overallTopScorer?.display_name || weekData.overallTopScorer}</div>
-          <div class="champion-score">${weekData.overallTopScore} pts</div>
-          <div class="champion-league">from "${weekData.overallTopLeague}"</div>
+          <h2>🏆 Week ${week} 1-Flex Champion</h2>
+          <div class="champion-name">${weekData.oneFlexTopScorer?.teamName || weekData.oneFlexTopScorer?.display_name || 'No Team Name'}</div>
+          <div class="champion-username">@${weekData.oneFlexTopScorer?.display_name || weekData.oneFlexTopScorer}</div>
+          <div class="champion-score">${weekData.oneFlexTopScore} pts</div>
+          <div class="champion-league">from "${weekData.oneFlexTopLeague}"</div>
         </div>
         ` : `
         <div class="champion-card">
-          <h2>🏆 Week ${week} Champion</h2>
+          <h2>🏆 Week ${week} 1-Flex Champion</h2>
+          <div class="champion-name">Week ${week} hasn't started yet!</div>
+          <div class="champion-league">Check back after games begin</div>
+        </div>
+        `}
+
+        ${weekData.twoFlexTopScore > 0 ? `
+        <div class="champion-card">
+          <h2>🏆 Week ${week} 2-Flex Champion</h2>
+          <div class="champion-name">${weekData.twoFlexTopScorer?.teamName || weekData.twoFlexTopScorer?.display_name || 'No Team Name'}</div>
+          <div class="champion-username">@${weekData.twoFlexTopScorer?.display_name || weekData.twoFlexTopScorer}</div>
+          <div class="champion-score">${weekData.twoFlexTopScore} pts</div>
+          <div class="champion-league">from "${weekData.twoFlexTopLeague}"</div>
+        </div>
+        ` : `
+        <div class="champion-card">
+          <h2>🏆 Week ${week} 2-Flex Champion</h2>
           <div class="champion-name">Week ${week} hasn't started yet!</div>
           <div class="champion-league">Check back after games begin</div>
         </div>
         `}
         
+        ${weekData.oneFlexCount > 0 ? `
         <div class="league-table">
           <div class="table-header">
-            <h3>📊 Week ${week} League Leaderboard</h3>
+            <h3>📊 1-Flex Leagues (${weekData.oneFlexCount})</h3>
           </div>
           <div class="table-wrapper">
             <table>
@@ -215,7 +337,7 @@ function generateTabbedHTML(allData) {
                 </tr>
               </thead>
               <tbody>
-                ${leagueRows}
+                ${oneFlexRows}
               </tbody>
             </table>
           </div>
@@ -223,10 +345,41 @@ function generateTabbedHTML(allData) {
         
         <div class="mobile-league-list">
           <div class="table-header">
-            <h3>📊 Week ${week} League Leaderboard</h3>
+            <h3>📊 1-Flex Leagues (${weekData.oneFlexCount})</h3>
           </div>
-          ${mobileCards}
+          ${oneFlexMobileCards}
         </div>
+        ` : ''}
+
+        ${weekData.twoFlexCount > 0 ? `
+        <div class="league-table">
+          <div class="table-header">
+            <h3>📊 2-Flex Leagues (${weekData.twoFlexCount})</h3>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>League Name</th>
+                  <th>Team & Owner</th>
+                  <th>Points</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${twoFlexRows}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div class="mobile-league-list">
+          <div class="table-header">
+            <h3>📊 2-Flex Leagues (${weekData.twoFlexCount})</h3>
+          </div>
+          ${twoFlexMobileCards}
+        </div>
+        ` : ''}
         
         <div class="week-updated">
           <p>Week ${week} updated: ${weekData.lastUpdated}</p>
@@ -762,10 +915,11 @@ async function main() {
     const allData = loadExistingData();
     
     // Fetch new week data
-    const weekData = await getTopScorersForWeek(week);
+    const weekData = await getTopScorersForWeek(week, allData.leagueFlexSettings || {});
     
-    // Add/update the week data
+    // Add/update the week data and flex settings
     allData.weeks[week] = weekData;
+    allData.leagueFlexSettings = { ...allData.leagueFlexSettings, ...weekData.flexSettings };
     allData.lastUpdated = new Date().toLocaleString();
     
     // Save updated data
