@@ -260,6 +260,46 @@
       opacity: 0.8;
     }
     
+    /* Season leaders styling */
+    .week-badge {
+      background: #DC143C;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    
+    .week-badge-mobile {
+      background: #DC143C;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-size: 0.7rem;
+      font-weight: bold;
+      margin-top: 4px;
+    }
+    
+    .season-points-mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      flex-shrink: 0;
+      margin-left: 15px;
+    }
+    
+    .average-points {
+      font-weight: 600;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .average-mobile {
+      color: #666;
+      font-size: 0.75rem;
+      margin-top: 2px;
+    }
+    
     /* Mobile card-based layout */
     .mobile-league-list {
       display: none;
@@ -481,7 +521,7 @@
     </header>
     
     <div class="tabs">
-      <button class="tab-button active" onclick="showWeek(1)">Week 1</button>
+      <button class="tab-button active" onclick="showWeek(1)">Week 1</button><button class="tab-button" onclick="showWeek('season')">Season Leaders</button>
     </div>
     
     
@@ -3130,14 +3170,3090 @@
         
         
         <div class="week-updated">
-          <p>Week 1 updated: 9/8/2025, 3:55:38 PM</p>
+          <p>Week 1 updated: 9/8/2025, 8:01:53 PM</p>
         </div>
       </div>
     
     
+    <div id="weekseason" class="tab-content">
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-value">1</div>
+          <div class="stat-label">Weeks Played</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">48</div>
+          <div class="stat-label">1-Flex Leagues</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">58</div>
+          <div class="stat-label">2-Flex Leagues</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">183.2</div>
+          <div class="stat-label">Total Points Leader</div>
+        </div>
+      </div>
+      
+      
+      <div class="champion-card">
+        <h2>🏆 Season 1-Flex Leader</h2>
+        <div class="champion-name">sacks in the city</div>
+        <div class="champion-username">@sarahswift05</div>
+        <div class="champion-score">165.92 pts</div>
+        <div class="champion-league">from "They CeeDee Rollin'" (165.9 avg)</div>
+      </div>
+      
+
+      
+      <div class="champion-card">
+        <h2>🏆 Season 2-Flex Leader</h2>
+        <div class="champion-name">thegamethepodcast</div>
+        <div class="champion-username">@thegamethepodcast</div>
+        <div class="champion-score">183.16 pts</div>
+        <div class="champion-league">from "Brock You LIke a Hurricante" (183.2 avg)</div>
+      </div>
+      
+      
+      
+      <div class="league-table">
+        <div class="table-header">
+          <h3>📊 Season Total: 1-Flex Leagues (48)</h3>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>League Name</th>
+                <th>Team & Owner</th>
+                <th>Total Points</th>
+                <th>Average</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+    <tr class="top-scorer">
+      <td>1</td>
+      <td>They CeeDee Rollin'</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">sacks in the city</div>
+          <div class="username">@sarahswift05</div>
+        </div>
+      </td>
+      <td class="points">165.92</td>
+      <td class="average-points">165.9</td>
+    </tr>
+  
+    <tr class="">
+      <td>2</td>
+      <td>For the Sourdough of it All</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">thegamethepodcast</div>
+          <div class="username">@thegamethepodcast</div>
+        </div>
+      </td>
+      <td class="points">162.26</td>
+      <td class="average-points">162.3</td>
+    </tr>
+  
+    <tr class="">
+      <td>3</td>
+      <td>Breaking the Glass Steeling</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">i love burrowritos </div>
+          <div class="username">@kendakenn</div>
+        </div>
+      </td>
+      <td class="points">156.82</td>
+      <td class="average-points">156.8</td>
+    </tr>
+  
+    <tr class="">
+      <td>4</td>
+      <td>Can't Fight the Steeling:</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">timberlee05</div>
+          <div class="username">@timberlee05</div>
+        </div>
+      </td>
+      <td class="points">154.68</td>
+      <td class="average-points">154.7</td>
+    </tr>
+  
+    <tr class="">
+      <td>5</td>
+      <td>Gronkey Kong</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Allen’s Avengers </div>
+          <div class="username">@kelseycarlson91</div>
+        </div>
+      </td>
+      <td class="points">151.36</td>
+      <td class="average-points">151.4</td>
+    </tr>
+  
+    <tr class="">
+      <td>6</td>
+      <td>Devonta Swifties</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Njigbas in Paris</div>
+          <div class="username">@Candrus0206</div>
+        </div>
+      </td>
+      <td class="points">151.32</td>
+      <td class="average-points">151.3</td>
+    </tr>
+  
+    <tr class="">
+      <td>7</td>
+      <td>Hawk Tua</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">thegamethepodcast</div>
+          <div class="username">@thegamethepodcast</div>
+        </div>
+      </td>
+      <td class="points">149.06</td>
+      <td class="average-points">149.1</td>
+    </tr>
+  
+    <tr class="">
+      <td>8</td>
+      <td>Hey Darnold</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Death By A Thousand Punts</div>
+          <div class="username">@smashley93</div>
+        </div>
+      </td>
+      <td class="points">145.98</td>
+      <td class="average-points">146.0</td>
+    </tr>
+  
+    <tr class="">
+      <td>9</td>
+      <td>I'm Sorry Ms. Jackson</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">hurts so good </div>
+          <div class="username">@alyssarc</div>
+        </div>
+      </td>
+      <td class="points">144.58</td>
+      <td class="average-points">144.6</td>
+    </tr>
+  
+    <tr class="">
+      <td>10</td>
+      <td>Cam You Feel It</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">fumbledore44</div>
+          <div class="username">@fumbledore44</div>
+        </div>
+      </td>
+      <td class="points">143.92</td>
+      <td class="average-points">143.9</td>
+    </tr>
+  
+    <tr class="">
+      <td>11</td>
+      <td>Truth Hurts</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">ldelgaudio</div>
+          <div class="username">@ldelgaudio</div>
+        </div>
+      </td>
+      <td class="points">143.62</td>
+      <td class="average-points">143.6</td>
+    </tr>
+  
+    <tr class="">
+      <td>12</td>
+      <td>Dak to the Future</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Saquon Deez TDs</div>
+          <div class="username">@Codex7L</div>
+        </div>
+      </td>
+      <td class="points">143.52</td>
+      <td class="average-points">143.5</td>
+    </tr>
+  
+    <tr class="">
+      <td>13</td>
+      <td>Go Birds</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Enchanted to Beat U </div>
+          <div class="username">@BrittanyEdna</div>
+        </div>
+      </td>
+      <td class="points">142.06</td>
+      <td class="average-points">142.1</td>
+    </tr>
+  
+    <tr class="">
+      <td>14</td>
+      <td>Lamar You Serious</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Chesapeake Chicks 🏈 💜</div>
+          <div class="username">@tayrobertson</div>
+        </div>
+      </td>
+      <td class="points">141.68</td>
+      <td class="average-points">141.7</td>
+    </tr>
+  
+    <tr class="">
+      <td>15</td>
+      <td>Boston TE Party</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Gronkey Kong</div>
+          <div class="username">@LindseyAitch</div>
+        </div>
+      </td>
+      <td class="points">140.72</td>
+      <td class="average-points">140.7</td>
+    </tr>
+  
+    <tr class="">
+      <td>16</td>
+      <td>Amon a Roll</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Unknown</div>
+          <div class="username">@Unknown</div>
+        </div>
+      </td>
+      <td class="points">140.56</td>
+      <td class="average-points">140.6</td>
+    </tr>
+  
+    <tr class="">
+      <td>17</td>
+      <td>Put Your Penix Away</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">thegamethepodcast</div>
+          <div class="username">@thegamethepodcast</div>
+        </div>
+      </td>
+      <td class="points">140.50</td>
+      <td class="average-points">140.5</td>
+    </tr>
+  
+    <tr class="">
+      <td>18</td>
+      <td>Mr. Steel Your Girl</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">These TDs are real </div>
+          <div class="username">@dnjennings12</div>
+        </div>
+      </td>
+      <td class="points">139.92</td>
+      <td class="average-points">139.9</td>
+    </tr>
+  
+    <tr class="">
+      <td>19</td>
+      <td>We Built This Griddy:</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Death by a thousand punts</div>
+          <div class="username">@jave20119</div>
+        </div>
+      </td>
+      <td class="points">139.86</td>
+      <td class="average-points">139.9</td>
+    </tr>
+  
+    <tr class="">
+      <td>20</td>
+      <td>Loving Him Was Redzone</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">the bowerpuff girls</div>
+          <div class="username">@jordanly615</div>
+        </div>
+      </td>
+      <td class="points">139.72</td>
+      <td class="average-points">139.7</td>
+    </tr>
+  
+    <tr class="">
+      <td>21</td>
+      <td>Charbonnet Sauvignon</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">pooptarts8008</div>
+          <div class="username">@pooptarts8008</div>
+        </div>
+      </td>
+      <td class="points">139.12</td>
+      <td class="average-points">139.1</td>
+    </tr>
+  
+    <tr class="">
+      <td>22</td>
+      <td>A QUEEN IS NEVER LATE</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">j0y2daw0rld</div>
+          <div class="username">@j0y2daw0rld</div>
+        </div>
+      </td>
+      <td class="points">137.26</td>
+      <td class="average-points">137.3</td>
+    </tr>
+  
+    <tr class="">
+      <td>23</td>
+      <td>Get Lucky</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">ririlanasty</div>
+          <div class="username">@ririlanasty</div>
+        </div>
+      </td>
+      <td class="points">136.88</td>
+      <td class="average-points">136.9</td>
+    </tr>
+  
+    <tr class="">
+      <td>24</td>
+      <td>Je Ne Sequon</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">christiineg</div>
+          <div class="username">@christiineg</div>
+        </div>
+      </td>
+      <td class="points">136.32</td>
+      <td class="average-points">136.3</td>
+    </tr>
+  
+    <tr class="">
+      <td>25</td>
+      <td>The Grid Reaper</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">bana14</div>
+          <div class="username">@bana14</div>
+        </div>
+      </td>
+      <td class="points">135.76</td>
+      <td class="average-points">135.8</td>
+    </tr>
+  
+    <tr class="">
+      <td>26</td>
+      <td>Griddy Little Liars</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">ThielenGoodTime</div>
+          <div class="username">@ThielenGoodTime</div>
+        </div>
+      </td>
+      <td class="points">134.48</td>
+      <td class="average-points">134.5</td>
+    </tr>
+  
+    <tr class="">
+      <td>27</td>
+      <td>Pats on the Back</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Vrabel’s Version</div>
+          <div class="username">@KristaConnell</div>
+        </div>
+      </td>
+      <td class="points">134.46</td>
+      <td class="average-points">134.5</td>
+    </tr>
+  
+    <tr class="">
+      <td>28</td>
+      <td>Lights, Karmara, Action</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">thegamethepodcast</div>
+          <div class="username">@thegamethepodcast</div>
+        </div>
+      </td>
+      <td class="points">132.72</td>
+      <td class="average-points">132.7</td>
+    </tr>
+  
+    <tr class="">
+      <td>29</td>
+      <td>Bosa Believe It</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Kittle Kittens</div>
+          <div class="username">@KryssLeigh3</div>
+        </div>
+      </td>
+      <td class="points">132.56</td>
+      <td class="average-points">132.6</td>
+    </tr>
+  
+    <tr class="">
+      <td>30</td>
+      <td>Watt's Love Got to Do With It?</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">stillergang24</div>
+          <div class="username">@stillergang24</div>
+        </div>
+      </td>
+      <td class="points">130.86</td>
+      <td class="average-points">130.9</td>
+    </tr>
+  
+    <tr class="">
+      <td>31</td>
+      <td>For Kyron Out Loud</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Blitz, Please </div>
+          <div class="username">@sarahlpickett</div>
+        </div>
+      </td>
+      <td class="points">130.52</td>
+      <td class="average-points">130.5</td>
+    </tr>
+  
+    <tr class="">
+      <td>32</td>
+      <td>Love Thy Nabers</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">epollack323</div>
+          <div class="username">@epollack323</div>
+        </div>
+      </td>
+      <td class="points">130.42</td>
+      <td class="average-points">130.4</td>
+    </tr>
+  
+    <tr class="">
+      <td>33</td>
+      <td>Micah Drop</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Lamarican Dream</div>
+          <div class="username">@beeellllaahhh</div>
+        </div>
+      </td>
+      <td class="points">130.36</td>
+      <td class="average-points">130.4</td>
+    </tr>
+  
+    <tr class="">
+      <td>34</td>
+      <td>Love Story</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">thegamethepodcast</div>
+          <div class="username">@thegamethepodcast</div>
+        </div>
+      </td>
+      <td class="points">130.22</td>
+      <td class="average-points">130.2</td>
+    </tr>
+  
+    <tr class="">
+      <td>35</td>
+      <td>Fly Eagles Fly</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">GlitzAndBlitz2</div>
+          <div class="username">@GlitzAndBlitz2</div>
+        </div>
+      </td>
+      <td class="points">129.72</td>
+      <td class="average-points">129.7</td>
+    </tr>
+  
+    <tr class="">
+      <td>36</td>
+      <td>How I Metcalf Your Mother</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">gioxreese</div>
+          <div class="username">@gioxreese</div>
+        </div>
+      </td>
+      <td class="points">129.34</td>
+      <td class="average-points">129.3</td>
+    </tr>
+  
+    <tr class="">
+      <td>37</td>
+      <td>Golden Hour</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">MALIKABOO</div>
+          <div class="username">@Braykay</div>
+        </div>
+      </td>
+      <td class="points">129.02</td>
+      <td class="average-points">129.0</td>
+    </tr>
+  
+    <tr class="">
+      <td>38</td>
+      <td>No Pain, No Gainwell</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">DartVaderVal</div>
+          <div class="username">@DartVaderVal</div>
+        </div>
+      </td>
+      <td class="points">128.58</td>
+      <td class="average-points">128.6</td>
+    </tr>
+  
+    <tr class="">
+      <td>39</td>
+      <td>Gibbs Me More</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Cookin’ Dubs & Bakin’ TDs</div>
+          <div class="username">@avalanche38</div>
+        </div>
+      </td>
+      <td class="points">127.48</td>
+      <td class="average-points">127.5</td>
+    </tr>
+  
+    <tr class="">
+      <td>40</td>
+      <td>First Down Bad</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">That's What Cheesehead</div>
+          <div class="username">@ctsnyder13</div>
+        </div>
+      </td>
+      <td class="points">126.62</td>
+      <td class="average-points">126.6</td>
+    </tr>
+  
+    <tr class="">
+      <td>41</td>
+      <td>All Too Sewell</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">meadswags</div>
+          <div class="username">@meadswags</div>
+        </div>
+      </td>
+      <td class="points">124.46</td>
+      <td class="average-points">124.5</td>
+    </tr>
+  
+    <tr class="">
+      <td>42</td>
+      <td>Philly Special Forces</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Real Housewives of the Rz</div>
+          <div class="username">@kmshieldss</div>
+        </div>
+      </td>
+      <td class="points">124.42</td>
+      <td class="average-points">124.4</td>
+    </tr>
+  
+    <tr class="">
+      <td>43</td>
+      <td>I Diggs You</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">maddawgs22</div>
+          <div class="username">@maddawgs22</div>
+        </div>
+      </td>
+      <td class="points">123.86</td>
+      <td class="average-points">123.9</td>
+    </tr>
+  
+    <tr class="">
+      <td>44</td>
+      <td>Stefon the Gas</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Serving Punt</div>
+          <div class="username">@sophiak23</div>
+        </div>
+      </td>
+      <td class="points">123.32</td>
+      <td class="average-points">123.3</td>
+    </tr>
+  
+    <tr class="">
+      <td>45</td>
+      <td>Jimmy Kittle Live</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">The summer I turned purdy</div>
+          <div class="username">@emmajaime</div>
+        </div>
+      </td>
+      <td class="points">123.22</td>
+      <td class="average-points">123.2</td>
+    </tr>
+  
+    <tr class="">
+      <td>46</td>
+      <td>I Tua You Were Trouble</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Marvin’s Room [Remix]</div>
+          <div class="username">@jasmineajordan98</div>
+        </div>
+      </td>
+      <td class="points">121.86</td>
+      <td class="average-points">121.9</td>
+    </tr>
+  
+    <tr class="">
+      <td>47</td>
+      <td>No This is (Tim) Patrick</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">The Summer I Turned Saucy</div>
+          <div class="username">@samanthaerinn</div>
+        </div>
+      </td>
+      <td class="points">116.92</td>
+      <td class="average-points">116.9</td>
+    </tr>
+  
+    <tr class="">
+      <td>48</td>
+      <td>Here for the DCC</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Dungeon Crawler Cowboys</div>
+          <div class="username">@hanabanans</div>
+        </div>
+      </td>
+      <td class="points">111.78</td>
+      <td class="average-points">111.8</td>
+    </tr>
+  
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="mobile-league-list">
+        <div class="table-header">
+          <h3>📊 Season Total: 1-Flex Leagues (48)</h3>
+        </div>
+        
+    <div class="league-card top-scorer">
+      <div class="league-info">
+        <div class="league-rank">#1</div>
+        <div class="league-name-mobile">They CeeDee Rollin'</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">sacks in the city</div>
+          <div class="username-mobile">@sarahswift05</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">165.92</div>
+        <div class="average-mobile">Avg: 165.9</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#2</div>
+        <div class="league-name-mobile">For the Sourdough of it All</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">thegamethepodcast</div>
+          <div class="username-mobile">@thegamethepodcast</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">162.26</div>
+        <div class="average-mobile">Avg: 162.3</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#3</div>
+        <div class="league-name-mobile">Breaking the Glass Steeling</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">i love burrowritos </div>
+          <div class="username-mobile">@kendakenn</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">156.82</div>
+        <div class="average-mobile">Avg: 156.8</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#4</div>
+        <div class="league-name-mobile">Can't Fight the Steeling:</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">timberlee05</div>
+          <div class="username-mobile">@timberlee05</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">154.68</div>
+        <div class="average-mobile">Avg: 154.7</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#5</div>
+        <div class="league-name-mobile">Gronkey Kong</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Allen’s Avengers </div>
+          <div class="username-mobile">@kelseycarlson91</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">151.36</div>
+        <div class="average-mobile">Avg: 151.4</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#6</div>
+        <div class="league-name-mobile">Devonta Swifties</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Njigbas in Paris</div>
+          <div class="username-mobile">@Candrus0206</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">151.32</div>
+        <div class="average-mobile">Avg: 151.3</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#7</div>
+        <div class="league-name-mobile">Hawk Tua</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">thegamethepodcast</div>
+          <div class="username-mobile">@thegamethepodcast</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">149.06</div>
+        <div class="average-mobile">Avg: 149.1</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#8</div>
+        <div class="league-name-mobile">Hey Darnold</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Death By A Thousand Punts</div>
+          <div class="username-mobile">@smashley93</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">145.98</div>
+        <div class="average-mobile">Avg: 146.0</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#9</div>
+        <div class="league-name-mobile">I'm Sorry Ms. Jackson</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">hurts so good </div>
+          <div class="username-mobile">@alyssarc</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">144.58</div>
+        <div class="average-mobile">Avg: 144.6</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#10</div>
+        <div class="league-name-mobile">Cam You Feel It</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">fumbledore44</div>
+          <div class="username-mobile">@fumbledore44</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">143.92</div>
+        <div class="average-mobile">Avg: 143.9</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#11</div>
+        <div class="league-name-mobile">Truth Hurts</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">ldelgaudio</div>
+          <div class="username-mobile">@ldelgaudio</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">143.62</div>
+        <div class="average-mobile">Avg: 143.6</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#12</div>
+        <div class="league-name-mobile">Dak to the Future</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Saquon Deez TDs</div>
+          <div class="username-mobile">@Codex7L</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">143.52</div>
+        <div class="average-mobile">Avg: 143.5</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#13</div>
+        <div class="league-name-mobile">Go Birds</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Enchanted to Beat U </div>
+          <div class="username-mobile">@BrittanyEdna</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">142.06</div>
+        <div class="average-mobile">Avg: 142.1</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#14</div>
+        <div class="league-name-mobile">Lamar You Serious</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Chesapeake Chicks 🏈 💜</div>
+          <div class="username-mobile">@tayrobertson</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">141.68</div>
+        <div class="average-mobile">Avg: 141.7</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#15</div>
+        <div class="league-name-mobile">Boston TE Party</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Gronkey Kong</div>
+          <div class="username-mobile">@LindseyAitch</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">140.72</div>
+        <div class="average-mobile">Avg: 140.7</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#16</div>
+        <div class="league-name-mobile">Amon a Roll</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Unknown</div>
+          <div class="username-mobile">@Unknown</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">140.56</div>
+        <div class="average-mobile">Avg: 140.6</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#17</div>
+        <div class="league-name-mobile">Put Your Penix Away</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">thegamethepodcast</div>
+          <div class="username-mobile">@thegamethepodcast</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">140.50</div>
+        <div class="average-mobile">Avg: 140.5</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#18</div>
+        <div class="league-name-mobile">Mr. Steel Your Girl</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">These TDs are real </div>
+          <div class="username-mobile">@dnjennings12</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">139.92</div>
+        <div class="average-mobile">Avg: 139.9</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#19</div>
+        <div class="league-name-mobile">We Built This Griddy:</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Death by a thousand punts</div>
+          <div class="username-mobile">@jave20119</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">139.86</div>
+        <div class="average-mobile">Avg: 139.9</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#20</div>
+        <div class="league-name-mobile">Loving Him Was Redzone</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">the bowerpuff girls</div>
+          <div class="username-mobile">@jordanly615</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">139.72</div>
+        <div class="average-mobile">Avg: 139.7</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#21</div>
+        <div class="league-name-mobile">Charbonnet Sauvignon</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">pooptarts8008</div>
+          <div class="username-mobile">@pooptarts8008</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">139.12</div>
+        <div class="average-mobile">Avg: 139.1</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#22</div>
+        <div class="league-name-mobile">A QUEEN IS NEVER LATE</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">j0y2daw0rld</div>
+          <div class="username-mobile">@j0y2daw0rld</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">137.26</div>
+        <div class="average-mobile">Avg: 137.3</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#23</div>
+        <div class="league-name-mobile">Get Lucky</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">ririlanasty</div>
+          <div class="username-mobile">@ririlanasty</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">136.88</div>
+        <div class="average-mobile">Avg: 136.9</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#24</div>
+        <div class="league-name-mobile">Je Ne Sequon</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">christiineg</div>
+          <div class="username-mobile">@christiineg</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">136.32</div>
+        <div class="average-mobile">Avg: 136.3</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#25</div>
+        <div class="league-name-mobile">The Grid Reaper</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">bana14</div>
+          <div class="username-mobile">@bana14</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">135.76</div>
+        <div class="average-mobile">Avg: 135.8</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#26</div>
+        <div class="league-name-mobile">Griddy Little Liars</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">ThielenGoodTime</div>
+          <div class="username-mobile">@ThielenGoodTime</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">134.48</div>
+        <div class="average-mobile">Avg: 134.5</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#27</div>
+        <div class="league-name-mobile">Pats on the Back</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Vrabel’s Version</div>
+          <div class="username-mobile">@KristaConnell</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">134.46</div>
+        <div class="average-mobile">Avg: 134.5</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#28</div>
+        <div class="league-name-mobile">Lights, Karmara, Action</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">thegamethepodcast</div>
+          <div class="username-mobile">@thegamethepodcast</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">132.72</div>
+        <div class="average-mobile">Avg: 132.7</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#29</div>
+        <div class="league-name-mobile">Bosa Believe It</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Kittle Kittens</div>
+          <div class="username-mobile">@KryssLeigh3</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">132.56</div>
+        <div class="average-mobile">Avg: 132.6</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#30</div>
+        <div class="league-name-mobile">Watt's Love Got to Do With It?</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">stillergang24</div>
+          <div class="username-mobile">@stillergang24</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">130.86</div>
+        <div class="average-mobile">Avg: 130.9</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#31</div>
+        <div class="league-name-mobile">For Kyron Out Loud</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Blitz, Please </div>
+          <div class="username-mobile">@sarahlpickett</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">130.52</div>
+        <div class="average-mobile">Avg: 130.5</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#32</div>
+        <div class="league-name-mobile">Love Thy Nabers</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">epollack323</div>
+          <div class="username-mobile">@epollack323</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">130.42</div>
+        <div class="average-mobile">Avg: 130.4</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#33</div>
+        <div class="league-name-mobile">Micah Drop</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Lamarican Dream</div>
+          <div class="username-mobile">@beeellllaahhh</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">130.36</div>
+        <div class="average-mobile">Avg: 130.4</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#34</div>
+        <div class="league-name-mobile">Love Story</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">thegamethepodcast</div>
+          <div class="username-mobile">@thegamethepodcast</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">130.22</div>
+        <div class="average-mobile">Avg: 130.2</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#35</div>
+        <div class="league-name-mobile">Fly Eagles Fly</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">GlitzAndBlitz2</div>
+          <div class="username-mobile">@GlitzAndBlitz2</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">129.72</div>
+        <div class="average-mobile">Avg: 129.7</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#36</div>
+        <div class="league-name-mobile">How I Metcalf Your Mother</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">gioxreese</div>
+          <div class="username-mobile">@gioxreese</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">129.34</div>
+        <div class="average-mobile">Avg: 129.3</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#37</div>
+        <div class="league-name-mobile">Golden Hour</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">MALIKABOO</div>
+          <div class="username-mobile">@Braykay</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">129.02</div>
+        <div class="average-mobile">Avg: 129.0</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#38</div>
+        <div class="league-name-mobile">No Pain, No Gainwell</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">DartVaderVal</div>
+          <div class="username-mobile">@DartVaderVal</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">128.58</div>
+        <div class="average-mobile">Avg: 128.6</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#39</div>
+        <div class="league-name-mobile">Gibbs Me More</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Cookin’ Dubs & Bakin’ TDs</div>
+          <div class="username-mobile">@avalanche38</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">127.48</div>
+        <div class="average-mobile">Avg: 127.5</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#40</div>
+        <div class="league-name-mobile">First Down Bad</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">That's What Cheesehead</div>
+          <div class="username-mobile">@ctsnyder13</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">126.62</div>
+        <div class="average-mobile">Avg: 126.6</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#41</div>
+        <div class="league-name-mobile">All Too Sewell</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">meadswags</div>
+          <div class="username-mobile">@meadswags</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">124.46</div>
+        <div class="average-mobile">Avg: 124.5</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#42</div>
+        <div class="league-name-mobile">Philly Special Forces</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Real Housewives of the Rz</div>
+          <div class="username-mobile">@kmshieldss</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">124.42</div>
+        <div class="average-mobile">Avg: 124.4</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#43</div>
+        <div class="league-name-mobile">I Diggs You</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">maddawgs22</div>
+          <div class="username-mobile">@maddawgs22</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">123.86</div>
+        <div class="average-mobile">Avg: 123.9</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#44</div>
+        <div class="league-name-mobile">Stefon the Gas</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Serving Punt</div>
+          <div class="username-mobile">@sophiak23</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">123.32</div>
+        <div class="average-mobile">Avg: 123.3</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#45</div>
+        <div class="league-name-mobile">Jimmy Kittle Live</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">The summer I turned purdy</div>
+          <div class="username-mobile">@emmajaime</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">123.22</div>
+        <div class="average-mobile">Avg: 123.2</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#46</div>
+        <div class="league-name-mobile">I Tua You Were Trouble</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Marvin’s Room [Remix]</div>
+          <div class="username-mobile">@jasmineajordan98</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">121.86</div>
+        <div class="average-mobile">Avg: 121.9</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#47</div>
+        <div class="league-name-mobile">No This is (Tim) Patrick</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">The Summer I Turned Saucy</div>
+          <div class="username-mobile">@samanthaerinn</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">116.92</div>
+        <div class="average-mobile">Avg: 116.9</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#48</div>
+        <div class="league-name-mobile">Here for the DCC</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Dungeon Crawler Cowboys</div>
+          <div class="username-mobile">@hanabanans</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">111.78</div>
+        <div class="average-mobile">Avg: 111.8</div>
+      </div>
+    </div>
+  
+      </div>
+      
+
+      
+      <div class="league-table">
+        <div class="table-header">
+          <h3>📊 Season Total: 2-Flex Leagues (58)</h3>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>League Name</th>
+                <th>Team & Owner</th>
+                <th>Total Points</th>
+                <th>Average</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+    <tr class="top-scorer">
+      <td>1</td>
+      <td>Brock You LIke a Hurricante</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">thegamethepodcast</div>
+          <div class="username">@thegamethepodcast</div>
+        </div>
+      </td>
+      <td class="points">183.16</td>
+      <td class="average-points">183.2</td>
+    </tr>
+  
+    <tr class="">
+      <td>2</td>
+      <td>PACHECO THE RING CAMERAS</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">MissAdventures</div>
+          <div class="username">@MissAdventures</div>
+        </div>
+      </td>
+      <td class="points">175.26</td>
+      <td class="average-points">175.3</td>
+    </tr>
+  
+    <tr class="">
+      <td>3</td>
+      <td>Brown Eyed Girl </td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">emilyinphilly</div>
+          <div class="username">@emilyinphilly</div>
+        </div>
+      </td>
+      <td class="points">173.86</td>
+      <td class="average-points">173.9</td>
+    </tr>
+  
+    <tr class="">
+      <td>4</td>
+      <td>Third and Long Live</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Digital Kamara</div>
+          <div class="username">@gogirls1</div>
+        </div>
+      </td>
+      <td class="points">172.12</td>
+      <td class="average-points">172.1</td>
+    </tr>
+  
+    <tr class="">
+      <td>5</td>
+      <td>Whodey and the Joefish</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">burrowed treasure</div>
+          <div class="username">@heatherd006</div>
+        </div>
+      </td>
+      <td class="points">169.28</td>
+      <td class="average-points">169.3</td>
+    </tr>
+  
+    <tr class="">
+      <td>6</td>
+      <td>Olave Maria </td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Jet Tua Holiday</div>
+          <div class="username">@kede16</div>
+        </div>
+      </td>
+      <td class="points">166.88</td>
+      <td class="average-points">166.9</td>
+    </tr>
+  
+    <tr class="">
+      <td>7</td>
+      <td>Hunter Wives</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Big Digg Energy</div>
+          <div class="username">@Bettyestes00</div>
+        </div>
+      </td>
+      <td class="points">166.32</td>
+      <td class="average-points">166.3</td>
+    </tr>
+  
+    <tr class="">
+      <td>8</td>
+      <td>Nice to Sea You</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">thegamethepodcast</div>
+          <div class="username">@thegamethepodcast</div>
+        </div>
+      </td>
+      <td class="points">165.62</td>
+      <td class="average-points">165.6</td>
+    </tr>
+  
+    <tr class="">
+      <td>9</td>
+      <td>Santosrini Vacation</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">thegamethepodcast</div>
+          <div class="username">@thegamethepodcast</div>
+        </div>
+      </td>
+      <td class="points">163.02</td>
+      <td class="average-points">163.0</td>
+    </tr>
+  
+    <tr class="">
+      <td>10</td>
+      <td>Living in a Fantasy </td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">I kraft flowers</div>
+          <div class="username">@kaylafield23</div>
+        </div>
+      </td>
+      <td class="points">161.16</td>
+      <td class="average-points">161.2</td>
+    </tr>
+  
+    <tr class="">
+      <td>11</td>
+      <td>BTS</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Unctim</div>
+          <div class="username">@Unctim</div>
+        </div>
+      </td>
+      <td class="points">159.08</td>
+      <td class="average-points">159.1</td>
+    </tr>
+  
+    <tr class="">
+      <td>12</td>
+      <td>Lamar the Merrier</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">ans0606</div>
+          <div class="username">@ans0606</div>
+        </div>
+      </td>
+      <td class="points">157.96</td>
+      <td class="average-points">158.0</td>
+    </tr>
+  
+    <tr class="">
+      <td>13</td>
+      <td>Mahomes Alone</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">thegamethepodcast</div>
+          <div class="username">@thegamethepodcast</div>
+        </div>
+      </td>
+      <td class="points">157.26</td>
+      <td class="average-points">157.3</td>
+    </tr>
+  
+    <tr class="">
+      <td>14</td>
+      <td>Allen the Hips</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Kittle Corn</div>
+          <div class="username">@summertime98</div>
+        </div>
+      </td>
+      <td class="points">156.38</td>
+      <td class="average-points">156.4</td>
+    </tr>
+  
+    <tr class="">
+      <td>15</td>
+      <td>Mike Drop</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">No Sacks Only TDs </div>
+          <div class="username">@ChristyC91</div>
+        </div>
+      </td>
+      <td class="points">155.94</td>
+      <td class="average-points">155.9</td>
+    </tr>
+  
+    <tr class="">
+      <td>16</td>
+      <td>Getting Jeanty With It</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Third down for what!? 🤧</div>
+          <div class="username">@dmaart00</div>
+        </div>
+      </td>
+      <td class="points">155.66</td>
+      <td class="average-points">155.7</td>
+    </tr>
+  
+    <tr class="">
+      <td>17</td>
+      <td>Here Comes the Sungod</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Bed, Bath & Bijan</div>
+          <div class="username">@evvdogg</div>
+        </div>
+      </td>
+      <td class="points">154.46</td>
+      <td class="average-points">154.5</td>
+    </tr>
+  
+    <tr class="">
+      <td>18</td>
+      <td>Somewhere Over the RainBO Nix</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">meghanwiththeh</div>
+          <div class="username">@meghanwiththeh</div>
+        </div>
+      </td>
+      <td class="points">153.78</td>
+      <td class="average-points">153.8</td>
+    </tr>
+  
+    <tr class="">
+      <td>19</td>
+      <td>Kittle Me This</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Beauty and the Cleats</div>
+          <div class="username">@elenaelizabeth</div>
+        </div>
+      </td>
+      <td class="points">152.42</td>
+      <td class="average-points">152.4</td>
+    </tr>
+  
+    <tr class="">
+      <td>20</td>
+      <td>Pink Pony Chubb: </td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">myfantasssyyy</div>
+          <div class="username">@myfantasssyyy</div>
+        </div>
+      </td>
+      <td class="points">151.78</td>
+      <td class="average-points">151.8</td>
+    </tr>
+  
+    <tr class="">
+      <td>21</td>
+      <td>Pink Toney Club</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">whitleyb17</div>
+          <div class="username">@whitleyb17</div>
+        </div>
+      </td>
+      <td class="points">151.18</td>
+      <td class="average-points">151.2</td>
+    </tr>
+  
+    <tr class="">
+      <td>22</td>
+      <td>Good Nabers</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">thegamethepodcast</div>
+          <div class="username">@thegamethepodcast</div>
+        </div>
+      </td>
+      <td class="points">150.46</td>
+      <td class="average-points">150.5</td>
+    </tr>
+  
+    <tr class="">
+      <td>23</td>
+      <td>Shake it Goff</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Unknown</div>
+          <div class="username">@Unknown</div>
+        </div>
+      </td>
+      <td class="points">149.88</td>
+      <td class="average-points">149.9</td>
+    </tr>
+  
+    <tr class="">
+      <td>24</td>
+      <td>The Summer I Turned Purdy</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">I call GIBBS!</div>
+          <div class="username">@Hkay724</div>
+        </div>
+      </td>
+      <td class="points">149.52</td>
+      <td class="average-points">149.5</td>
+    </tr>
+  
+    <tr class="">
+      <td>25</td>
+      <td>Purdy Please</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">SweetPurdy</div>
+          <div class="username">@SweetPurdy</div>
+        </div>
+      </td>
+      <td class="points">149.22</td>
+      <td class="average-points">149.2</td>
+    </tr>
+  
+    <tr class="">
+      <td>26</td>
+      <td>Teardrops on My Lamar</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">King Henry’s Hit List </div>
+          <div class="username">@Natyourproblem13</div>
+        </div>
+      </td>
+      <td class="points">149.08</td>
+      <td class="average-points">149.1</td>
+    </tr>
+  
+    <tr class="">
+      <td>27</td>
+      <td>Scoop of Herbert</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Ball too well</div>
+          <div class="username">@koolbreezzzz</div>
+        </div>
+      </td>
+      <td class="points">148.76</td>
+      <td class="average-points">148.8</td>
+    </tr>
+  
+    <tr class="">
+      <td>28</td>
+      <td>Pay My Bills</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Kermit </div>
+          <div class="username">@mhud20</div>
+        </div>
+      </td>
+      <td class="points">148.32</td>
+      <td class="average-points">148.3</td>
+    </tr>
+  
+    <tr class="">
+      <td>29</td>
+      <td>This Just-In (Jefferson) </td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">NoScrubs80</div>
+          <div class="username">@NoScrubs80</div>
+        </div>
+      </td>
+      <td class="points">147.68</td>
+      <td class="average-points">147.7</td>
+    </tr>
+  
+    <tr class="">
+      <td>30</td>
+      <td>Bear Force One</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Knuck If You Buck</div>
+          <div class="username">@melanierathke</div>
+        </div>
+      </td>
+      <td class="points">146.88</td>
+      <td class="average-points">146.9</td>
+    </tr>
+  
+    <tr class="">
+      <td>31</td>
+      <td>Stop It, Bosa You</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">thegamethepodcast</div>
+          <div class="username">@thegamethepodcast</div>
+        </div>
+      </td>
+      <td class="points">146.72</td>
+      <td class="average-points">146.7</td>
+    </tr>
+  
+    <tr class="">
+      <td>32</td>
+      <td>Bo Meets World</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">DoUorDoUNotFeelBonitto</div>
+          <div class="username">@ColieBear22</div>
+        </div>
+      </td>
+      <td class="points">145.86</td>
+      <td class="average-points">145.9</td>
+    </tr>
+  
+    <tr class="">
+      <td>33</td>
+      <td>Sacks and the City </td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Salt Lake City Soakers </div>
+          <div class="username">@srgendron</div>
+        </div>
+      </td>
+      <td class="points">145.62</td>
+      <td class="average-points">145.6</td>
+    </tr>
+  
+    <tr class="">
+      <td>34</td>
+      <td>ALLEN THE STALLION</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">rebelgrrl</div>
+          <div class="username">@rebelgrrl</div>
+        </div>
+      </td>
+      <td class="points">144.68</td>
+      <td class="average-points">144.7</td>
+    </tr>
+  
+    <tr class="">
+      <td>35</td>
+      <td>Bang Bang Niner Gang</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">erinlayne</div>
+          <div class="username">@erinlayne</div>
+        </div>
+      </td>
+      <td class="points">144.62</td>
+      <td class="average-points">144.6</td>
+    </tr>
+  
+    <tr class="">
+      <td>36</td>
+      <td>Hurts Like That Only Happens Once </td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">H0neyBadgerr</div>
+          <div class="username">@H0neyBadgerr</div>
+        </div>
+      </td>
+      <td class="points">144.12</td>
+      <td class="average-points">144.1</td>
+    </tr>
+  
+    <tr class="">
+      <td>37</td>
+      <td>BEG, BURROW, STEAL</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Beauty and the Blitz</div>
+          <div class="username">@sanota</div>
+        </div>
+      </td>
+      <td class="points">144.08</td>
+      <td class="average-points">144.1</td>
+    </tr>
+  
+    <tr class="">
+      <td>38</td>
+      <td>Sass Interference</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">SteelJaws412</div>
+          <div class="username">@SteelJaws412</div>
+        </div>
+      </td>
+      <td class="points">143.62</td>
+      <td class="average-points">143.6</td>
+    </tr>
+  
+    <tr class="">
+      <td>39</td>
+      <td>She Cooked Here</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">x0TaCo</div>
+          <div class="username">@x0TaCo</div>
+        </div>
+      </td>
+      <td class="points">143.62</td>
+      <td class="average-points">143.6</td>
+    </tr>
+  
+    <tr class="">
+      <td>40</td>
+      <td>TORTURED PANTHERS DEPT</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Keep Pounding…Snacks</div>
+          <div class="username">@nc2okc1993</div>
+        </div>
+      </td>
+      <td class="points">143.38</td>
+      <td class="average-points">143.4</td>
+    </tr>
+  
+    <tr class="">
+      <td>41</td>
+      <td>Life of a Joe Girl</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Its All-en The Hips</div>
+          <div class="username">@mfetherman</div>
+        </div>
+      </td>
+      <td class="points">142.66</td>
+      <td class="average-points">142.7</td>
+    </tr>
+  
+    <tr class="">
+      <td>42</td>
+      <td>Baby Don't Hurts Me</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">HowAboutMomsTeam </div>
+          <div class="username">@castroL77</div>
+        </div>
+      </td>
+      <td class="points">142.42</td>
+      <td class="average-points">142.4</td>
+    </tr>
+  
+    <tr class="">
+      <td>43</td>
+      <td>Baby Got DAK</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">CeedeesTDs</div>
+          <div class="username">@ceedeesTDes</div>
+        </div>
+      </td>
+      <td class="points">142.28</td>
+      <td class="average-points">142.3</td>
+    </tr>
+  
+    <tr class="">
+      <td>44</td>
+      <td>ALLEN TOO WELL</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Purdy in Pink 🎀</div>
+          <div class="username">@devonzlewis</div>
+        </div>
+      </td>
+      <td class="points">142.28</td>
+      <td class="average-points">142.3</td>
+    </tr>
+  
+    <tr class="">
+      <td>45</td>
+      <td>Death by a Thousand Punts</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Madison bring me a Beer </div>
+          <div class="username">@amyannhill</div>
+        </div>
+      </td>
+      <td class="points">139.62</td>
+      <td class="average-points">139.6</td>
+    </tr>
+  
+    <tr class="">
+      <td>46</td>
+      <td>Turn Down for Watt</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Watt’s the tea?☕️</div>
+          <div class="username">@braccia37</div>
+        </div>
+      </td>
+      <td class="points">139.08</td>
+      <td class="average-points">139.1</td>
+    </tr>
+  
+    <tr class="">
+      <td>47</td>
+      <td>NOTHING BEATS A JET(S) 2 HOLIDAY</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">cookies4keon</div>
+          <div class="username">@sybianna</div>
+        </div>
+      </td>
+      <td class="points">138.96</td>
+      <td class="average-points">139.0</td>
+    </tr>
+  
+    <tr class="">
+      <td>48</td>
+      <td>Herby Fully Loaded</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Give your man a chuba</div>
+          <div class="username">@Sammmyyy7</div>
+        </div>
+      </td>
+      <td class="points">137.38</td>
+      <td class="average-points">137.4</td>
+    </tr>
+  
+    <tr class="">
+      <td>49</td>
+      <td>Super Ja'Marrio Brothers</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">annebandro23</div>
+          <div class="username">@annebandro23</div>
+        </div>
+      </td>
+      <td class="points">136.82</td>
+      <td class="average-points">136.8</td>
+    </tr>
+  
+    <tr class="">
+      <td>50</td>
+      <td>Karma</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">luvmiialwayz</div>
+          <div class="username">@luvmiialwayz</div>
+        </div>
+      </td>
+      <td class="points">136.78</td>
+      <td class="average-points">136.8</td>
+    </tr>
+  
+    <tr class="">
+      <td>51</td>
+      <td>Ball Too Well</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">thegamethepodcast</div>
+          <div class="username">@thegamethepodcast</div>
+        </div>
+      </td>
+      <td class="points">136.28</td>
+      <td class="average-points">136.3</td>
+    </tr>
+  
+    <tr class="">
+      <td>52</td>
+      <td>Face Down Pass Rush</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">La Tush Push</div>
+          <div class="username">@shelbs304</div>
+        </div>
+      </td>
+      <td class="points">134.06</td>
+      <td class="average-points">134.1</td>
+    </tr>
+  
+    <tr class="">
+      <td>53</td>
+      <td>To Live for the Hutch of It All</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Popping Goff 🤘</div>
+          <div class="username">@missmallorie</div>
+        </div>
+      </td>
+      <td class="points">133.84</td>
+      <td class="average-points">133.8</td>
+    </tr>
+  
+    <tr class="">
+      <td>54</td>
+      <td>All About That Pace</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">teenypie</div>
+          <div class="username">@teenypie</div>
+        </div>
+      </td>
+      <td class="points">133.42</td>
+      <td class="average-points">133.4</td>
+    </tr>
+  
+    <tr class="">
+      <td>55</td>
+      <td>Love Island USA</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">RUN CMC</div>
+          <div class="username">@tashialexx</div>
+        </div>
+      </td>
+      <td class="points">132.50</td>
+      <td class="average-points">132.5</td>
+    </tr>
+  
+    <tr class="">
+      <td>56</td>
+      <td>I Love You, but Goff My Lawn</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Kupp of Joe </div>
+          <div class="username">@mdpalmer16</div>
+        </div>
+      </td>
+      <td class="points">131.82</td>
+      <td class="average-points">131.8</td>
+    </tr>
+  
+    <tr class="">
+      <td>57</td>
+      <td>Seal Team Nix</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Unknown</div>
+          <div class="username">@Unknown</div>
+        </div>
+      </td>
+      <td class="points">131.12</td>
+      <td class="average-points">131.1</td>
+    </tr>
+  
+    <tr class="">
+      <td>58</td>
+      <td>That's So Raven(s)</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">Back That Pass Up</div>
+          <div class="username">@tiffnichole</div>
+        </div>
+      </td>
+      <td class="points">130.56</td>
+      <td class="average-points">130.6</td>
+    </tr>
+  
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="mobile-league-list">
+        <div class="table-header">
+          <h3>📊 Season Total: 2-Flex Leagues (58)</h3>
+        </div>
+        
+    <div class="league-card top-scorer">
+      <div class="league-info">
+        <div class="league-rank">#1</div>
+        <div class="league-name-mobile">Brock You LIke a Hurricante</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">thegamethepodcast</div>
+          <div class="username-mobile">@thegamethepodcast</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">183.16</div>
+        <div class="average-mobile">Avg: 183.2</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#2</div>
+        <div class="league-name-mobile">PACHECO THE RING CAMERAS</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">MissAdventures</div>
+          <div class="username-mobile">@MissAdventures</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">175.26</div>
+        <div class="average-mobile">Avg: 175.3</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#3</div>
+        <div class="league-name-mobile">Brown Eyed Girl </div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">emilyinphilly</div>
+          <div class="username-mobile">@emilyinphilly</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">173.86</div>
+        <div class="average-mobile">Avg: 173.9</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#4</div>
+        <div class="league-name-mobile">Third and Long Live</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Digital Kamara</div>
+          <div class="username-mobile">@gogirls1</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">172.12</div>
+        <div class="average-mobile">Avg: 172.1</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#5</div>
+        <div class="league-name-mobile">Whodey and the Joefish</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">burrowed treasure</div>
+          <div class="username-mobile">@heatherd006</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">169.28</div>
+        <div class="average-mobile">Avg: 169.3</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#6</div>
+        <div class="league-name-mobile">Olave Maria </div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Jet Tua Holiday</div>
+          <div class="username-mobile">@kede16</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">166.88</div>
+        <div class="average-mobile">Avg: 166.9</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#7</div>
+        <div class="league-name-mobile">Hunter Wives</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Big Digg Energy</div>
+          <div class="username-mobile">@Bettyestes00</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">166.32</div>
+        <div class="average-mobile">Avg: 166.3</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#8</div>
+        <div class="league-name-mobile">Nice to Sea You</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">thegamethepodcast</div>
+          <div class="username-mobile">@thegamethepodcast</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">165.62</div>
+        <div class="average-mobile">Avg: 165.6</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#9</div>
+        <div class="league-name-mobile">Santosrini Vacation</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">thegamethepodcast</div>
+          <div class="username-mobile">@thegamethepodcast</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">163.02</div>
+        <div class="average-mobile">Avg: 163.0</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#10</div>
+        <div class="league-name-mobile">Living in a Fantasy </div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">I kraft flowers</div>
+          <div class="username-mobile">@kaylafield23</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">161.16</div>
+        <div class="average-mobile">Avg: 161.2</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#11</div>
+        <div class="league-name-mobile">BTS</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Unctim</div>
+          <div class="username-mobile">@Unctim</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">159.08</div>
+        <div class="average-mobile">Avg: 159.1</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#12</div>
+        <div class="league-name-mobile">Lamar the Merrier</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">ans0606</div>
+          <div class="username-mobile">@ans0606</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">157.96</div>
+        <div class="average-mobile">Avg: 158.0</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#13</div>
+        <div class="league-name-mobile">Mahomes Alone</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">thegamethepodcast</div>
+          <div class="username-mobile">@thegamethepodcast</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">157.26</div>
+        <div class="average-mobile">Avg: 157.3</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#14</div>
+        <div class="league-name-mobile">Allen the Hips</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Kittle Corn</div>
+          <div class="username-mobile">@summertime98</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">156.38</div>
+        <div class="average-mobile">Avg: 156.4</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#15</div>
+        <div class="league-name-mobile">Mike Drop</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">No Sacks Only TDs </div>
+          <div class="username-mobile">@ChristyC91</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">155.94</div>
+        <div class="average-mobile">Avg: 155.9</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#16</div>
+        <div class="league-name-mobile">Getting Jeanty With It</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Third down for what!? 🤧</div>
+          <div class="username-mobile">@dmaart00</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">155.66</div>
+        <div class="average-mobile">Avg: 155.7</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#17</div>
+        <div class="league-name-mobile">Here Comes the Sungod</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Bed, Bath & Bijan</div>
+          <div class="username-mobile">@evvdogg</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">154.46</div>
+        <div class="average-mobile">Avg: 154.5</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#18</div>
+        <div class="league-name-mobile">Somewhere Over the RainBO Nix</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">meghanwiththeh</div>
+          <div class="username-mobile">@meghanwiththeh</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">153.78</div>
+        <div class="average-mobile">Avg: 153.8</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#19</div>
+        <div class="league-name-mobile">Kittle Me This</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Beauty and the Cleats</div>
+          <div class="username-mobile">@elenaelizabeth</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">152.42</div>
+        <div class="average-mobile">Avg: 152.4</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#20</div>
+        <div class="league-name-mobile">Pink Pony Chubb: </div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">myfantasssyyy</div>
+          <div class="username-mobile">@myfantasssyyy</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">151.78</div>
+        <div class="average-mobile">Avg: 151.8</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#21</div>
+        <div class="league-name-mobile">Pink Toney Club</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">whitleyb17</div>
+          <div class="username-mobile">@whitleyb17</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">151.18</div>
+        <div class="average-mobile">Avg: 151.2</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#22</div>
+        <div class="league-name-mobile">Good Nabers</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">thegamethepodcast</div>
+          <div class="username-mobile">@thegamethepodcast</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">150.46</div>
+        <div class="average-mobile">Avg: 150.5</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#23</div>
+        <div class="league-name-mobile">Shake it Goff</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Unknown</div>
+          <div class="username-mobile">@Unknown</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">149.88</div>
+        <div class="average-mobile">Avg: 149.9</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#24</div>
+        <div class="league-name-mobile">The Summer I Turned Purdy</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">I call GIBBS!</div>
+          <div class="username-mobile">@Hkay724</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">149.52</div>
+        <div class="average-mobile">Avg: 149.5</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#25</div>
+        <div class="league-name-mobile">Purdy Please</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">SweetPurdy</div>
+          <div class="username-mobile">@SweetPurdy</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">149.22</div>
+        <div class="average-mobile">Avg: 149.2</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#26</div>
+        <div class="league-name-mobile">Teardrops on My Lamar</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">King Henry’s Hit List </div>
+          <div class="username-mobile">@Natyourproblem13</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">149.08</div>
+        <div class="average-mobile">Avg: 149.1</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#27</div>
+        <div class="league-name-mobile">Scoop of Herbert</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Ball too well</div>
+          <div class="username-mobile">@koolbreezzzz</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">148.76</div>
+        <div class="average-mobile">Avg: 148.8</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#28</div>
+        <div class="league-name-mobile">Pay My Bills</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Kermit </div>
+          <div class="username-mobile">@mhud20</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">148.32</div>
+        <div class="average-mobile">Avg: 148.3</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#29</div>
+        <div class="league-name-mobile">This Just-In (Jefferson) </div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">NoScrubs80</div>
+          <div class="username-mobile">@NoScrubs80</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">147.68</div>
+        <div class="average-mobile">Avg: 147.7</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#30</div>
+        <div class="league-name-mobile">Bear Force One</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Knuck If You Buck</div>
+          <div class="username-mobile">@melanierathke</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">146.88</div>
+        <div class="average-mobile">Avg: 146.9</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#31</div>
+        <div class="league-name-mobile">Stop It, Bosa You</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">thegamethepodcast</div>
+          <div class="username-mobile">@thegamethepodcast</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">146.72</div>
+        <div class="average-mobile">Avg: 146.7</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#32</div>
+        <div class="league-name-mobile">Bo Meets World</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">DoUorDoUNotFeelBonitto</div>
+          <div class="username-mobile">@ColieBear22</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">145.86</div>
+        <div class="average-mobile">Avg: 145.9</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#33</div>
+        <div class="league-name-mobile">Sacks and the City </div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Salt Lake City Soakers </div>
+          <div class="username-mobile">@srgendron</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">145.62</div>
+        <div class="average-mobile">Avg: 145.6</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#34</div>
+        <div class="league-name-mobile">ALLEN THE STALLION</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">rebelgrrl</div>
+          <div class="username-mobile">@rebelgrrl</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">144.68</div>
+        <div class="average-mobile">Avg: 144.7</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#35</div>
+        <div class="league-name-mobile">Bang Bang Niner Gang</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">erinlayne</div>
+          <div class="username-mobile">@erinlayne</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">144.62</div>
+        <div class="average-mobile">Avg: 144.6</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#36</div>
+        <div class="league-name-mobile">Hurts Like That Only Happens Once </div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">H0neyBadgerr</div>
+          <div class="username-mobile">@H0neyBadgerr</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">144.12</div>
+        <div class="average-mobile">Avg: 144.1</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#37</div>
+        <div class="league-name-mobile">BEG, BURROW, STEAL</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Beauty and the Blitz</div>
+          <div class="username-mobile">@sanota</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">144.08</div>
+        <div class="average-mobile">Avg: 144.1</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#38</div>
+        <div class="league-name-mobile">Sass Interference</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">SteelJaws412</div>
+          <div class="username-mobile">@SteelJaws412</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">143.62</div>
+        <div class="average-mobile">Avg: 143.6</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#39</div>
+        <div class="league-name-mobile">She Cooked Here</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">x0TaCo</div>
+          <div class="username-mobile">@x0TaCo</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">143.62</div>
+        <div class="average-mobile">Avg: 143.6</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#40</div>
+        <div class="league-name-mobile">TORTURED PANTHERS DEPT</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Keep Pounding…Snacks</div>
+          <div class="username-mobile">@nc2okc1993</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">143.38</div>
+        <div class="average-mobile">Avg: 143.4</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#41</div>
+        <div class="league-name-mobile">Life of a Joe Girl</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Its All-en The Hips</div>
+          <div class="username-mobile">@mfetherman</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">142.66</div>
+        <div class="average-mobile">Avg: 142.7</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#42</div>
+        <div class="league-name-mobile">Baby Don't Hurts Me</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">HowAboutMomsTeam </div>
+          <div class="username-mobile">@castroL77</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">142.42</div>
+        <div class="average-mobile">Avg: 142.4</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#43</div>
+        <div class="league-name-mobile">Baby Got DAK</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">CeedeesTDs</div>
+          <div class="username-mobile">@ceedeesTDes</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">142.28</div>
+        <div class="average-mobile">Avg: 142.3</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#44</div>
+        <div class="league-name-mobile">ALLEN TOO WELL</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Purdy in Pink 🎀</div>
+          <div class="username-mobile">@devonzlewis</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">142.28</div>
+        <div class="average-mobile">Avg: 142.3</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#45</div>
+        <div class="league-name-mobile">Death by a Thousand Punts</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Madison bring me a Beer </div>
+          <div class="username-mobile">@amyannhill</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">139.62</div>
+        <div class="average-mobile">Avg: 139.6</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#46</div>
+        <div class="league-name-mobile">Turn Down for Watt</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Watt’s the tea?☕️</div>
+          <div class="username-mobile">@braccia37</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">139.08</div>
+        <div class="average-mobile">Avg: 139.1</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#47</div>
+        <div class="league-name-mobile">NOTHING BEATS A JET(S) 2 HOLIDAY</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">cookies4keon</div>
+          <div class="username-mobile">@sybianna</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">138.96</div>
+        <div class="average-mobile">Avg: 139.0</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#48</div>
+        <div class="league-name-mobile">Herby Fully Loaded</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Give your man a chuba</div>
+          <div class="username-mobile">@Sammmyyy7</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">137.38</div>
+        <div class="average-mobile">Avg: 137.4</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#49</div>
+        <div class="league-name-mobile">Super Ja'Marrio Brothers</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">annebandro23</div>
+          <div class="username-mobile">@annebandro23</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">136.82</div>
+        <div class="average-mobile">Avg: 136.8</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#50</div>
+        <div class="league-name-mobile">Karma</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">luvmiialwayz</div>
+          <div class="username-mobile">@luvmiialwayz</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">136.78</div>
+        <div class="average-mobile">Avg: 136.8</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#51</div>
+        <div class="league-name-mobile">Ball Too Well</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">thegamethepodcast</div>
+          <div class="username-mobile">@thegamethepodcast</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">136.28</div>
+        <div class="average-mobile">Avg: 136.3</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#52</div>
+        <div class="league-name-mobile">Face Down Pass Rush</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">La Tush Push</div>
+          <div class="username-mobile">@shelbs304</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">134.06</div>
+        <div class="average-mobile">Avg: 134.1</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#53</div>
+        <div class="league-name-mobile">To Live for the Hutch of It All</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Popping Goff 🤘</div>
+          <div class="username-mobile">@missmallorie</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">133.84</div>
+        <div class="average-mobile">Avg: 133.8</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#54</div>
+        <div class="league-name-mobile">All About That Pace</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">teenypie</div>
+          <div class="username-mobile">@teenypie</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">133.42</div>
+        <div class="average-mobile">Avg: 133.4</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#55</div>
+        <div class="league-name-mobile">Love Island USA</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">RUN CMC</div>
+          <div class="username-mobile">@tashialexx</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">132.50</div>
+        <div class="average-mobile">Avg: 132.5</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#56</div>
+        <div class="league-name-mobile">I Love You, but Goff My Lawn</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Kupp of Joe </div>
+          <div class="username-mobile">@mdpalmer16</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">131.82</div>
+        <div class="average-mobile">Avg: 131.8</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#57</div>
+        <div class="league-name-mobile">Seal Team Nix</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Unknown</div>
+          <div class="username-mobile">@Unknown</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">131.12</div>
+        <div class="average-mobile">Avg: 131.1</div>
+      </div>
+    </div>
+  
+    <div class="league-card ">
+      <div class="league-info">
+        <div class="league-rank">#58</div>
+        <div class="league-name-mobile">That's So Raven(s)</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">Back That Pass Up</div>
+          <div class="username-mobile">@tiffnichole</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">130.56</div>
+        <div class="average-mobile">Avg: 130.6</div>
+      </div>
+    </div>
+  
+      </div>
+      
+      
+      <div class="week-updated">
+        <p>Season data updated: 9/8/2025, 8:01:53 PM</p>
+      </div>
+    </div>
+  
+    
     <footer class="footer">
       <p>Data powered by Sleeper API</p>
-      <p>Last site update: 9/8/2025, 3:55:38 PM</p>
+      <p>Last site update: 9/8/2025, 8:01:53 PM</p>
     </footer>
   </div>
 
@@ -3154,7 +6270,8 @@
       });
       
       // Show selected week content
-      document.getElementById('week' + week).classList.add('active');
+      const targetId = week === 'season' ? 'weekseason' : 'week' + week;
+      document.getElementById(targetId).classList.add('active');
       
       // Add active class to selected tab button
       event.target.classList.add('active');

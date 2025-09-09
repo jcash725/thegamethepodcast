@@ -186,6 +186,50 @@ function loadExistingData() {
   return { weeks: {}, leagueFlexSettings: {}, lastUpdated: new Date().toLocaleString() };
 }
 
+function updateSeasonLeaders(weeks) {
+  const userTotals = {}; // user@league -> { totalPoints, weeks, league info }
+  
+  // Process all weeks to accumulate points per user per league
+  Object.values(weeks).forEach(weekData => {
+    weekData.leagueResults.forEach(league => {
+      const userKey = `${league.topScorer}@${league.leagueName}`;
+      
+      if (!userTotals[userKey]) {
+        userTotals[userKey] = {
+          leagueName: league.leagueName,
+          topScorer: league.topScorer,
+          teamName: league.teamName,
+          flexCount: league.flexCount,
+          totalPoints: 0,
+          weeksPlayed: 0,
+          averagePoints: 0
+        };
+      }
+      
+      userTotals[userKey].totalPoints += league.topScore;
+      userTotals[userKey].weeksPlayed += 1;
+      userTotals[userKey].averagePoints = userTotals[userKey].totalPoints / userTotals[userKey].weeksPlayed;
+    });
+  });
+  
+  // Convert to arrays and separate by flex count
+  const allUsers = Object.values(userTotals).sort((a, b) => b.totalPoints - a.totalPoints);
+  const oneFlexUsers = allUsers.filter(user => user.flexCount === 1);
+  const twoFlexUsers = allUsers.filter(user => user.flexCount === 2);
+  
+  return {
+    allUsers,
+    oneFlexUsers, 
+    twoFlexUsers,
+    overallSeasonLeader: allUsers[0] || null,
+    oneFlexSeasonLeader: oneFlexUsers[0] || null,
+    twoFlexSeasonLeader: twoFlexUsers[0] || null,
+    totalWeeks: Object.keys(weeks).length,
+    oneFlexCount: oneFlexUsers.length,
+    twoFlexCount: twoFlexUsers.length
+  };
+}
+
 function saveWeeklyData(allData) {
   // Ensure docs directory exists
   if (!fs.existsSync('docs')) {
@@ -203,7 +247,7 @@ function generateTabbedHTML(allData) {
   // Generate tab headers
   const tabHeaders = weeks.map(week => 
     `<button class="tab-button ${week === latestWeek ? 'active' : ''}" onclick="showWeek(${week})">Week ${week}</button>`
-  ).join('');
+  ).join('') + `<button class="tab-button" onclick="showWeek('season')">Season Leaders</button>`;
   
   // Generate tab content
   const tabContent = weeks.map(week => {
@@ -387,6 +431,182 @@ function generateTabbedHTML(allData) {
       </div>
     `;
   }).join('');
+
+  // Generate season leaders tab content
+  const seasonLeaders = allData.seasonLeaders || { allUsers: [], oneFlexUsers: [], twoFlexUsers: [] };
+  
+  const seasonOneFlexRows = seasonLeaders.oneFlexUsers.map((user, index) => `
+    <tr class="${index === 0 ? 'top-scorer' : ''}">
+      <td>${index + 1}</td>
+      <td>${user.leagueName}</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">${user.teamName}</div>
+          <div class="username">@${user.topScorer}</div>
+        </div>
+      </td>
+      <td class="points">${user.totalPoints.toFixed(2)}</td>
+      <td class="average-points">${user.averagePoints.toFixed(1)}</td>
+    </tr>
+  `).join('');
+
+  const seasonOneFlexCards = seasonLeaders.oneFlexUsers.map((user, index) => `
+    <div class="league-card ${index === 0 ? 'top-scorer' : ''}">
+      <div class="league-info">
+        <div class="league-rank">#${index + 1}</div>
+        <div class="league-name-mobile">${user.leagueName}</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">${user.teamName}</div>
+          <div class="username-mobile">@${user.topScorer}</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">${user.totalPoints.toFixed(2)}</div>
+        <div class="average-mobile">Avg: ${user.averagePoints.toFixed(1)}</div>
+      </div>
+    </div>
+  `).join('');
+
+  const seasonTwoFlexRows = seasonLeaders.twoFlexUsers.map((user, index) => `
+    <tr class="${index === 0 ? 'top-scorer' : ''}">
+      <td>${index + 1}</td>
+      <td>${user.leagueName}</td>
+      <td>
+        <div class="scorer-info">
+          <div class="team-name">${user.teamName}</div>
+          <div class="username">@${user.topScorer}</div>
+        </div>
+      </td>
+      <td class="points">${user.totalPoints.toFixed(2)}</td>
+      <td class="average-points">${user.averagePoints.toFixed(1)}</td>
+    </tr>
+  `).join('');
+
+  const seasonTwoFlexCards = seasonLeaders.twoFlexUsers.map((user, index) => `
+    <div class="league-card ${index === 0 ? 'top-scorer' : ''}">
+      <div class="league-info">
+        <div class="league-rank">#${index + 1}</div>
+        <div class="league-name-mobile">${user.leagueName}</div>
+        <div class="team-info-mobile">
+          <div class="team-name-mobile">${user.teamName}</div>
+          <div class="username-mobile">@${user.topScorer}</div>
+        </div>
+      </div>
+      <div class="season-points-mobile">
+        <div class="points-mobile">${user.totalPoints.toFixed(2)}</div>
+        <div class="average-mobile">Avg: ${user.averagePoints.toFixed(1)}</div>
+      </div>
+    </div>
+  `).join('');
+
+  const seasonTabContent = `
+    <div id="weekseason" class="tab-content">
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-value">${seasonLeaders.totalWeeks || 1}</div>
+          <div class="stat-label">Weeks Played</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">${seasonLeaders.oneFlexCount || 0}</div>
+          <div class="stat-label">1-Flex Leagues</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">${seasonLeaders.twoFlexCount || 0}</div>
+          <div class="stat-label">2-Flex Leagues</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">${seasonLeaders.overallSeasonLeader?.totalPoints.toFixed(1) || 'TBD'}</div>
+          <div class="stat-label">Total Points Leader</div>
+        </div>
+      </div>
+      
+      ${seasonLeaders.oneFlexSeasonLeader ? `
+      <div class="champion-card">
+        <h2>🏆 Season 1-Flex Leader</h2>
+        <div class="champion-name">${seasonLeaders.oneFlexSeasonLeader.teamName}</div>
+        <div class="champion-username">@${seasonLeaders.oneFlexSeasonLeader.topScorer}</div>
+        <div class="champion-score">${seasonLeaders.oneFlexSeasonLeader.totalPoints.toFixed(2)} pts</div>
+        <div class="champion-league">from "${seasonLeaders.oneFlexSeasonLeader.leagueName}" (${seasonLeaders.oneFlexSeasonLeader.averagePoints.toFixed(1)} avg)</div>
+      </div>
+      ` : ''}
+
+      ${seasonLeaders.twoFlexSeasonLeader ? `
+      <div class="champion-card">
+        <h2>🏆 Season 2-Flex Leader</h2>
+        <div class="champion-name">${seasonLeaders.twoFlexSeasonLeader.teamName}</div>
+        <div class="champion-username">@${seasonLeaders.twoFlexSeasonLeader.topScorer}</div>
+        <div class="champion-score">${seasonLeaders.twoFlexSeasonLeader.totalPoints.toFixed(2)} pts</div>
+        <div class="champion-league">from "${seasonLeaders.twoFlexSeasonLeader.leagueName}" (${seasonLeaders.twoFlexSeasonLeader.averagePoints.toFixed(1)} avg)</div>
+      </div>
+      ` : ''}
+      
+      ${seasonLeaders.oneFlexCount > 0 ? `
+      <div class="league-table">
+        <div class="table-header">
+          <h3>📊 Season Total: 1-Flex Leagues (${seasonLeaders.oneFlexCount})</h3>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>League Name</th>
+                <th>Team & Owner</th>
+                <th>Total Points</th>
+                <th>Average</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${seasonOneFlexRows}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="mobile-league-list">
+        <div class="table-header">
+          <h3>📊 Season Total: 1-Flex Leagues (${seasonLeaders.oneFlexCount})</h3>
+        </div>
+        ${seasonOneFlexCards}
+      </div>
+      ` : ''}
+
+      ${seasonLeaders.twoFlexCount > 0 ? `
+      <div class="league-table">
+        <div class="table-header">
+          <h3>📊 Season Total: 2-Flex Leagues (${seasonLeaders.twoFlexCount})</h3>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>League Name</th>
+                <th>Team & Owner</th>
+                <th>Total Points</th>
+                <th>Average</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${seasonTwoFlexRows}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="mobile-league-list">
+        <div class="table-header">
+          <h3>📊 Season Total: 2-Flex Leagues (${seasonLeaders.twoFlexCount})</h3>
+        </div>
+        ${seasonTwoFlexCards}
+      </div>
+      ` : ''}
+      
+      <div class="week-updated">
+        <p>Season data updated: ${allData.lastUpdated}</p>
+      </div>
+    </div>
+  `;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -650,6 +870,46 @@ function generateTabbedHTML(allData) {
       opacity: 0.8;
     }
     
+    /* Season leaders styling */
+    .week-badge {
+      background: #DC143C;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    
+    .week-badge-mobile {
+      background: #DC143C;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-size: 0.7rem;
+      font-weight: bold;
+      margin-top: 4px;
+    }
+    
+    .season-points-mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      flex-shrink: 0;
+      margin-left: 15px;
+    }
+    
+    .average-points {
+      font-weight: 600;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .average-mobile {
+      color: #666;
+      font-size: 0.75rem;
+      margin-top: 2px;
+    }
+    
     /* Mobile card-based layout */
     .mobile-league-list {
       display: none;
@@ -875,6 +1135,7 @@ function generateTabbedHTML(allData) {
     </div>
     
     ${tabContent}
+    ${seasonTabContent}
     
     <footer class="footer">
       <p>Data powered by Sleeper API</p>
@@ -895,7 +1156,8 @@ function generateTabbedHTML(allData) {
       });
       
       // Show selected week content
-      document.getElementById('week' + week).classList.add('active');
+      const targetId = week === 'season' ? 'weekseason' : 'week' + week;
+      document.getElementById(targetId).classList.add('active');
       
       // Add active class to selected tab button
       event.target.classList.add('active');
@@ -920,6 +1182,9 @@ async function main() {
     // Add/update the week data and flex settings
     allData.weeks[week] = weekData;
     allData.leagueFlexSettings = { ...allData.leagueFlexSettings, ...weekData.flexSettings };
+    
+    // Update season leaders efficiently using existing data
+    allData.seasonLeaders = updateSeasonLeaders(allData.weeks);
     allData.lastUpdated = new Date().toLocaleString();
     
     // Save updated data

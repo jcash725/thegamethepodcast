@@ -1514,7 +1514,7 @@
       "totalLeagues": 106,
       "oneFlexCount": 48,
       "twoFlexCount": 58,
-      "lastUpdated": "9/8/2025, 3:55:38 PM",
+      "lastUpdated": "9/8/2025, 8:01:53 PM",
       "flexSettings": {
         "1268983655062056960": 1,
         "1268776314140106752": 1,
@@ -1625,7 +1625,7 @@
       }
     }
   },
-  "lastUpdated": "9/8/2025, 3:55:38 PM",
+  "lastUpdated": "9/8/2025, 8:01:53 PM",
   "leagueFlexSettings": {
     "1268983655062056960": 1,
     "1268776314140106752": 1,
@@ -1733,5 +1733,1951 @@
     "1262194366546460672": 2,
     "1262189286267047936": 2,
     "1262188968842121216": 2
+  },
+  "seasonLeaders": {
+    "allUsers": [
+      {
+        "leagueName": "Brock You LIke a Hurricante",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 2,
+        "totalPoints": 183.16,
+        "weeksPlayed": 1,
+        "averagePoints": 183.16
+      },
+      {
+        "leagueName": "PACHECO THE RING CAMERAS",
+        "topScorer": "MissAdventures",
+        "teamName": "MissAdventures",
+        "flexCount": 2,
+        "totalPoints": 175.26,
+        "weeksPlayed": 1,
+        "averagePoints": 175.26
+      },
+      {
+        "leagueName": "Brown Eyed Girl ",
+        "topScorer": "emilyinphilly",
+        "teamName": "emilyinphilly",
+        "flexCount": 2,
+        "totalPoints": 173.86,
+        "weeksPlayed": 1,
+        "averagePoints": 173.86
+      },
+      {
+        "leagueName": "Third and Long Live",
+        "topScorer": "gogirls1",
+        "teamName": "Digital Kamara",
+        "flexCount": 2,
+        "totalPoints": 172.12,
+        "weeksPlayed": 1,
+        "averagePoints": 172.12
+      },
+      {
+        "leagueName": "Whodey and the Joefish",
+        "topScorer": "heatherd006",
+        "teamName": "burrowed treasure",
+        "flexCount": 2,
+        "totalPoints": 169.28,
+        "weeksPlayed": 1,
+        "averagePoints": 169.28
+      },
+      {
+        "leagueName": "Olave Maria ",
+        "topScorer": "kede16",
+        "teamName": "Jet Tua Holiday",
+        "flexCount": 2,
+        "totalPoints": 166.88,
+        "weeksPlayed": 1,
+        "averagePoints": 166.88
+      },
+      {
+        "leagueName": "Hunter Wives",
+        "topScorer": "Bettyestes00",
+        "teamName": "Big Digg Energy",
+        "flexCount": 2,
+        "totalPoints": 166.32,
+        "weeksPlayed": 1,
+        "averagePoints": 166.32
+      },
+      {
+        "leagueName": "They CeeDee Rollin'",
+        "topScorer": "sarahswift05",
+        "teamName": "sacks in the city",
+        "flexCount": 1,
+        "totalPoints": 165.92,
+        "weeksPlayed": 1,
+        "averagePoints": 165.92
+      },
+      {
+        "leagueName": "Nice to Sea You",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 2,
+        "totalPoints": 165.62,
+        "weeksPlayed": 1,
+        "averagePoints": 165.62
+      },
+      {
+        "leagueName": "Santosrini Vacation",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 2,
+        "totalPoints": 163.02,
+        "weeksPlayed": 1,
+        "averagePoints": 163.02
+      },
+      {
+        "leagueName": "For the Sourdough of it All",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 1,
+        "totalPoints": 162.26,
+        "weeksPlayed": 1,
+        "averagePoints": 162.26
+      },
+      {
+        "leagueName": "Living in a Fantasy ",
+        "topScorer": "kaylafield23",
+        "teamName": "I kraft flowers",
+        "flexCount": 2,
+        "totalPoints": 161.16,
+        "weeksPlayed": 1,
+        "averagePoints": 161.16
+      },
+      {
+        "leagueName": "BTS",
+        "topScorer": "Unctim",
+        "teamName": "Unctim",
+        "flexCount": 2,
+        "totalPoints": 159.08,
+        "weeksPlayed": 1,
+        "averagePoints": 159.08
+      },
+      {
+        "leagueName": "Lamar the Merrier",
+        "topScorer": "ans0606",
+        "teamName": "ans0606",
+        "flexCount": 2,
+        "totalPoints": 157.96,
+        "weeksPlayed": 1,
+        "averagePoints": 157.96
+      },
+      {
+        "leagueName": "Mahomes Alone",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 2,
+        "totalPoints": 157.26,
+        "weeksPlayed": 1,
+        "averagePoints": 157.26
+      },
+      {
+        "leagueName": "Breaking the Glass Steeling",
+        "topScorer": "kendakenn",
+        "teamName": "i love burrowritos ",
+        "flexCount": 1,
+        "totalPoints": 156.82,
+        "weeksPlayed": 1,
+        "averagePoints": 156.82
+      },
+      {
+        "leagueName": "Allen the Hips",
+        "topScorer": "summertime98",
+        "teamName": "Kittle Corn",
+        "flexCount": 2,
+        "totalPoints": 156.38,
+        "weeksPlayed": 1,
+        "averagePoints": 156.38
+      },
+      {
+        "leagueName": "Mike Drop",
+        "topScorer": "ChristyC91",
+        "teamName": "No Sacks Only TDs ",
+        "flexCount": 2,
+        "totalPoints": 155.94,
+        "weeksPlayed": 1,
+        "averagePoints": 155.94
+      },
+      {
+        "leagueName": "Getting Jeanty With It",
+        "topScorer": "dmaart00",
+        "teamName": "Third down for what!? 🤧",
+        "flexCount": 2,
+        "totalPoints": 155.66,
+        "weeksPlayed": 1,
+        "averagePoints": 155.66
+      },
+      {
+        "leagueName": "Can't Fight the Steeling:",
+        "topScorer": "timberlee05",
+        "teamName": "timberlee05",
+        "flexCount": 1,
+        "totalPoints": 154.68,
+        "weeksPlayed": 1,
+        "averagePoints": 154.68
+      },
+      {
+        "leagueName": "Here Comes the Sungod",
+        "topScorer": "evvdogg",
+        "teamName": "Bed, Bath & Bijan",
+        "flexCount": 2,
+        "totalPoints": 154.46,
+        "weeksPlayed": 1,
+        "averagePoints": 154.46
+      },
+      {
+        "leagueName": "Somewhere Over the RainBO Nix",
+        "topScorer": "meghanwiththeh",
+        "teamName": "meghanwiththeh",
+        "flexCount": 2,
+        "totalPoints": 153.78,
+        "weeksPlayed": 1,
+        "averagePoints": 153.78
+      },
+      {
+        "leagueName": "Kittle Me This",
+        "topScorer": "elenaelizabeth",
+        "teamName": "Beauty and the Cleats",
+        "flexCount": 2,
+        "totalPoints": 152.42,
+        "weeksPlayed": 1,
+        "averagePoints": 152.42
+      },
+      {
+        "leagueName": "Pink Pony Chubb: ",
+        "topScorer": "myfantasssyyy",
+        "teamName": "myfantasssyyy",
+        "flexCount": 2,
+        "totalPoints": 151.78,
+        "weeksPlayed": 1,
+        "averagePoints": 151.78
+      },
+      {
+        "leagueName": "Gronkey Kong",
+        "topScorer": "kelseycarlson91",
+        "teamName": "Allen’s Avengers ",
+        "flexCount": 1,
+        "totalPoints": 151.36,
+        "weeksPlayed": 1,
+        "averagePoints": 151.36
+      },
+      {
+        "leagueName": "Devonta Swifties",
+        "topScorer": "Candrus0206",
+        "teamName": "Njigbas in Paris",
+        "flexCount": 1,
+        "totalPoints": 151.32,
+        "weeksPlayed": 1,
+        "averagePoints": 151.32
+      },
+      {
+        "leagueName": "Pink Toney Club",
+        "topScorer": "whitleyb17",
+        "teamName": "whitleyb17",
+        "flexCount": 2,
+        "totalPoints": 151.18,
+        "weeksPlayed": 1,
+        "averagePoints": 151.18
+      },
+      {
+        "leagueName": "Good Nabers",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 2,
+        "totalPoints": 150.46,
+        "weeksPlayed": 1,
+        "averagePoints": 150.46
+      },
+      {
+        "leagueName": "Shake it Goff",
+        "topScorer": "Unknown",
+        "teamName": "Unknown",
+        "flexCount": 2,
+        "totalPoints": 149.88,
+        "weeksPlayed": 1,
+        "averagePoints": 149.88
+      },
+      {
+        "leagueName": "The Summer I Turned Purdy",
+        "topScorer": "Hkay724",
+        "teamName": "I call GIBBS!",
+        "flexCount": 2,
+        "totalPoints": 149.52,
+        "weeksPlayed": 1,
+        "averagePoints": 149.52
+      },
+      {
+        "leagueName": "Purdy Please",
+        "topScorer": "SweetPurdy",
+        "teamName": "SweetPurdy",
+        "flexCount": 2,
+        "totalPoints": 149.22,
+        "weeksPlayed": 1,
+        "averagePoints": 149.22
+      },
+      {
+        "leagueName": "Teardrops on My Lamar",
+        "topScorer": "Natyourproblem13",
+        "teamName": "King Henry’s Hit List ",
+        "flexCount": 2,
+        "totalPoints": 149.08,
+        "weeksPlayed": 1,
+        "averagePoints": 149.08
+      },
+      {
+        "leagueName": "Hawk Tua",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 1,
+        "totalPoints": 149.06,
+        "weeksPlayed": 1,
+        "averagePoints": 149.06
+      },
+      {
+        "leagueName": "Scoop of Herbert",
+        "topScorer": "koolbreezzzz",
+        "teamName": "Ball too well",
+        "flexCount": 2,
+        "totalPoints": 148.76,
+        "weeksPlayed": 1,
+        "averagePoints": 148.76
+      },
+      {
+        "leagueName": "Pay My Bills",
+        "topScorer": "mhud20",
+        "teamName": "Kermit ",
+        "flexCount": 2,
+        "totalPoints": 148.32,
+        "weeksPlayed": 1,
+        "averagePoints": 148.32
+      },
+      {
+        "leagueName": "This Just-In (Jefferson) ",
+        "topScorer": "NoScrubs80",
+        "teamName": "NoScrubs80",
+        "flexCount": 2,
+        "totalPoints": 147.68,
+        "weeksPlayed": 1,
+        "averagePoints": 147.68
+      },
+      {
+        "leagueName": "Bear Force One",
+        "topScorer": "melanierathke",
+        "teamName": "Knuck If You Buck",
+        "flexCount": 2,
+        "totalPoints": 146.88,
+        "weeksPlayed": 1,
+        "averagePoints": 146.88
+      },
+      {
+        "leagueName": "Stop It, Bosa You",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 2,
+        "totalPoints": 146.72,
+        "weeksPlayed": 1,
+        "averagePoints": 146.72
+      },
+      {
+        "leagueName": "Hey Darnold",
+        "topScorer": "smashley93",
+        "teamName": "Death By A Thousand Punts",
+        "flexCount": 1,
+        "totalPoints": 145.98,
+        "weeksPlayed": 1,
+        "averagePoints": 145.98
+      },
+      {
+        "leagueName": "Bo Meets World",
+        "topScorer": "ColieBear22",
+        "teamName": "DoUorDoUNotFeelBonitto",
+        "flexCount": 2,
+        "totalPoints": 145.86,
+        "weeksPlayed": 1,
+        "averagePoints": 145.86
+      },
+      {
+        "leagueName": "Sacks and the City ",
+        "topScorer": "srgendron",
+        "teamName": "Salt Lake City Soakers ",
+        "flexCount": 2,
+        "totalPoints": 145.62,
+        "weeksPlayed": 1,
+        "averagePoints": 145.62
+      },
+      {
+        "leagueName": "ALLEN THE STALLION",
+        "topScorer": "rebelgrrl",
+        "teamName": "rebelgrrl",
+        "flexCount": 2,
+        "totalPoints": 144.68,
+        "weeksPlayed": 1,
+        "averagePoints": 144.68
+      },
+      {
+        "leagueName": "Bang Bang Niner Gang",
+        "topScorer": "erinlayne",
+        "teamName": "erinlayne",
+        "flexCount": 2,
+        "totalPoints": 144.62,
+        "weeksPlayed": 1,
+        "averagePoints": 144.62
+      },
+      {
+        "leagueName": "I'm Sorry Ms. Jackson",
+        "topScorer": "alyssarc",
+        "teamName": "hurts so good ",
+        "flexCount": 1,
+        "totalPoints": 144.58,
+        "weeksPlayed": 1,
+        "averagePoints": 144.58
+      },
+      {
+        "leagueName": "Hurts Like That Only Happens Once ",
+        "topScorer": "H0neyBadgerr",
+        "teamName": "H0neyBadgerr",
+        "flexCount": 2,
+        "totalPoints": 144.12,
+        "weeksPlayed": 1,
+        "averagePoints": 144.12
+      },
+      {
+        "leagueName": "BEG, BURROW, STEAL",
+        "topScorer": "sanota",
+        "teamName": "Beauty and the Blitz",
+        "flexCount": 2,
+        "totalPoints": 144.08,
+        "weeksPlayed": 1,
+        "averagePoints": 144.08
+      },
+      {
+        "leagueName": "Cam You Feel It",
+        "topScorer": "fumbledore44",
+        "teamName": "fumbledore44",
+        "flexCount": 1,
+        "totalPoints": 143.92,
+        "weeksPlayed": 1,
+        "averagePoints": 143.92
+      },
+      {
+        "leagueName": "Sass Interference",
+        "topScorer": "SteelJaws412",
+        "teamName": "SteelJaws412",
+        "flexCount": 2,
+        "totalPoints": 143.62,
+        "weeksPlayed": 1,
+        "averagePoints": 143.62
+      },
+      {
+        "leagueName": "Truth Hurts",
+        "topScorer": "ldelgaudio",
+        "teamName": "ldelgaudio",
+        "flexCount": 1,
+        "totalPoints": 143.62,
+        "weeksPlayed": 1,
+        "averagePoints": 143.62
+      },
+      {
+        "leagueName": "She Cooked Here",
+        "topScorer": "x0TaCo",
+        "teamName": "x0TaCo",
+        "flexCount": 2,
+        "totalPoints": 143.62,
+        "weeksPlayed": 1,
+        "averagePoints": 143.62
+      },
+      {
+        "leagueName": "Dak to the Future",
+        "topScorer": "Codex7L",
+        "teamName": "Saquon Deez TDs",
+        "flexCount": 1,
+        "totalPoints": 143.52,
+        "weeksPlayed": 1,
+        "averagePoints": 143.52
+      },
+      {
+        "leagueName": "TORTURED PANTHERS DEPT",
+        "topScorer": "nc2okc1993",
+        "teamName": "Keep Pounding…Snacks",
+        "flexCount": 2,
+        "totalPoints": 143.38,
+        "weeksPlayed": 1,
+        "averagePoints": 143.38
+      },
+      {
+        "leagueName": "Life of a Joe Girl",
+        "topScorer": "mfetherman",
+        "teamName": "Its All-en The Hips",
+        "flexCount": 2,
+        "totalPoints": 142.66,
+        "weeksPlayed": 1,
+        "averagePoints": 142.66
+      },
+      {
+        "leagueName": "Baby Don't Hurts Me",
+        "topScorer": "castroL77",
+        "teamName": "HowAboutMomsTeam ",
+        "flexCount": 2,
+        "totalPoints": 142.42,
+        "weeksPlayed": 1,
+        "averagePoints": 142.42
+      },
+      {
+        "leagueName": "Baby Got DAK",
+        "topScorer": "ceedeesTDes",
+        "teamName": "CeedeesTDs",
+        "flexCount": 2,
+        "totalPoints": 142.28,
+        "weeksPlayed": 1,
+        "averagePoints": 142.28
+      },
+      {
+        "leagueName": "ALLEN TOO WELL",
+        "topScorer": "devonzlewis",
+        "teamName": "Purdy in Pink 🎀",
+        "flexCount": 2,
+        "totalPoints": 142.28,
+        "weeksPlayed": 1,
+        "averagePoints": 142.28
+      },
+      {
+        "leagueName": "Go Birds",
+        "topScorer": "BrittanyEdna",
+        "teamName": "Enchanted to Beat U ",
+        "flexCount": 1,
+        "totalPoints": 142.06,
+        "weeksPlayed": 1,
+        "averagePoints": 142.06
+      },
+      {
+        "leagueName": "Lamar You Serious",
+        "topScorer": "tayrobertson",
+        "teamName": "Chesapeake Chicks 🏈 💜",
+        "flexCount": 1,
+        "totalPoints": 141.68,
+        "weeksPlayed": 1,
+        "averagePoints": 141.68
+      },
+      {
+        "leagueName": "Boston TE Party",
+        "topScorer": "LindseyAitch",
+        "teamName": "Gronkey Kong",
+        "flexCount": 1,
+        "totalPoints": 140.72,
+        "weeksPlayed": 1,
+        "averagePoints": 140.72
+      },
+      {
+        "leagueName": "Amon a Roll",
+        "topScorer": "Unknown",
+        "teamName": "Unknown",
+        "flexCount": 1,
+        "totalPoints": 140.56,
+        "weeksPlayed": 1,
+        "averagePoints": 140.56
+      },
+      {
+        "leagueName": "Put Your Penix Away",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 1,
+        "totalPoints": 140.5,
+        "weeksPlayed": 1,
+        "averagePoints": 140.5
+      },
+      {
+        "leagueName": "Mr. Steel Your Girl",
+        "topScorer": "dnjennings12",
+        "teamName": "These TDs are real ",
+        "flexCount": 1,
+        "totalPoints": 139.92,
+        "weeksPlayed": 1,
+        "averagePoints": 139.92
+      },
+      {
+        "leagueName": "We Built This Griddy:",
+        "topScorer": "jave20119",
+        "teamName": "Death by a thousand punts",
+        "flexCount": 1,
+        "totalPoints": 139.86,
+        "weeksPlayed": 1,
+        "averagePoints": 139.86
+      },
+      {
+        "leagueName": "Loving Him Was Redzone",
+        "topScorer": "jordanly615",
+        "teamName": "the bowerpuff girls",
+        "flexCount": 1,
+        "totalPoints": 139.72,
+        "weeksPlayed": 1,
+        "averagePoints": 139.72
+      },
+      {
+        "leagueName": "Death by a Thousand Punts",
+        "topScorer": "amyannhill",
+        "teamName": "Madison bring me a Beer ",
+        "flexCount": 2,
+        "totalPoints": 139.62,
+        "weeksPlayed": 1,
+        "averagePoints": 139.62
+      },
+      {
+        "leagueName": "Charbonnet Sauvignon",
+        "topScorer": "pooptarts8008",
+        "teamName": "pooptarts8008",
+        "flexCount": 1,
+        "totalPoints": 139.12,
+        "weeksPlayed": 1,
+        "averagePoints": 139.12
+      },
+      {
+        "leagueName": "Turn Down for Watt",
+        "topScorer": "braccia37",
+        "teamName": "Watt’s the tea?☕️",
+        "flexCount": 2,
+        "totalPoints": 139.08,
+        "weeksPlayed": 1,
+        "averagePoints": 139.08
+      },
+      {
+        "leagueName": "NOTHING BEATS A JET(S) 2 HOLIDAY",
+        "topScorer": "sybianna",
+        "teamName": "cookies4keon",
+        "flexCount": 2,
+        "totalPoints": 138.96,
+        "weeksPlayed": 1,
+        "averagePoints": 138.96
+      },
+      {
+        "leagueName": "Herby Fully Loaded",
+        "topScorer": "Sammmyyy7",
+        "teamName": "Give your man a chuba",
+        "flexCount": 2,
+        "totalPoints": 137.38,
+        "weeksPlayed": 1,
+        "averagePoints": 137.38
+      },
+      {
+        "leagueName": "A QUEEN IS NEVER LATE",
+        "topScorer": "j0y2daw0rld",
+        "teamName": "j0y2daw0rld",
+        "flexCount": 1,
+        "totalPoints": 137.26,
+        "weeksPlayed": 1,
+        "averagePoints": 137.26
+      },
+      {
+        "leagueName": "Get Lucky",
+        "topScorer": "ririlanasty",
+        "teamName": "ririlanasty",
+        "flexCount": 1,
+        "totalPoints": 136.88,
+        "weeksPlayed": 1,
+        "averagePoints": 136.88
+      },
+      {
+        "leagueName": "Super Ja'Marrio Brothers",
+        "topScorer": "annebandro23",
+        "teamName": "annebandro23",
+        "flexCount": 2,
+        "totalPoints": 136.82,
+        "weeksPlayed": 1,
+        "averagePoints": 136.82
+      },
+      {
+        "leagueName": "Karma",
+        "topScorer": "luvmiialwayz",
+        "teamName": "luvmiialwayz",
+        "flexCount": 2,
+        "totalPoints": 136.78,
+        "weeksPlayed": 1,
+        "averagePoints": 136.78
+      },
+      {
+        "leagueName": "Je Ne Sequon",
+        "topScorer": "christiineg",
+        "teamName": "christiineg",
+        "flexCount": 1,
+        "totalPoints": 136.32,
+        "weeksPlayed": 1,
+        "averagePoints": 136.32
+      },
+      {
+        "leagueName": "Ball Too Well",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 2,
+        "totalPoints": 136.28,
+        "weeksPlayed": 1,
+        "averagePoints": 136.28
+      },
+      {
+        "leagueName": "The Grid Reaper",
+        "topScorer": "bana14",
+        "teamName": "bana14",
+        "flexCount": 1,
+        "totalPoints": 135.76,
+        "weeksPlayed": 1,
+        "averagePoints": 135.76
+      },
+      {
+        "leagueName": "Griddy Little Liars",
+        "topScorer": "ThielenGoodTime",
+        "teamName": "ThielenGoodTime",
+        "flexCount": 1,
+        "totalPoints": 134.48,
+        "weeksPlayed": 1,
+        "averagePoints": 134.48
+      },
+      {
+        "leagueName": "Pats on the Back",
+        "topScorer": "KristaConnell",
+        "teamName": "Vrabel’s Version",
+        "flexCount": 1,
+        "totalPoints": 134.46,
+        "weeksPlayed": 1,
+        "averagePoints": 134.46
+      },
+      {
+        "leagueName": "Face Down Pass Rush",
+        "topScorer": "shelbs304",
+        "teamName": "La Tush Push",
+        "flexCount": 2,
+        "totalPoints": 134.06,
+        "weeksPlayed": 1,
+        "averagePoints": 134.06
+      },
+      {
+        "leagueName": "To Live for the Hutch of It All",
+        "topScorer": "missmallorie",
+        "teamName": "Popping Goff 🤘",
+        "flexCount": 2,
+        "totalPoints": 133.84,
+        "weeksPlayed": 1,
+        "averagePoints": 133.84
+      },
+      {
+        "leagueName": "All About That Pace",
+        "topScorer": "teenypie",
+        "teamName": "teenypie",
+        "flexCount": 2,
+        "totalPoints": 133.42,
+        "weeksPlayed": 1,
+        "averagePoints": 133.42
+      },
+      {
+        "leagueName": "Lights, Karmara, Action",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 1,
+        "totalPoints": 132.72,
+        "weeksPlayed": 1,
+        "averagePoints": 132.72
+      },
+      {
+        "leagueName": "Bosa Believe It",
+        "topScorer": "KryssLeigh3",
+        "teamName": "Kittle Kittens",
+        "flexCount": 1,
+        "totalPoints": 132.56,
+        "weeksPlayed": 1,
+        "averagePoints": 132.56
+      },
+      {
+        "leagueName": "Love Island USA",
+        "topScorer": "tashialexx",
+        "teamName": "RUN CMC",
+        "flexCount": 2,
+        "totalPoints": 132.5,
+        "weeksPlayed": 1,
+        "averagePoints": 132.5
+      },
+      {
+        "leagueName": "I Love You, but Goff My Lawn",
+        "topScorer": "mdpalmer16",
+        "teamName": "Kupp of Joe ",
+        "flexCount": 2,
+        "totalPoints": 131.82,
+        "weeksPlayed": 1,
+        "averagePoints": 131.82
+      },
+      {
+        "leagueName": "Seal Team Nix",
+        "topScorer": "Unknown",
+        "teamName": "Unknown",
+        "flexCount": 2,
+        "totalPoints": 131.12,
+        "weeksPlayed": 1,
+        "averagePoints": 131.12
+      },
+      {
+        "leagueName": "Watt's Love Got to Do With It?",
+        "topScorer": "stillergang24",
+        "teamName": "stillergang24",
+        "flexCount": 1,
+        "totalPoints": 130.86,
+        "weeksPlayed": 1,
+        "averagePoints": 130.86
+      },
+      {
+        "leagueName": "That's So Raven(s)",
+        "topScorer": "tiffnichole",
+        "teamName": "Back That Pass Up",
+        "flexCount": 2,
+        "totalPoints": 130.56,
+        "weeksPlayed": 1,
+        "averagePoints": 130.56
+      },
+      {
+        "leagueName": "For Kyron Out Loud",
+        "topScorer": "sarahlpickett",
+        "teamName": "Blitz, Please ",
+        "flexCount": 1,
+        "totalPoints": 130.52,
+        "weeksPlayed": 1,
+        "averagePoints": 130.52
+      },
+      {
+        "leagueName": "Love Thy Nabers",
+        "topScorer": "epollack323",
+        "teamName": "epollack323",
+        "flexCount": 1,
+        "totalPoints": 130.42,
+        "weeksPlayed": 1,
+        "averagePoints": 130.42
+      },
+      {
+        "leagueName": "Micah Drop",
+        "topScorer": "beeellllaahhh",
+        "teamName": "Lamarican Dream",
+        "flexCount": 1,
+        "totalPoints": 130.36,
+        "weeksPlayed": 1,
+        "averagePoints": 130.36
+      },
+      {
+        "leagueName": "Love Story",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 1,
+        "totalPoints": 130.22,
+        "weeksPlayed": 1,
+        "averagePoints": 130.22
+      },
+      {
+        "leagueName": "Fly Eagles Fly",
+        "topScorer": "GlitzAndBlitz2",
+        "teamName": "GlitzAndBlitz2",
+        "flexCount": 1,
+        "totalPoints": 129.72,
+        "weeksPlayed": 1,
+        "averagePoints": 129.72
+      },
+      {
+        "leagueName": "How I Metcalf Your Mother",
+        "topScorer": "gioxreese",
+        "teamName": "gioxreese",
+        "flexCount": 1,
+        "totalPoints": 129.34,
+        "weeksPlayed": 1,
+        "averagePoints": 129.34
+      },
+      {
+        "leagueName": "Golden Hour",
+        "topScorer": "Braykay",
+        "teamName": "MALIKABOO",
+        "flexCount": 1,
+        "totalPoints": 129.02,
+        "weeksPlayed": 1,
+        "averagePoints": 129.02
+      },
+      {
+        "leagueName": "No Pain, No Gainwell",
+        "topScorer": "DartVaderVal",
+        "teamName": "DartVaderVal",
+        "flexCount": 1,
+        "totalPoints": 128.58,
+        "weeksPlayed": 1,
+        "averagePoints": 128.58
+      },
+      {
+        "leagueName": "Gibbs Me More",
+        "topScorer": "avalanche38",
+        "teamName": "Cookin’ Dubs & Bakin’ TDs",
+        "flexCount": 1,
+        "totalPoints": 127.48,
+        "weeksPlayed": 1,
+        "averagePoints": 127.48
+      },
+      {
+        "leagueName": "First Down Bad",
+        "topScorer": "ctsnyder13",
+        "teamName": "That's What Cheesehead",
+        "flexCount": 1,
+        "totalPoints": 126.62,
+        "weeksPlayed": 1,
+        "averagePoints": 126.62
+      },
+      {
+        "leagueName": "All Too Sewell",
+        "topScorer": "meadswags",
+        "teamName": "meadswags",
+        "flexCount": 1,
+        "totalPoints": 124.46,
+        "weeksPlayed": 1,
+        "averagePoints": 124.46
+      },
+      {
+        "leagueName": "Philly Special Forces",
+        "topScorer": "kmshieldss",
+        "teamName": "Real Housewives of the Rz",
+        "flexCount": 1,
+        "totalPoints": 124.42,
+        "weeksPlayed": 1,
+        "averagePoints": 124.42
+      },
+      {
+        "leagueName": "I Diggs You",
+        "topScorer": "maddawgs22",
+        "teamName": "maddawgs22",
+        "flexCount": 1,
+        "totalPoints": 123.86,
+        "weeksPlayed": 1,
+        "averagePoints": 123.86
+      },
+      {
+        "leagueName": "Stefon the Gas",
+        "topScorer": "sophiak23",
+        "teamName": "Serving Punt",
+        "flexCount": 1,
+        "totalPoints": 123.32,
+        "weeksPlayed": 1,
+        "averagePoints": 123.32
+      },
+      {
+        "leagueName": "Jimmy Kittle Live",
+        "topScorer": "emmajaime",
+        "teamName": "The summer I turned purdy",
+        "flexCount": 1,
+        "totalPoints": 123.22,
+        "weeksPlayed": 1,
+        "averagePoints": 123.22
+      },
+      {
+        "leagueName": "I Tua You Were Trouble",
+        "topScorer": "jasmineajordan98",
+        "teamName": "Marvin’s Room [Remix]",
+        "flexCount": 1,
+        "totalPoints": 121.86,
+        "weeksPlayed": 1,
+        "averagePoints": 121.86
+      },
+      {
+        "leagueName": "No This is (Tim) Patrick",
+        "topScorer": "samanthaerinn",
+        "teamName": "The Summer I Turned Saucy",
+        "flexCount": 1,
+        "totalPoints": 116.92,
+        "weeksPlayed": 1,
+        "averagePoints": 116.92
+      },
+      {
+        "leagueName": "Here for the DCC",
+        "topScorer": "hanabanans",
+        "teamName": "Dungeon Crawler Cowboys",
+        "flexCount": 1,
+        "totalPoints": 111.78,
+        "weeksPlayed": 1,
+        "averagePoints": 111.78
+      }
+    ],
+    "oneFlexUsers": [
+      {
+        "leagueName": "They CeeDee Rollin'",
+        "topScorer": "sarahswift05",
+        "teamName": "sacks in the city",
+        "flexCount": 1,
+        "totalPoints": 165.92,
+        "weeksPlayed": 1,
+        "averagePoints": 165.92
+      },
+      {
+        "leagueName": "For the Sourdough of it All",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 1,
+        "totalPoints": 162.26,
+        "weeksPlayed": 1,
+        "averagePoints": 162.26
+      },
+      {
+        "leagueName": "Breaking the Glass Steeling",
+        "topScorer": "kendakenn",
+        "teamName": "i love burrowritos ",
+        "flexCount": 1,
+        "totalPoints": 156.82,
+        "weeksPlayed": 1,
+        "averagePoints": 156.82
+      },
+      {
+        "leagueName": "Can't Fight the Steeling:",
+        "topScorer": "timberlee05",
+        "teamName": "timberlee05",
+        "flexCount": 1,
+        "totalPoints": 154.68,
+        "weeksPlayed": 1,
+        "averagePoints": 154.68
+      },
+      {
+        "leagueName": "Gronkey Kong",
+        "topScorer": "kelseycarlson91",
+        "teamName": "Allen’s Avengers ",
+        "flexCount": 1,
+        "totalPoints": 151.36,
+        "weeksPlayed": 1,
+        "averagePoints": 151.36
+      },
+      {
+        "leagueName": "Devonta Swifties",
+        "topScorer": "Candrus0206",
+        "teamName": "Njigbas in Paris",
+        "flexCount": 1,
+        "totalPoints": 151.32,
+        "weeksPlayed": 1,
+        "averagePoints": 151.32
+      },
+      {
+        "leagueName": "Hawk Tua",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 1,
+        "totalPoints": 149.06,
+        "weeksPlayed": 1,
+        "averagePoints": 149.06
+      },
+      {
+        "leagueName": "Hey Darnold",
+        "topScorer": "smashley93",
+        "teamName": "Death By A Thousand Punts",
+        "flexCount": 1,
+        "totalPoints": 145.98,
+        "weeksPlayed": 1,
+        "averagePoints": 145.98
+      },
+      {
+        "leagueName": "I'm Sorry Ms. Jackson",
+        "topScorer": "alyssarc",
+        "teamName": "hurts so good ",
+        "flexCount": 1,
+        "totalPoints": 144.58,
+        "weeksPlayed": 1,
+        "averagePoints": 144.58
+      },
+      {
+        "leagueName": "Cam You Feel It",
+        "topScorer": "fumbledore44",
+        "teamName": "fumbledore44",
+        "flexCount": 1,
+        "totalPoints": 143.92,
+        "weeksPlayed": 1,
+        "averagePoints": 143.92
+      },
+      {
+        "leagueName": "Truth Hurts",
+        "topScorer": "ldelgaudio",
+        "teamName": "ldelgaudio",
+        "flexCount": 1,
+        "totalPoints": 143.62,
+        "weeksPlayed": 1,
+        "averagePoints": 143.62
+      },
+      {
+        "leagueName": "Dak to the Future",
+        "topScorer": "Codex7L",
+        "teamName": "Saquon Deez TDs",
+        "flexCount": 1,
+        "totalPoints": 143.52,
+        "weeksPlayed": 1,
+        "averagePoints": 143.52
+      },
+      {
+        "leagueName": "Go Birds",
+        "topScorer": "BrittanyEdna",
+        "teamName": "Enchanted to Beat U ",
+        "flexCount": 1,
+        "totalPoints": 142.06,
+        "weeksPlayed": 1,
+        "averagePoints": 142.06
+      },
+      {
+        "leagueName": "Lamar You Serious",
+        "topScorer": "tayrobertson",
+        "teamName": "Chesapeake Chicks 🏈 💜",
+        "flexCount": 1,
+        "totalPoints": 141.68,
+        "weeksPlayed": 1,
+        "averagePoints": 141.68
+      },
+      {
+        "leagueName": "Boston TE Party",
+        "topScorer": "LindseyAitch",
+        "teamName": "Gronkey Kong",
+        "flexCount": 1,
+        "totalPoints": 140.72,
+        "weeksPlayed": 1,
+        "averagePoints": 140.72
+      },
+      {
+        "leagueName": "Amon a Roll",
+        "topScorer": "Unknown",
+        "teamName": "Unknown",
+        "flexCount": 1,
+        "totalPoints": 140.56,
+        "weeksPlayed": 1,
+        "averagePoints": 140.56
+      },
+      {
+        "leagueName": "Put Your Penix Away",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 1,
+        "totalPoints": 140.5,
+        "weeksPlayed": 1,
+        "averagePoints": 140.5
+      },
+      {
+        "leagueName": "Mr. Steel Your Girl",
+        "topScorer": "dnjennings12",
+        "teamName": "These TDs are real ",
+        "flexCount": 1,
+        "totalPoints": 139.92,
+        "weeksPlayed": 1,
+        "averagePoints": 139.92
+      },
+      {
+        "leagueName": "We Built This Griddy:",
+        "topScorer": "jave20119",
+        "teamName": "Death by a thousand punts",
+        "flexCount": 1,
+        "totalPoints": 139.86,
+        "weeksPlayed": 1,
+        "averagePoints": 139.86
+      },
+      {
+        "leagueName": "Loving Him Was Redzone",
+        "topScorer": "jordanly615",
+        "teamName": "the bowerpuff girls",
+        "flexCount": 1,
+        "totalPoints": 139.72,
+        "weeksPlayed": 1,
+        "averagePoints": 139.72
+      },
+      {
+        "leagueName": "Charbonnet Sauvignon",
+        "topScorer": "pooptarts8008",
+        "teamName": "pooptarts8008",
+        "flexCount": 1,
+        "totalPoints": 139.12,
+        "weeksPlayed": 1,
+        "averagePoints": 139.12
+      },
+      {
+        "leagueName": "A QUEEN IS NEVER LATE",
+        "topScorer": "j0y2daw0rld",
+        "teamName": "j0y2daw0rld",
+        "flexCount": 1,
+        "totalPoints": 137.26,
+        "weeksPlayed": 1,
+        "averagePoints": 137.26
+      },
+      {
+        "leagueName": "Get Lucky",
+        "topScorer": "ririlanasty",
+        "teamName": "ririlanasty",
+        "flexCount": 1,
+        "totalPoints": 136.88,
+        "weeksPlayed": 1,
+        "averagePoints": 136.88
+      },
+      {
+        "leagueName": "Je Ne Sequon",
+        "topScorer": "christiineg",
+        "teamName": "christiineg",
+        "flexCount": 1,
+        "totalPoints": 136.32,
+        "weeksPlayed": 1,
+        "averagePoints": 136.32
+      },
+      {
+        "leagueName": "The Grid Reaper",
+        "topScorer": "bana14",
+        "teamName": "bana14",
+        "flexCount": 1,
+        "totalPoints": 135.76,
+        "weeksPlayed": 1,
+        "averagePoints": 135.76
+      },
+      {
+        "leagueName": "Griddy Little Liars",
+        "topScorer": "ThielenGoodTime",
+        "teamName": "ThielenGoodTime",
+        "flexCount": 1,
+        "totalPoints": 134.48,
+        "weeksPlayed": 1,
+        "averagePoints": 134.48
+      },
+      {
+        "leagueName": "Pats on the Back",
+        "topScorer": "KristaConnell",
+        "teamName": "Vrabel’s Version",
+        "flexCount": 1,
+        "totalPoints": 134.46,
+        "weeksPlayed": 1,
+        "averagePoints": 134.46
+      },
+      {
+        "leagueName": "Lights, Karmara, Action",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 1,
+        "totalPoints": 132.72,
+        "weeksPlayed": 1,
+        "averagePoints": 132.72
+      },
+      {
+        "leagueName": "Bosa Believe It",
+        "topScorer": "KryssLeigh3",
+        "teamName": "Kittle Kittens",
+        "flexCount": 1,
+        "totalPoints": 132.56,
+        "weeksPlayed": 1,
+        "averagePoints": 132.56
+      },
+      {
+        "leagueName": "Watt's Love Got to Do With It?",
+        "topScorer": "stillergang24",
+        "teamName": "stillergang24",
+        "flexCount": 1,
+        "totalPoints": 130.86,
+        "weeksPlayed": 1,
+        "averagePoints": 130.86
+      },
+      {
+        "leagueName": "For Kyron Out Loud",
+        "topScorer": "sarahlpickett",
+        "teamName": "Blitz, Please ",
+        "flexCount": 1,
+        "totalPoints": 130.52,
+        "weeksPlayed": 1,
+        "averagePoints": 130.52
+      },
+      {
+        "leagueName": "Love Thy Nabers",
+        "topScorer": "epollack323",
+        "teamName": "epollack323",
+        "flexCount": 1,
+        "totalPoints": 130.42,
+        "weeksPlayed": 1,
+        "averagePoints": 130.42
+      },
+      {
+        "leagueName": "Micah Drop",
+        "topScorer": "beeellllaahhh",
+        "teamName": "Lamarican Dream",
+        "flexCount": 1,
+        "totalPoints": 130.36,
+        "weeksPlayed": 1,
+        "averagePoints": 130.36
+      },
+      {
+        "leagueName": "Love Story",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 1,
+        "totalPoints": 130.22,
+        "weeksPlayed": 1,
+        "averagePoints": 130.22
+      },
+      {
+        "leagueName": "Fly Eagles Fly",
+        "topScorer": "GlitzAndBlitz2",
+        "teamName": "GlitzAndBlitz2",
+        "flexCount": 1,
+        "totalPoints": 129.72,
+        "weeksPlayed": 1,
+        "averagePoints": 129.72
+      },
+      {
+        "leagueName": "How I Metcalf Your Mother",
+        "topScorer": "gioxreese",
+        "teamName": "gioxreese",
+        "flexCount": 1,
+        "totalPoints": 129.34,
+        "weeksPlayed": 1,
+        "averagePoints": 129.34
+      },
+      {
+        "leagueName": "Golden Hour",
+        "topScorer": "Braykay",
+        "teamName": "MALIKABOO",
+        "flexCount": 1,
+        "totalPoints": 129.02,
+        "weeksPlayed": 1,
+        "averagePoints": 129.02
+      },
+      {
+        "leagueName": "No Pain, No Gainwell",
+        "topScorer": "DartVaderVal",
+        "teamName": "DartVaderVal",
+        "flexCount": 1,
+        "totalPoints": 128.58,
+        "weeksPlayed": 1,
+        "averagePoints": 128.58
+      },
+      {
+        "leagueName": "Gibbs Me More",
+        "topScorer": "avalanche38",
+        "teamName": "Cookin’ Dubs & Bakin’ TDs",
+        "flexCount": 1,
+        "totalPoints": 127.48,
+        "weeksPlayed": 1,
+        "averagePoints": 127.48
+      },
+      {
+        "leagueName": "First Down Bad",
+        "topScorer": "ctsnyder13",
+        "teamName": "That's What Cheesehead",
+        "flexCount": 1,
+        "totalPoints": 126.62,
+        "weeksPlayed": 1,
+        "averagePoints": 126.62
+      },
+      {
+        "leagueName": "All Too Sewell",
+        "topScorer": "meadswags",
+        "teamName": "meadswags",
+        "flexCount": 1,
+        "totalPoints": 124.46,
+        "weeksPlayed": 1,
+        "averagePoints": 124.46
+      },
+      {
+        "leagueName": "Philly Special Forces",
+        "topScorer": "kmshieldss",
+        "teamName": "Real Housewives of the Rz",
+        "flexCount": 1,
+        "totalPoints": 124.42,
+        "weeksPlayed": 1,
+        "averagePoints": 124.42
+      },
+      {
+        "leagueName": "I Diggs You",
+        "topScorer": "maddawgs22",
+        "teamName": "maddawgs22",
+        "flexCount": 1,
+        "totalPoints": 123.86,
+        "weeksPlayed": 1,
+        "averagePoints": 123.86
+      },
+      {
+        "leagueName": "Stefon the Gas",
+        "topScorer": "sophiak23",
+        "teamName": "Serving Punt",
+        "flexCount": 1,
+        "totalPoints": 123.32,
+        "weeksPlayed": 1,
+        "averagePoints": 123.32
+      },
+      {
+        "leagueName": "Jimmy Kittle Live",
+        "topScorer": "emmajaime",
+        "teamName": "The summer I turned purdy",
+        "flexCount": 1,
+        "totalPoints": 123.22,
+        "weeksPlayed": 1,
+        "averagePoints": 123.22
+      },
+      {
+        "leagueName": "I Tua You Were Trouble",
+        "topScorer": "jasmineajordan98",
+        "teamName": "Marvin’s Room [Remix]",
+        "flexCount": 1,
+        "totalPoints": 121.86,
+        "weeksPlayed": 1,
+        "averagePoints": 121.86
+      },
+      {
+        "leagueName": "No This is (Tim) Patrick",
+        "topScorer": "samanthaerinn",
+        "teamName": "The Summer I Turned Saucy",
+        "flexCount": 1,
+        "totalPoints": 116.92,
+        "weeksPlayed": 1,
+        "averagePoints": 116.92
+      },
+      {
+        "leagueName": "Here for the DCC",
+        "topScorer": "hanabanans",
+        "teamName": "Dungeon Crawler Cowboys",
+        "flexCount": 1,
+        "totalPoints": 111.78,
+        "weeksPlayed": 1,
+        "averagePoints": 111.78
+      }
+    ],
+    "twoFlexUsers": [
+      {
+        "leagueName": "Brock You LIke a Hurricante",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 2,
+        "totalPoints": 183.16,
+        "weeksPlayed": 1,
+        "averagePoints": 183.16
+      },
+      {
+        "leagueName": "PACHECO THE RING CAMERAS",
+        "topScorer": "MissAdventures",
+        "teamName": "MissAdventures",
+        "flexCount": 2,
+        "totalPoints": 175.26,
+        "weeksPlayed": 1,
+        "averagePoints": 175.26
+      },
+      {
+        "leagueName": "Brown Eyed Girl ",
+        "topScorer": "emilyinphilly",
+        "teamName": "emilyinphilly",
+        "flexCount": 2,
+        "totalPoints": 173.86,
+        "weeksPlayed": 1,
+        "averagePoints": 173.86
+      },
+      {
+        "leagueName": "Third and Long Live",
+        "topScorer": "gogirls1",
+        "teamName": "Digital Kamara",
+        "flexCount": 2,
+        "totalPoints": 172.12,
+        "weeksPlayed": 1,
+        "averagePoints": 172.12
+      },
+      {
+        "leagueName": "Whodey and the Joefish",
+        "topScorer": "heatherd006",
+        "teamName": "burrowed treasure",
+        "flexCount": 2,
+        "totalPoints": 169.28,
+        "weeksPlayed": 1,
+        "averagePoints": 169.28
+      },
+      {
+        "leagueName": "Olave Maria ",
+        "topScorer": "kede16",
+        "teamName": "Jet Tua Holiday",
+        "flexCount": 2,
+        "totalPoints": 166.88,
+        "weeksPlayed": 1,
+        "averagePoints": 166.88
+      },
+      {
+        "leagueName": "Hunter Wives",
+        "topScorer": "Bettyestes00",
+        "teamName": "Big Digg Energy",
+        "flexCount": 2,
+        "totalPoints": 166.32,
+        "weeksPlayed": 1,
+        "averagePoints": 166.32
+      },
+      {
+        "leagueName": "Nice to Sea You",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 2,
+        "totalPoints": 165.62,
+        "weeksPlayed": 1,
+        "averagePoints": 165.62
+      },
+      {
+        "leagueName": "Santosrini Vacation",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 2,
+        "totalPoints": 163.02,
+        "weeksPlayed": 1,
+        "averagePoints": 163.02
+      },
+      {
+        "leagueName": "Living in a Fantasy ",
+        "topScorer": "kaylafield23",
+        "teamName": "I kraft flowers",
+        "flexCount": 2,
+        "totalPoints": 161.16,
+        "weeksPlayed": 1,
+        "averagePoints": 161.16
+      },
+      {
+        "leagueName": "BTS",
+        "topScorer": "Unctim",
+        "teamName": "Unctim",
+        "flexCount": 2,
+        "totalPoints": 159.08,
+        "weeksPlayed": 1,
+        "averagePoints": 159.08
+      },
+      {
+        "leagueName": "Lamar the Merrier",
+        "topScorer": "ans0606",
+        "teamName": "ans0606",
+        "flexCount": 2,
+        "totalPoints": 157.96,
+        "weeksPlayed": 1,
+        "averagePoints": 157.96
+      },
+      {
+        "leagueName": "Mahomes Alone",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 2,
+        "totalPoints": 157.26,
+        "weeksPlayed": 1,
+        "averagePoints": 157.26
+      },
+      {
+        "leagueName": "Allen the Hips",
+        "topScorer": "summertime98",
+        "teamName": "Kittle Corn",
+        "flexCount": 2,
+        "totalPoints": 156.38,
+        "weeksPlayed": 1,
+        "averagePoints": 156.38
+      },
+      {
+        "leagueName": "Mike Drop",
+        "topScorer": "ChristyC91",
+        "teamName": "No Sacks Only TDs ",
+        "flexCount": 2,
+        "totalPoints": 155.94,
+        "weeksPlayed": 1,
+        "averagePoints": 155.94
+      },
+      {
+        "leagueName": "Getting Jeanty With It",
+        "topScorer": "dmaart00",
+        "teamName": "Third down for what!? 🤧",
+        "flexCount": 2,
+        "totalPoints": 155.66,
+        "weeksPlayed": 1,
+        "averagePoints": 155.66
+      },
+      {
+        "leagueName": "Here Comes the Sungod",
+        "topScorer": "evvdogg",
+        "teamName": "Bed, Bath & Bijan",
+        "flexCount": 2,
+        "totalPoints": 154.46,
+        "weeksPlayed": 1,
+        "averagePoints": 154.46
+      },
+      {
+        "leagueName": "Somewhere Over the RainBO Nix",
+        "topScorer": "meghanwiththeh",
+        "teamName": "meghanwiththeh",
+        "flexCount": 2,
+        "totalPoints": 153.78,
+        "weeksPlayed": 1,
+        "averagePoints": 153.78
+      },
+      {
+        "leagueName": "Kittle Me This",
+        "topScorer": "elenaelizabeth",
+        "teamName": "Beauty and the Cleats",
+        "flexCount": 2,
+        "totalPoints": 152.42,
+        "weeksPlayed": 1,
+        "averagePoints": 152.42
+      },
+      {
+        "leagueName": "Pink Pony Chubb: ",
+        "topScorer": "myfantasssyyy",
+        "teamName": "myfantasssyyy",
+        "flexCount": 2,
+        "totalPoints": 151.78,
+        "weeksPlayed": 1,
+        "averagePoints": 151.78
+      },
+      {
+        "leagueName": "Pink Toney Club",
+        "topScorer": "whitleyb17",
+        "teamName": "whitleyb17",
+        "flexCount": 2,
+        "totalPoints": 151.18,
+        "weeksPlayed": 1,
+        "averagePoints": 151.18
+      },
+      {
+        "leagueName": "Good Nabers",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 2,
+        "totalPoints": 150.46,
+        "weeksPlayed": 1,
+        "averagePoints": 150.46
+      },
+      {
+        "leagueName": "Shake it Goff",
+        "topScorer": "Unknown",
+        "teamName": "Unknown",
+        "flexCount": 2,
+        "totalPoints": 149.88,
+        "weeksPlayed": 1,
+        "averagePoints": 149.88
+      },
+      {
+        "leagueName": "The Summer I Turned Purdy",
+        "topScorer": "Hkay724",
+        "teamName": "I call GIBBS!",
+        "flexCount": 2,
+        "totalPoints": 149.52,
+        "weeksPlayed": 1,
+        "averagePoints": 149.52
+      },
+      {
+        "leagueName": "Purdy Please",
+        "topScorer": "SweetPurdy",
+        "teamName": "SweetPurdy",
+        "flexCount": 2,
+        "totalPoints": 149.22,
+        "weeksPlayed": 1,
+        "averagePoints": 149.22
+      },
+      {
+        "leagueName": "Teardrops on My Lamar",
+        "topScorer": "Natyourproblem13",
+        "teamName": "King Henry’s Hit List ",
+        "flexCount": 2,
+        "totalPoints": 149.08,
+        "weeksPlayed": 1,
+        "averagePoints": 149.08
+      },
+      {
+        "leagueName": "Scoop of Herbert",
+        "topScorer": "koolbreezzzz",
+        "teamName": "Ball too well",
+        "flexCount": 2,
+        "totalPoints": 148.76,
+        "weeksPlayed": 1,
+        "averagePoints": 148.76
+      },
+      {
+        "leagueName": "Pay My Bills",
+        "topScorer": "mhud20",
+        "teamName": "Kermit ",
+        "flexCount": 2,
+        "totalPoints": 148.32,
+        "weeksPlayed": 1,
+        "averagePoints": 148.32
+      },
+      {
+        "leagueName": "This Just-In (Jefferson) ",
+        "topScorer": "NoScrubs80",
+        "teamName": "NoScrubs80",
+        "flexCount": 2,
+        "totalPoints": 147.68,
+        "weeksPlayed": 1,
+        "averagePoints": 147.68
+      },
+      {
+        "leagueName": "Bear Force One",
+        "topScorer": "melanierathke",
+        "teamName": "Knuck If You Buck",
+        "flexCount": 2,
+        "totalPoints": 146.88,
+        "weeksPlayed": 1,
+        "averagePoints": 146.88
+      },
+      {
+        "leagueName": "Stop It, Bosa You",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 2,
+        "totalPoints": 146.72,
+        "weeksPlayed": 1,
+        "averagePoints": 146.72
+      },
+      {
+        "leagueName": "Bo Meets World",
+        "topScorer": "ColieBear22",
+        "teamName": "DoUorDoUNotFeelBonitto",
+        "flexCount": 2,
+        "totalPoints": 145.86,
+        "weeksPlayed": 1,
+        "averagePoints": 145.86
+      },
+      {
+        "leagueName": "Sacks and the City ",
+        "topScorer": "srgendron",
+        "teamName": "Salt Lake City Soakers ",
+        "flexCount": 2,
+        "totalPoints": 145.62,
+        "weeksPlayed": 1,
+        "averagePoints": 145.62
+      },
+      {
+        "leagueName": "ALLEN THE STALLION",
+        "topScorer": "rebelgrrl",
+        "teamName": "rebelgrrl",
+        "flexCount": 2,
+        "totalPoints": 144.68,
+        "weeksPlayed": 1,
+        "averagePoints": 144.68
+      },
+      {
+        "leagueName": "Bang Bang Niner Gang",
+        "topScorer": "erinlayne",
+        "teamName": "erinlayne",
+        "flexCount": 2,
+        "totalPoints": 144.62,
+        "weeksPlayed": 1,
+        "averagePoints": 144.62
+      },
+      {
+        "leagueName": "Hurts Like That Only Happens Once ",
+        "topScorer": "H0neyBadgerr",
+        "teamName": "H0neyBadgerr",
+        "flexCount": 2,
+        "totalPoints": 144.12,
+        "weeksPlayed": 1,
+        "averagePoints": 144.12
+      },
+      {
+        "leagueName": "BEG, BURROW, STEAL",
+        "topScorer": "sanota",
+        "teamName": "Beauty and the Blitz",
+        "flexCount": 2,
+        "totalPoints": 144.08,
+        "weeksPlayed": 1,
+        "averagePoints": 144.08
+      },
+      {
+        "leagueName": "Sass Interference",
+        "topScorer": "SteelJaws412",
+        "teamName": "SteelJaws412",
+        "flexCount": 2,
+        "totalPoints": 143.62,
+        "weeksPlayed": 1,
+        "averagePoints": 143.62
+      },
+      {
+        "leagueName": "She Cooked Here",
+        "topScorer": "x0TaCo",
+        "teamName": "x0TaCo",
+        "flexCount": 2,
+        "totalPoints": 143.62,
+        "weeksPlayed": 1,
+        "averagePoints": 143.62
+      },
+      {
+        "leagueName": "TORTURED PANTHERS DEPT",
+        "topScorer": "nc2okc1993",
+        "teamName": "Keep Pounding…Snacks",
+        "flexCount": 2,
+        "totalPoints": 143.38,
+        "weeksPlayed": 1,
+        "averagePoints": 143.38
+      },
+      {
+        "leagueName": "Life of a Joe Girl",
+        "topScorer": "mfetherman",
+        "teamName": "Its All-en The Hips",
+        "flexCount": 2,
+        "totalPoints": 142.66,
+        "weeksPlayed": 1,
+        "averagePoints": 142.66
+      },
+      {
+        "leagueName": "Baby Don't Hurts Me",
+        "topScorer": "castroL77",
+        "teamName": "HowAboutMomsTeam ",
+        "flexCount": 2,
+        "totalPoints": 142.42,
+        "weeksPlayed": 1,
+        "averagePoints": 142.42
+      },
+      {
+        "leagueName": "Baby Got DAK",
+        "topScorer": "ceedeesTDes",
+        "teamName": "CeedeesTDs",
+        "flexCount": 2,
+        "totalPoints": 142.28,
+        "weeksPlayed": 1,
+        "averagePoints": 142.28
+      },
+      {
+        "leagueName": "ALLEN TOO WELL",
+        "topScorer": "devonzlewis",
+        "teamName": "Purdy in Pink 🎀",
+        "flexCount": 2,
+        "totalPoints": 142.28,
+        "weeksPlayed": 1,
+        "averagePoints": 142.28
+      },
+      {
+        "leagueName": "Death by a Thousand Punts",
+        "topScorer": "amyannhill",
+        "teamName": "Madison bring me a Beer ",
+        "flexCount": 2,
+        "totalPoints": 139.62,
+        "weeksPlayed": 1,
+        "averagePoints": 139.62
+      },
+      {
+        "leagueName": "Turn Down for Watt",
+        "topScorer": "braccia37",
+        "teamName": "Watt’s the tea?☕️",
+        "flexCount": 2,
+        "totalPoints": 139.08,
+        "weeksPlayed": 1,
+        "averagePoints": 139.08
+      },
+      {
+        "leagueName": "NOTHING BEATS A JET(S) 2 HOLIDAY",
+        "topScorer": "sybianna",
+        "teamName": "cookies4keon",
+        "flexCount": 2,
+        "totalPoints": 138.96,
+        "weeksPlayed": 1,
+        "averagePoints": 138.96
+      },
+      {
+        "leagueName": "Herby Fully Loaded",
+        "topScorer": "Sammmyyy7",
+        "teamName": "Give your man a chuba",
+        "flexCount": 2,
+        "totalPoints": 137.38,
+        "weeksPlayed": 1,
+        "averagePoints": 137.38
+      },
+      {
+        "leagueName": "Super Ja'Marrio Brothers",
+        "topScorer": "annebandro23",
+        "teamName": "annebandro23",
+        "flexCount": 2,
+        "totalPoints": 136.82,
+        "weeksPlayed": 1,
+        "averagePoints": 136.82
+      },
+      {
+        "leagueName": "Karma",
+        "topScorer": "luvmiialwayz",
+        "teamName": "luvmiialwayz",
+        "flexCount": 2,
+        "totalPoints": 136.78,
+        "weeksPlayed": 1,
+        "averagePoints": 136.78
+      },
+      {
+        "leagueName": "Ball Too Well",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 2,
+        "totalPoints": 136.28,
+        "weeksPlayed": 1,
+        "averagePoints": 136.28
+      },
+      {
+        "leagueName": "Face Down Pass Rush",
+        "topScorer": "shelbs304",
+        "teamName": "La Tush Push",
+        "flexCount": 2,
+        "totalPoints": 134.06,
+        "weeksPlayed": 1,
+        "averagePoints": 134.06
+      },
+      {
+        "leagueName": "To Live for the Hutch of It All",
+        "topScorer": "missmallorie",
+        "teamName": "Popping Goff 🤘",
+        "flexCount": 2,
+        "totalPoints": 133.84,
+        "weeksPlayed": 1,
+        "averagePoints": 133.84
+      },
+      {
+        "leagueName": "All About That Pace",
+        "topScorer": "teenypie",
+        "teamName": "teenypie",
+        "flexCount": 2,
+        "totalPoints": 133.42,
+        "weeksPlayed": 1,
+        "averagePoints": 133.42
+      },
+      {
+        "leagueName": "Love Island USA",
+        "topScorer": "tashialexx",
+        "teamName": "RUN CMC",
+        "flexCount": 2,
+        "totalPoints": 132.5,
+        "weeksPlayed": 1,
+        "averagePoints": 132.5
+      },
+      {
+        "leagueName": "I Love You, but Goff My Lawn",
+        "topScorer": "mdpalmer16",
+        "teamName": "Kupp of Joe ",
+        "flexCount": 2,
+        "totalPoints": 131.82,
+        "weeksPlayed": 1,
+        "averagePoints": 131.82
+      },
+      {
+        "leagueName": "Seal Team Nix",
+        "topScorer": "Unknown",
+        "teamName": "Unknown",
+        "flexCount": 2,
+        "totalPoints": 131.12,
+        "weeksPlayed": 1,
+        "averagePoints": 131.12
+      },
+      {
+        "leagueName": "That's So Raven(s)",
+        "topScorer": "tiffnichole",
+        "teamName": "Back That Pass Up",
+        "flexCount": 2,
+        "totalPoints": 130.56,
+        "weeksPlayed": 1,
+        "averagePoints": 130.56
+      }
+    ],
+    "overallSeasonLeader": {
+      "leagueName": "Brock You LIke a Hurricante",
+      "topScorer": "thegamethepodcast",
+      "teamName": "thegamethepodcast",
+      "flexCount": 2,
+      "totalPoints": 183.16,
+      "weeksPlayed": 1,
+      "averagePoints": 183.16
+    },
+    "oneFlexSeasonLeader": {
+      "leagueName": "They CeeDee Rollin'",
+      "topScorer": "sarahswift05",
+      "teamName": "sacks in the city",
+      "flexCount": 1,
+      "totalPoints": 165.92,
+      "weeksPlayed": 1,
+      "averagePoints": 165.92
+    },
+    "twoFlexSeasonLeader": {
+      "leagueName": "Brock You LIke a Hurricante",
+      "topScorer": "thegamethepodcast",
+      "teamName": "thegamethepodcast",
+      "flexCount": 2,
+      "totalPoints": 183.16,
+      "weeksPlayed": 1,
+      "averagePoints": 183.16
+    },
+    "totalWeeks": 1,
+    "oneFlexCount": 48,
+    "twoFlexCount": 58
   }
 }
