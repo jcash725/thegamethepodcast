@@ -1139,7 +1139,7 @@ function generateTabbedHTML(allData) {
     
     <footer class="footer">
       <p>Data powered by Sleeper API</p>
-      <p>Last site update: ${allData.lastUpdated}</p>
+      <p>Last site update: <span id="last-updated">${allData.lastUpdated}</span></p>
     </footer>
   </div>
 
@@ -1162,6 +1162,15 @@ function generateTabbedHTML(allData) {
       // Add active class to selected tab button
       event.target.classList.add('active');
     }
+
+    // Convert UTC timestamp to local time
+    document.addEventListener('DOMContentLoaded', function() {
+      const lastUpdatedElement = document.getElementById('last-updated');
+      if (lastUpdatedElement) {
+        const utcTime = new Date(lastUpdatedElement.textContent);
+        lastUpdatedElement.textContent = utcTime.toLocaleString();
+      }
+    });
   </script>
 </body>
 </html>`;
@@ -1185,7 +1194,7 @@ async function main() {
     
     // Update season leaders efficiently using existing data
     allData.seasonLeaders = updateSeasonLeaders(allData.weeks);
-    allData.lastUpdated = new Date().toLocaleString();
+    allData.lastUpdated = new Date().toISOString();
     
     // Save updated data
     saveWeeklyData(allData);
