@@ -257,7 +257,7 @@ function generateTabbedHTML(allData) {
     // Generate 1-flex league content
     const oneFlexRows = (weekData.oneFlexLeagues || []).map((league, index) => `
       <tr class="${index === 0 ? 'top-scorer' : ''}">
-        <td>${index + 1}</td>
+        <td><div class="rank-circle">${index + 1}</div></td>
         <td>${league.leagueName}</td>
         <td>
           <div class="scorer-info">
@@ -286,7 +286,7 @@ function generateTabbedHTML(allData) {
     // Generate 2-flex league content
     const twoFlexRows = (weekData.twoFlexLeagues || []).map((league, index) => `
       <tr class="${index === 0 ? 'top-scorer' : ''}">
-        <td>${index + 1}</td>
+        <td><div class="rank-circle">${index + 1}</div></td>
         <td>${league.leagueName}</td>
         <td>
           <div class="scorer-info">
@@ -437,7 +437,7 @@ function generateTabbedHTML(allData) {
   
   const seasonOneFlexRows = seasonLeaders.oneFlexUsers.map((user, index) => `
     <tr class="${index === 0 ? 'top-scorer' : ''}">
-      <td>${index + 1}</td>
+      <td><div class="rank-circle">${index + 1}</div></td>
       <td>${user.leagueName}</td>
       <td>
         <div class="scorer-info">
@@ -469,7 +469,7 @@ function generateTabbedHTML(allData) {
 
   const seasonTwoFlexRows = seasonLeaders.twoFlexUsers.map((user, index) => `
     <tr class="${index === 0 ? 'top-scorer' : ''}">
-      <td>${index + 1}</td>
+      <td><div class="rank-circle">${index + 1}</div></td>
       <td>${user.leagueName}</td>
       <td>
         <div class="scorer-info">
@@ -622,10 +622,28 @@ function generateTabbedHTML(allData) {
     }
     
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #1a365d 0%, #2d4a66 100%);
+      font-family: 'Bebas Neue', 'Arial Black', sans-serif;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        linear-gradient(45deg, #2E7D32 0%, #4CAF50 25%, #388E3C 50%, #2E7D32 75%, #1B5E20 100%);
       min-height: 100vh;
       color: #333;
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        repeating-linear-gradient(90deg, transparent 0px, transparent 49px, rgba(255,255,255,0.1) 50px, rgba(255,255,255,0.1) 51px),
+        radial-gradient(ellipse at top, rgba(255,255,255,0.2) 0%, transparent 70%);
+      z-index: -1;
     }
     
     .container {
@@ -638,17 +656,46 @@ function generateTabbedHTML(allData) {
       text-align: center;
       color: white;
       margin-bottom: 30px;
+      padding: 40px 0;
     }
     
-    .header h1 {
-      font-size: 3rem;
+    .game-logo {
+      margin-bottom: 20px;
+    }
+    
+    .game-logo .stars {
+      font-size: 1.5rem;
+      color: #FFD700;
       margin-bottom: 10px;
+    }
+    
+    .game-logo .the-game {
+      font-size: 3.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+      margin-bottom: 10px;
+    }
+    
+    .game-logo .the-text {
+      color: #1976D2;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
     
-    .header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
+    .game-logo .game-text {
+      color: #DC143C;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .leaderboard-title {
+      font-size: 4rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      color: #1a365d;
+      text-shadow: 3px 3px 0px rgba(255,255,255,0.8);
+      margin-bottom: 20px;
     }
     
     .tabs {
@@ -741,62 +788,101 @@ function generateTabbedHTML(allData) {
     }
     
     .league-table {
-      background: white;
-      border-radius: 15px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
       margin-bottom: 30px;
+      backdrop-filter: blur(10px);
     }
     
     .table-header {
-      background: #1a365d;
-      color: white;
-      padding: 20px;
+      background: transparent;
+      color: #1a365d;
+      padding: 30px 20px 10px;
       text-align: center;
     }
     
     .table-header h3 {
-      font-size: 1.5rem;
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0;
     }
     
     table {
       width: 100%;
-      border-collapse: collapse;
+      border-collapse: separate;
+      border-spacing: 0;
     }
     
     thead {
-      background: #2d4a66;
-      color: white;
+      background: transparent;
+      color: #1a365d;
     }
     
     th {
-      padding: 15px;
+      padding: 20px 25px;
       text-align: left;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 2px solid #1a365d;
     }
     
-    th:last-child, td:last-child {
+    th:first-child {
+      width: 80px;
       text-align: center;
     }
     
-    tbody tr:nth-child(even) {
-      background: #f8f9fa;
+    th:last-child {
+      text-align: center;
+      width: 100px;
+    }
+    
+    tbody tr {
+      background: rgba(255,255,255,0.9);
+      border-bottom: 1px solid rgba(26, 54, 93, 0.1);
     }
     
     tbody tr:hover {
-      background: #e9ecef;
-      transition: background 0.3s ease;
+      background: rgba(255,255,255,1);
+      transform: scale(1.02);
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
     
     td {
-      padding: 12px 15px;
-      border-bottom: 1px solid #dee2e6;
+      padding: 20px 25px;
+      vertical-align: middle;
+    }
+    
+    td:first-child {
+      text-align: center;
+    }
+    
+    .rank-circle {
+      width: 50px;
+      height: 50px;
+      background: #1a365d;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin: 0 auto;
+      box-shadow: 0 4px 10px rgba(26, 54, 93, 0.3);
     }
     
     .points {
-      font-weight: bold;
-      color: #DC143C;
-      font-size: 1.1rem;
+      font-weight: 900;
+      color: #1a365d;
+      font-size: 1.8rem;
+      text-align: center;
     }
     
     .top-scorer {
@@ -866,8 +952,28 @@ function generateTabbedHTML(allData) {
     .footer {
       text-align: center;
       color: white;
-      margin-top: 30px;
-      opacity: 0.8;
+      margin-top: 50px;
+      padding: 40px 0;
+      position: relative;
+    }
+    
+    .fantasy-footer {
+      font-size: 3rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, #FFD700, #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .footer-subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 10px;
     }
     
     /* Season leaders styling */
@@ -1125,9 +1231,21 @@ function generateTabbedHTML(allData) {
 </head>
 <body>
   <div class="container">
+    <!-- Top Image -->
+    <div class="top-image-container">
+      <img src="top-image.jpg" alt="The Game Logo" class="top-image" />
+    </div>
+    
     <header class="header">
-      <h1>🏈 Fantasy Football Scoreboard</h1>
-      <p>Season Results for ${latestData?.userName || USERNAME}</p>
+      <div class="game-logo">
+        <div class="stars">★★ </div>
+        <div class="the-game">
+          <span class="the-text">THE</span>
+          <span class="game-text">GAME</span>
+        </div>
+        <div class="stars"> ★★</div>
+      </div>
+      <div class="leaderboard-title">LEADERBOARD</div>
     </header>
     
     <div class="tabs">
@@ -1138,6 +1256,8 @@ function generateTabbedHTML(allData) {
     ${seasonTabContent}
     
     <footer class="footer">
+      <div class="fantasy-footer">LIVING IN A FANTASY</div>
+      <p class="footer-subtitle">NFL FANTASY FOR THE GIRLS</p>
       <p>Data powered by Sleeper API</p>
       <p>Last site update: <span id="last-updated">${allData.lastUpdated}</span></p>
     </footer>
