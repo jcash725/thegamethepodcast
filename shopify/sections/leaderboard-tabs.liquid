@@ -1,0 +1,195 @@
+{% comment %}
+  Leaderboard Tabs Section with Data Tables
+{% endcomment %}
+
+<div class="container">
+  <!-- 1-Flex Leaderboard -->
+  <div id="oneflex" class="tab-content active">
+    <div class="leaderboard-section">
+      <div class="league-table">
+        <table>
+          <thead>
+            <tr>
+              <th>{{ section.settings.header_rank | default: 'NO' }}</th>
+              <th>{{ section.settings.header_team | default: 'TEAM' }}</th>
+              <th>{{ section.settings.header_league | default: 'LEAGUE' }}</th>
+              <th>{{ section.settings.header_points | default: 'PTS' }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for block in section.blocks %}
+              {% if block.settings.flex_type == '1-flex' %}
+                <tr class="{{ block.settings.row_class }}">
+                  <td><div class="rank-circle">{{ block.settings.rank }}</div></td>
+                  <td class="team-cell">
+                    <div class="team-name">{{ block.settings.team_name }}</div>
+                    <div class="username">@{{ block.settings.username }}</div>
+                  </td>
+                  <td class="league-cell">
+                    <div class="league-name">{{ block.settings.league_name }}</div>
+                  </td>
+                  <td class="points-cell">
+                    <div class="total-points">{{ block.settings.points }}</div>
+                  </td>
+                </tr>
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 2-Flex Leaderboard -->
+  <div id="twoflex" class="tab-content">
+    <div class="leaderboard-section">
+      <div class="league-table">
+        <table>
+          <thead>
+            <tr>
+              <th>{{ section.settings.header_rank | default: 'NO' }}</th>
+              <th>{{ section.settings.header_team | default: 'TEAM' }}</th>
+              <th>{{ section.settings.header_league | default: 'LEAGUE' }}</th>
+              <th>{{ section.settings.header_points | default: 'PTS' }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for block in section.blocks %}
+              {% if block.settings.flex_type == '2-flex' %}
+                <tr class="{{ block.settings.row_class }}">
+                  <td><div class="rank-circle">{{ block.settings.rank }}</div></td>
+                  <td class="team-cell">
+                    <div class="team-name">{{ block.settings.team_name }}</div>
+                    <div class="username">@{{ block.settings.username }}</div>
+                  </td>
+                  <td class="league-cell">
+                    <div class="league-name">{{ block.settings.league_name }}</div>
+                  </td>
+                  <td class="points-cell">
+                    <div class="total-points">{{ block.settings.points }}</div>
+                  </td>
+                </tr>
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    {% if section.settings.footer_image %}
+      <img src="{{ section.settings.footer_image | image_url }}" alt="living in fantasy" class="top-image" />
+    {% else %}
+      <img src="{{ 'living-in-fantasy.png' | asset_url }}" alt="living in fantasy" class="top-image" />
+    {% endif %}
+
+    <p style="font-size: 0.9rem; opacity: 0.8;">{{ section.settings.update_text | default: 'Updated:' }} {{ 'now' | date: '%B %d, %Y at %I:%M %p' }}</p>
+  </footer>
+</div>
+
+{% schema %}
+{
+  "name": "Leaderboard Tabs",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Table Headers"
+    },
+    {
+      "type": "text",
+      "id": "header_rank",
+      "label": "Rank Header",
+      "default": "NO"
+    },
+    {
+      "type": "text", 
+      "id": "header_team",
+      "label": "Team Header",
+      "default": "TEAM"
+    },
+    {
+      "type": "text",
+      "id": "header_league", 
+      "label": "League Header",
+      "default": "LEAGUE"
+    },
+    {
+      "type": "text",
+      "id": "header_points",
+      "label": "Points Header", 
+      "default": "PTS"
+    },
+    {
+      "type": "header",
+      "content": "Footer Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "footer_image",
+      "label": "Footer Image"
+    },
+    {
+      "type": "text",
+      "id": "update_text",
+      "label": "Update Text",
+      "default": "Updated:"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "leaderboard_entry",
+      "name": "Leaderboard Entry",
+      "settings": [
+        {
+          "type": "select",
+          "id": "flex_type",
+          "label": "Flex Type",
+          "options": [
+            { "value": "1-flex", "label": "1-Flex" },
+            { "value": "2-flex", "label": "2-Flex" }
+          ],
+          "default": "1-flex"
+        },
+        {
+          "type": "number",
+          "id": "rank",
+          "label": "Rank",
+          "default": 1
+        },
+        {
+          "type": "text",
+          "id": "team_name",
+          "label": "Team Name"
+        },
+        {
+          "type": "text", 
+          "id": "username",
+          "label": "Username"
+        },
+        {
+          "type": "text",
+          "id": "league_name",
+          "label": "League Name"
+        },
+        {
+          "type": "text",
+          "id": "points",
+          "label": "Points"
+        },
+        {
+          "type": "select",
+          "id": "row_class",
+          "label": "Row Style",
+          "options": [
+            { "value": "", "label": "Default" },
+            { "value": "champion", "label": "Champion" },
+            { "value": "podium", "label": "Podium" }
+          ],
+          "default": ""
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -20,8 +20,8 @@ async function getTopScorersForWeek(week = 1, existingFlexSettings = {}) {
     const flexSettings = { ...existingFlexSettings };
     
     const leagueResults = [];
-    const oneFlexLeagues = [];
-    const twoFlexLeagues = [];
+    let oneFlexLeagues = [];
+    let twoFlexLeagues = [];
     let overallTopScore = 0;
     let overallTopScorer = null;
     let overallTopLeague = null;
@@ -132,10 +132,14 @@ async function getTopScorersForWeek(week = 1, existingFlexSettings = {}) {
       await api.delay(100);
     }
     
-    // Sort leagues by top score descending
+    // Sort leagues by top score descending and limit to top 10
     leagueResults.sort((a, b) => b.topScore - a.topScore);
     oneFlexLeagues.sort((a, b) => b.topScore - a.topScore);
     twoFlexLeagues.sort((a, b) => b.topScore - a.topScore);
+    
+    // Limit to top 10 for each category for display/storage
+    oneFlexLeagues = oneFlexLeagues.slice(0, 10);
+    twoFlexLeagues = twoFlexLeagues.slice(0, 10);
     
     return {
       week,
@@ -212,10 +216,10 @@ function updateSeasonLeaders(weeks) {
     });
   });
   
-  // Convert to arrays and separate by flex count
+  // Convert to arrays and separate by flex count, limit to top 10
   const allUsers = Object.values(userTotals).sort((a, b) => b.totalPoints - a.totalPoints);
-  const oneFlexUsers = allUsers.filter(user => user.flexCount === 1);
-  const twoFlexUsers = allUsers.filter(user => user.flexCount === 2);
+  const oneFlexUsers = allUsers.filter(user => user.flexCount === 1).slice(0, 10);
+  const twoFlexUsers = allUsers.filter(user => user.flexCount === 2).slice(0, 10);
   
   return {
     allUsers,

@@ -1,0 +1,360 @@
+{% comment %}
+  Complete Dynamic Leaderboard Section
+  Structure: Weekly tabs -> 1-Flex/2-Flex categories -> Season Leaders
+  Uses JSON data or metafields for automatic updates
+{% endcomment %}
+
+{{ 'leaderboard.css' | asset_url | stylesheet_tag }}
+
+<div class="container">
+  <header class="header">
+    <div class="top-image-container">
+      <img src="{{ 'thegame_logo.png' | asset_url }}" alt="The Game Header" class="top-image" />
+    </div>
+    
+    <!-- Weekly Tabs -->
+    <div class="tabs">
+      {% for i in (1..section.settings.total_weeks) %}
+        <button class="tab-button {% if i == section.settings.active_week %}active{% endif %}" onclick="showWeek({{ i }})">Week {{ i }}</button>
+      {% endfor %}
+      <button class="tab-button" onclick="showWeek('season')">Season Leaders</button>
+    </div>
+
+    <div class="season-title">LEADERBOARD</div>
+  </header>
+
+  <!-- Weekly Content -->
+  {% for week in (1..section.settings.total_weeks) %}
+    <div id="week{{ week }}" class="week-content {% if week == section.settings.active_week %}active{% endif %}">
+      
+      <!-- Category tabs for this week -->
+      <div class="category-tabs">
+        <button class="category-tab-button active" onclick="showCategory({{ week }}, 'oneflex')">1-Flex Leagues</button>
+        <button class="category-tab-button" onclick="showCategory({{ week }}, 'twoflex')">2-Flex Leagues</button>
+      </div>
+
+      <!-- 1-Flex content for this week -->
+      <div id="week{{ week }}-oneflex" class="category-content active">
+        <div class="leaderboard-section">
+          <div class="league-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>NO</th>
+                  <th>TEAM</th>
+                  <th>LEAGUE</th>
+                  <th>PTS</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% comment %}
+                  Replace with your actual data source
+                  Example: {% assign week_data = page.metafields.leaderboard['week_' | append: week].value %}
+                {% endcomment %}
+                
+                {% assign sample_week_oneflex = '
+                [
+                  {"rank": 1, "team_name": "They CeeDee Rollin", "username": "thegamethepodcast", "league_name": "Hawk Tua", "points": "161.60"},
+                  {"rank": 2, "team_name": "For the Sourdough of it All", "username": "thegamethepodcast", "league_name": "Brock You LIke a Hurricante", "points": "158.06"},
+                  {"rank": 3, "team_name": "Gronkey Kong", "username": "kelseycarlson91", "league_name": "Allen\'s Avengers", "points": "157.36"}
+                ]' | parse_json %}
+                
+                {% for entry in sample_week_oneflex limit: 10 %}
+                  <tr class="{% if forloop.first %}champion{% elsif forloop.index <= 3 %}podium{% endif %}">
+                    <td><div class="rank-circle">{{ entry.rank }}</div></td>
+                    <td class="team-cell">
+                      <div class="team-name">{{ entry.team_name }}</div>
+                      <div class="username">@{{ entry.username }}</div>
+                    </td>
+                    <td class="league-cell">
+                      <div class="league-name">{{ entry.league_name }}</div>
+                    </td>
+                    <td class="points-cell">
+                      <div class="total-points">{{ entry.points }}</div>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2-Flex content for this week -->
+      <div id="week{{ week }}-twoflex" class="category-content">
+        <div class="leaderboard-section">
+          <div class="league-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>NO</th>
+                  <th>TEAM</th>
+                  <th>LEAGUE</th>
+                  <th>PTS</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% assign sample_week_twoflex = '
+                [
+                  {"rank": 1, "team_name": "thegamethepodcast", "username": "thegamethepodcast", "league_name": "Brock You LIke a Hurricante", "points": "187.66"},
+                  {"rank": 2, "team_name": "For the Sourdough of it All", "username": "thegamethepodcast", "league_name": "Brock You LIke a Hurricante", "points": "158.06"},
+                  {"rank": 3, "team_name": "Breaking the Glass Steeling", "username": "i love burrowritos", "league_name": "i love burrowritos", "points": "156.18"}
+                ]' | parse_json %}
+                
+                {% for entry in sample_week_twoflex limit: 10 %}
+                  <tr class="{% if forloop.first %}champion{% elsif forloop.index <= 3 %}podium{% endif %}">
+                    <td><div class="rank-circle">{{ entry.rank }}</div></td>
+                    <td class="team-cell">
+                      <div class="team-name">{{ entry.team_name }}</div>
+                      <div class="username">@{{ entry.username }}</div>
+                    </td>
+                    <td class="league-cell">
+                      <div class="league-name">{{ entry.league_name }}</div>
+                    </td>
+                    <td class="points-cell">
+                      <div class="total-points">{{ entry.points }}</div>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  {% endfor %}
+
+  <!-- Season Leaders Content -->
+  <div id="weekseason" class="week-content">
+    
+    <!-- Category tabs for season -->
+    <div class="category-tabs">
+      <button class="category-tab-button active" onclick="showCategory('season', 'oneflex')">1-Flex Season Leaders</button>
+      <button class="category-tab-button" onclick="showCategory('season', 'twoflex')">2-Flex Season Leaders</button>
+    </div>
+
+    <!-- 1-Flex Season Leaders -->
+    <div id="weekseason-oneflex" class="category-content active">
+      <div class="leaderboard-section">
+        <div class="league-table">
+          <table>
+            <thead>
+              <tr>
+                <th>NO</th>
+                <th>TEAM</th>
+                <th>LEAGUE</th>
+                <th>TOTAL PTS</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% assign sample_season_oneflex = '
+              [
+                {"rank": 1, "team_name": "They CeeDee Rollin", "username": "thegamethepodcast", "league_name": "Hawk Tua", "points": "161.60"},
+                {"rank": 2, "team_name": "For the Sourdough of it All", "username": "thegamethepodcast", "league_name": "Brock You LIke a Hurricante", "points": "158.06"},
+                {"rank": 3, "team_name": "Gronkey Kong", "username": "kelseycarlson91", "league_name": "Allen\'s Avengers", "points": "157.36"}
+              ]' | parse_json %}
+              
+              {% for entry in sample_season_oneflex limit: 10 %}
+                <tr class="{% if forloop.first %}champion{% elsif forloop.index <= 3 %}podium{% endif %}">
+                  <td><div class="rank-circle">{{ entry.rank }}</div></td>
+                  <td class="team-cell">
+                    <div class="team-name">{{ entry.team_name }}</div>
+                    <div class="username">@{{ entry.username }}</div>
+                  </td>
+                  <td class="league-cell">
+                    <div class="league-name">{{ entry.league_name }}</div>
+                  </td>
+                  <td class="points-cell">
+                    <div class="total-points">{{ entry.points }}</div>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2-Flex Season Leaders -->
+    <div id="weekseason-twoflex" class="category-content">
+      <div class="leaderboard-section">
+        <div class="league-table">
+          <table>
+            <thead>
+              <tr>
+                <th>NO</th>
+                <th>TEAM</th>
+                <th>LEAGUE</th>
+                <th>TOTAL PTS</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% assign sample_season_twoflex = '
+              [
+                {"rank": 1, "team_name": "thegamethepodcast", "username": "thegamethepodcast", "league_name": "Brock You LIke a Hurricante", "points": "187.66"},
+                {"rank": 2, "team_name": "For the Sourdough of it All", "username": "thegamethepodcast", "league_name": "Brock You LIke a Hurricante", "points": "158.06"},
+                {"rank": 3, "team_name": "Breaking the Glass Steeling", "username": "i love burrowritos", "league_name": "i love burrowritos", "points": "156.18"}
+              ]' | parse_json %}
+              
+              {% for entry in sample_season_twoflex limit: 10 %}
+                <tr class="{% if forloop.first %}champion{% elsif forloop.index <= 3 %}podium{% endif %}">
+                  <td><div class="rank-circle">{{ entry.rank }}</div></td>
+                  <td class="team-cell">
+                    <div class="team-name">{{ entry.team_name }}</div>
+                    <div class="username">@{{ entry.username }}</div>
+                  </td>
+                  <td class="league-cell">
+                    <div class="league-name">{{ entry.league_name }}</div>
+                  </td>
+                  <td class="points-cell">
+                    <div class="total-points">{{ entry.points }}</div>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+  <footer class="footer">
+    <img src="{{ 'living-in-fantasy.png' | asset_url }}" alt="living in fantasy" class="top-image" />
+    <p style="font-size: 0.9rem; opacity: 0.8;">Updated: {{ 'now' | date: '%B %d, %Y at %I:%M %p' }}</p>
+  </footer>
+</div>
+
+<style>
+  /* Additional styles for nested tabs */
+  .week-content {
+    display: none;
+  }
+  
+  .week-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .category-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px;
+    border-radius: 8px;
+    justify-content: center;
+  }
+  
+  .category-tab-button {
+    background: rgba(26, 54, 93, 0.7);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+  }
+  
+  .category-tab-button:hover {
+    background: rgba(45, 74, 102, 0.8);
+    transform: translateY(-1px);
+  }
+  
+  .category-tab-button.active {
+    background: linear-gradient(135deg, #DC143C, #B91C1C);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(220, 20, 60, 0.3);
+  }
+  
+  .category-content {
+    display: none;
+  }
+  
+  .category-content.active {
+    display: block;
+  }
+
+  /* Mobile styles for category tabs */
+  @media (max-width: 768px) {
+    .category-tab-button {
+      font-size: 0.8rem;
+      padding: 6px 12px;
+    }
+  }
+</style>
+
+<script>
+  function showWeek(week) {
+    // Hide all week contents
+    document.querySelectorAll('.week-content').forEach(content => {
+      content.classList.remove('active');
+    });
+    
+    // Remove active class from all tab buttons
+    document.querySelectorAll('.tab-button').forEach(button => {
+      button.classList.remove('active');
+    });
+    
+    // Show selected week content
+    document.getElementById('week' + week).classList.add('active');
+    
+    // Add active class to selected tab button
+    event.target.classList.add('active');
+    
+    // Show default category (1-flex) for the selected week
+    showCategory(week, 'oneflex');
+  }
+  
+  function showCategory(week, category) {
+    // Hide all category contents for this week
+    document.querySelectorAll(`#week${week}-oneflex, #week${week}-twoflex`).forEach(content => {
+      content.classList.remove('active');
+    });
+    
+    // Remove active class from category tab buttons in the active week
+    document.querySelector('#week' + week + ' .category-tabs').querySelectorAll('.category-tab-button').forEach(button => {
+      button.classList.remove('active');
+    });
+    
+    // Show selected category content
+    document.getElementById(`week${week}-${category}`).classList.add('active');
+    
+    // Add active class to selected category button
+    event.target.classList.add('active');
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Complete Dynamic Leaderboard",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Week Settings"
+    },
+    {
+      "type": "number",
+      "id": "total_weeks",
+      "label": "Total Weeks",
+      "default": 1
+    },
+    {
+      "type": "number",
+      "id": "active_week",
+      "label": "Active Week (Default)",
+      "default": 1
+    },
+    {
+      "type": "paragraph",
+      "content": "This section displays leaderboard data dynamically. Update the Liquid code to connect to your data source (metafields, external API, etc.)"
+    }
+  ]
+}
+{% endschema %}

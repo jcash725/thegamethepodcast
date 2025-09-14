@@ -1,0 +1,75 @@
+{% comment %}
+  Leaderboard Hero Section
+{% endcomment %}
+
+{{ 'leaderboard.css' | asset_url | stylesheet_tag }}
+
+<div class="container">
+  <header class="header">
+    <div class="top-image-container">
+      {% if section.settings.header_image %}
+        <img src="{{ section.settings.header_image | image_url }}" alt="The Game Header" class="top-image" />
+      {% else %}
+        <img src="{{ 'thegame_logo.png' | asset_url }}" alt="The Game Header" class="top-image" />
+      {% endif %}
+    </div>
+    
+    <div class="tabs">
+      <button class="tab-button active" onclick="showTab('oneflex')">{{ section.settings.tab_1_text | default: '1-Flex Champions' }}</button>
+      <button class="tab-button" onclick="showTab('twoflex')">{{ section.settings.tab_2_text | default: '2-Flex Champions' }}</button>
+    </div>
+
+    <div class="season-title">{{ section.settings.title | default: 'LEADERBOARD' }}</div>
+  </header>
+</div>
+
+<script>
+  function showTab(tabName) {
+    // Hide all tab contents
+    document.querySelectorAll('.tab-content').forEach(content => {
+      content.classList.remove('active');
+    });
+    
+    // Remove active class from all tab buttons
+    document.querySelectorAll('.tab-button').forEach(button => {
+      button.classList.remove('active');
+    });
+    
+    // Show selected tab content
+    document.getElementById(tabName).classList.add('active');
+    
+    // Add active class to selected tab button
+    event.target.classList.add('active');
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Leaderboard Hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "header_image",
+      "label": "Header Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Page Title",
+      "default": "LEADERBOARD"
+    },
+    {
+      "type": "text",
+      "id": "tab_1_text",
+      "label": "Tab 1 Text",
+      "default": "1-Flex Champions"
+    },
+    {
+      "type": "text",
+      "id": "tab_2_text",
+      "label": "Tab 2 Text", 
+      "default": "2-Flex Champions"
+    }
+  ]
+}
+{% endschema %}

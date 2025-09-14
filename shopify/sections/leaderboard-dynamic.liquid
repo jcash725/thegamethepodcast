@@ -1,0 +1,112 @@
+{% comment %}
+  Dynamic Leaderboard Section - Uses metafields or API data
+{% endcomment %}
+
+<div class="container">
+  <!-- 1-Flex Leaderboard -->
+  <div id="oneflex" class="tab-content active">
+    <div class="leaderboard-section">
+      <div class="league-table">
+        <table>
+          <thead>
+            <tr>
+              <th>NO</th>
+              <th>TEAM</th>
+              <th>LEAGUE</th>
+              <th>PTS</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% comment %}
+              Replace this with your actual data source
+              Example using page metafields:
+              {% assign oneflex_data = page.metafields.leaderboard.oneflex_users.value %}
+            {% endcomment %}
+            
+            {% assign sample_oneflex = '
+            [
+              {"rank": 1, "team_name": "They CeeDee Rollin", "username": "thegamethepodcast", "league_name": "Hawk Tua", "points": "161.60"},
+              {"rank": 2, "team_name": "For the Sourdough of it All", "username": "thegamethepodcast", "league_name": "Brock You LIke a Hurricante", "points": "158.06"},
+              {"rank": 3, "team_name": "Gronkey Kong", "username": "kelseycarlson91", "league_name": "Allen\'s Avengers", "points": "157.36"}
+            ]' | parse_json %}
+            
+            {% for entry in sample_oneflex limit: 10 %}
+              <tr class="{% if forloop.first %}champion{% elsif forloop.index <= 3 %}podium{% endif %}">
+                <td><div class="rank-circle">{{ entry.rank }}</div></td>
+                <td class="team-cell">
+                  <div class="team-name">{{ entry.team_name }}</div>
+                  <div class="username">@{{ entry.username }}</div>
+                </td>
+                <td class="league-cell">
+                  <div class="league-name">{{ entry.league_name }}</div>
+                </td>
+                <td class="points-cell">
+                  <div class="total-points">{{ entry.points }}</div>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 2-Flex Leaderboard -->
+  <div id="twoflex" class="tab-content">
+    <div class="leaderboard-section">
+      <div class="league-table">
+        <table>
+          <thead>
+            <tr>
+              <th>NO</th>
+              <th>TEAM</th>
+              <th>LEAGUE</th>
+              <th>PTS</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% assign sample_twoflex = '
+            [
+              {"rank": 1, "team_name": "thegamethepodcast", "username": "thegamethepodcast", "league_name": "Brock You LIke a Hurricante", "points": "187.66"},
+              {"rank": 2, "team_name": "For the Sourdough of it All", "username": "thegamethepodcast", "league_name": "Brock You LIke a Hurricante", "points": "158.06"},
+              {"rank": 3, "team_name": "Breaking the Glass Steeling", "username": "i love burrowritos", "league_name": "i love burrowritos", "points": "156.18"}
+            ]' | parse_json %}
+            
+            {% for entry in sample_twoflex limit: 10 %}
+              <tr class="{% if forloop.first %}champion{% elsif forloop.index <= 3 %}podium{% endif %}">
+                <td><div class="rank-circle">{{ entry.rank }}</div></td>
+                <td class="team-cell">
+                  <div class="team-name">{{ entry.team_name }}</div>
+                  <div class="username">@{{ entry.username }}</div>
+                </td>
+                <td class="league-cell">
+                  <div class="league-name">{{ entry.league_name }}</div>
+                </td>
+                <td class="points-cell">
+                  <div class="total-points">{{ entry.points }}</div>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <img src="{{ 'living-in-fantasy.png' | asset_url }}" alt="living in fantasy" class="top-image" />
+    <p style="font-size: 0.9rem; opacity: 0.8;">Updated: {{ 'now' | date: '%B %d, %Y at %I:%M %p' }}</p>
+  </footer>
+</div>
+
+{% schema %}
+{
+  "name": "Dynamic Leaderboard",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "This section displays leaderboard data dynamically. Update the Liquid code to connect to your data source (metafields, external API, etc.)"
+    }
+  ]
+}
+{% endschema %}

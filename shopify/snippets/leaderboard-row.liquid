@@ -1,0 +1,27 @@
+{% comment %}
+  Reusable leaderboard row snippet
+  
+  Usage:
+  {% render 'leaderboard-row', 
+    rank: 1, 
+    team_name: 'Team Name', 
+    username: 'username', 
+    league_name: 'League Name', 
+    points: '150.25',
+    row_class: 'champion' 
+  %}
+{% endcomment %}
+
+<tr class="{{ row_class }}">
+  <td><div class="rank-circle">{{ rank }}</div></td>
+  <td class="team-cell">
+    <div class="team-name">{{ team_name }}</div>
+    <div class="username">@{{ username }}</div>
+  </td>
+  <td class="league-cell">
+    <div class="league-name">{{ league_name }}</div>
+  </td>
+  <td class="points-cell">
+    <div class="total-points">{{ points }}</div>
+  </td>
+</tr>
