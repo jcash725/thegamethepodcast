@@ -84,7 +84,7 @@ function generateShopifyHTML(seasonLeaders) {
     
     body {
       font-family: Montserrat, 'Arial Black', sans-serif;
-      background: url('field-bg.png') center center / cover no-repeat;
+      background: url('thegame-field-bg.png') center center / cover no-repeat;
       min-height: 100vh;
       color: #333;
       position: relative;
@@ -504,7 +504,7 @@ function generateShopifyHTML(seasonLeaders) {
   <div class="container">
     <header class="header">
       <div class="top-image-container">
-        <img src="thegame_logo.png" alt="The Game Header" class="top-image" />
+        <img src="thegame-thegame_logo.png" alt="The Game Header" class="top-image" />
       </div>
       
  <div class="tabs">
@@ -560,7 +560,7 @@ function generateShopifyHTML(seasonLeaders) {
     </div>
     
     <footer class="footer">
-      <img src="living-in-fantasy.png" alt="living in fantasy" class="top-image" />
+      <img src="thegame-living-in-fantasy.png" alt="living in fantasy" class="top-image" />
 
       <p style="font-size: 0.9rem; opacity: 0.8;">Updated: ${new Date().toLocaleString()}</p>
     </footer>

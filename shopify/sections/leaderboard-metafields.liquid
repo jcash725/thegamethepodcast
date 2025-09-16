@@ -3,7 +3,7 @@
   Update weekly by uploading new JSON data to page metafields
 {% endcomment %}
 
-{{ 'leaderboard.css' | asset_url | stylesheet_tag }}
+{{ 'thegame-leaderboard.css' | asset_url | stylesheet_tag }}
 
 {% comment %} Get data from page metafields {% endcomment %}
 {% assign weeks_data = page.metafields.leaderboard.weeks_data.value %}
@@ -17,7 +17,7 @@
 <div class="container">
   <header class="header">
     <div class="top-image-container">
-      <img src="{{ 'thegame_logo.png' | asset_url }}" alt="The Game Header" class="top-image" />
+      <img src="{{ 'thegame-thegame_logo.png' | asset_url }}" alt="The Game Header" class="top-image" />
     </div>
     
     <!-- Weekly Tabs -->
@@ -207,7 +207,7 @@
   </div>
   
   <footer class="footer">
-    <img src="{{ 'living-in-fantasy.png' | asset_url }}" alt="living in fantasy" class="top-image" />
+    <img src="{{ 'thegame-living-in-fantasy.png' | asset_url }}" alt="living in fantasy" class="top-image" />
     <p style="font-size: 0.9rem; opacity: 0.8;">Updated: {{ settings.last_updated | default: 'now' | date: '%B %d, %Y at %I:%M %p' }}</p>
   </footer>
 </div>

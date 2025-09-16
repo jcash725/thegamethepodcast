@@ -18,8 +18,7 @@ async function getTopScorersForWeek(week = 1, existingFlexSettings = {}) {
     console.log(`Found ${leagues.length} leagues\n`);
     
     const flexSettings = { ...existingFlexSettings };
-    
-    const leagueResults = [];
+
     let oneFlexLeagues = [];
     let twoFlexLeagues = [];
     let overallTopScore = 0;
@@ -119,21 +118,12 @@ async function getTopScorersForWeek(week = 1, existingFlexSettings = {}) {
           flexCount: 2
         });
       }
-      
-      leagueResults.push({
-        leagueName: league.name,
-        topScorer: topScorer?.display_name || 'Unknown',
-        teamName: topScorer?.teamName || 'No Team Name',
-        topScore: topScore,
-        flexCount: flexCount
-      });
-      
+
       console.log(`  Top scorer: ${topScorer?.display_name || 'Unknown'} with ${topScore} points`);
       await api.delay(100);
     }
     
     // Sort leagues by top score descending and limit to top 10
-    leagueResults.sort((a, b) => b.topScore - a.topScore);
     oneFlexLeagues.sort((a, b) => b.topScore - a.topScore);
     twoFlexLeagues.sort((a, b) => b.topScore - a.topScore);
     
@@ -144,7 +134,6 @@ async function getTopScorersForWeek(week = 1, existingFlexSettings = {}) {
     return {
       week,
       userName: user.display_name,
-      leagueResults,
       oneFlexLeagues,
       twoFlexLeagues,
       overallTopScorer: {
@@ -195,9 +184,12 @@ function updateSeasonLeaders(weeks) {
   
   // Process all weeks to accumulate points per user per league
   Object.values(weeks).forEach(weekData => {
-    weekData.leagueResults.forEach(league => {
+    // Process both oneFlexLeagues and twoFlexLeagues
+    const allLeagues = [...(weekData.oneFlexLeagues || []), ...(weekData.twoFlexLeagues || [])];
+
+    allLeagues.forEach(league => {
       const userKey = `${league.topScorer}@${league.leagueName}`;
-      
+
       if (!userTotals[userKey]) {
         userTotals[userKey] = {
           leagueName: league.leagueName,
@@ -209,7 +201,7 @@ function updateSeasonLeaders(weeks) {
           averagePoints: 0
         };
       }
-      
+
       userTotals[userKey].totalPoints += league.topScore;
       userTotals[userKey].weeksPlayed += 1;
       userTotals[userKey].averagePoints = userTotals[userKey].totalPoints / userTotals[userKey].weeksPlayed;
@@ -222,8 +214,7 @@ function updateSeasonLeaders(weeks) {
   const twoFlexUsers = allUsers.filter(user => user.flexCount === 2).slice(0, 10);
   
   return {
-    allUsers,
-    oneFlexUsers, 
+    oneFlexUsers,
     twoFlexUsers,
     overallSeasonLeader: allUsers[0] || null,
     oneFlexSeasonLeader: oneFlexUsers[0] || null,
@@ -241,6 +232,10 @@ function saveWeeklyData(allData) {
   }
   
   fs.writeFileSync(DATA_FILE, JSON.stringify(allData, null, 2));
+
+  // Also update the Shopify JSON file
+  const shopifyDataFile = 'shopify/assets/thegame-weekly-data.json';
+  fs.writeFileSync(shopifyDataFile, JSON.stringify(allData, null, 2));
 }
 
 function generateTabbedHTML(allData) {
@@ -1310,11 +1305,11 @@ async function main() {
     const allData = loadExistingData();
     
     // Fetch new week data
-    const weekData = await getTopScorersForWeek(week, allData.leagueFlexSettings || {});
-    
+    const { flexSettings, ...weekData } = await getTopScorersForWeek(week, allData.leagueFlexSettings || {});
+
     // Add/update the week data and flex settings
     allData.weeks[week] = weekData;
-    allData.leagueFlexSettings = { ...allData.leagueFlexSettings, ...weekData.flexSettings };
+    allData.leagueFlexSettings = { ...allData.leagueFlexSettings, ...flexSettings };
     
     // Update season leaders efficiently using existing data
     allData.seasonLeaders = updateSeasonLeaders(allData.weeks);

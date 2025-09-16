@@ -2,7 +2,7 @@
   Leaderboard Hero Section
 {% endcomment %}
 
-{{ 'leaderboard.css' | asset_url | stylesheet_tag }}
+{{ 'thegame-leaderboard.css' | asset_url | stylesheet_tag }}
 
 <div class="container">
   <header class="header">
@@ -10,7 +10,7 @@
       {% if section.settings.header_image %}
         <img src="{{ section.settings.header_image | image_url }}" alt="The Game Header" class="top-image" />
       {% else %}
-        <img src="{{ 'thegame_logo.png' | asset_url }}" alt="The Game Header" class="top-image" />
+        <img src="{{ 'thegame-thegame_logo.png' | asset_url }}" alt="The Game Header" class="top-image" />
       {% endif %}
     </div>
     

@@ -17,7 +17,7 @@ shopify/
 │   ├── leaderboard-complete.liquid       # Manual weekly + categories
 │   └── leaderboard-complete-dynamic.liquid # Dynamic weekly + categories
 ├── assets/
-│   └── leaderboard.css                   # All styling for leaderboard
+│   └── thegame-leaderboard.css           # All styling for leaderboard
 ├── snippets/
 │   └── leaderboard-row.liquid            # Reusable table row
 └── README.md                             # This file
@@ -27,13 +27,13 @@ shopify/
 
 ### 1. Upload Assets
 Copy these files to your Shopify theme assets folder:
-- `leaderboard.css`
-- `the-game-font-regular.woff2`
-- `the-game-font-regular.woff`
-- `the-game-font.ttf`
-- `field-bg.png`
-- `thegame_logo.png`
-- `living-in-fantasy.png`
+- `thegame-leaderboard.css`
+- `thegame-the-game-font-regular.woff2`
+- `thegame-the-game-font-regular.woff`
+- `thegame-the-game-font.ttf`
+- `thegame-field-bg.png`
+- `thegame-thegame_logo.png`
+- `thegame-living-in-fantasy.png`
 
 ### 2. Upload Templates & Sections
 - Upload `page.leaderboard.liquid` to your templates folder

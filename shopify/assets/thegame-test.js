@@ -1,0 +1,1 @@
+alert('TEST: External JS file is working!');

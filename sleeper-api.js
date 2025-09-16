@@ -52,7 +52,17 @@ export class SleeperAPI {
       throw new Error(`Failed to fetch rosters: ${response.statusText}`);
     }
     return await response.json();
-}
+  }
+
+  async getLeagueSettings(leagueId) {
+    const url = `${BASE_URL}/league/${leagueId}`;
+    console.log(`🌐 GET ${url}`);
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch league settings: ${response.statusText}`);
+    }
+    return await response.json();
+  }
 
   async delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));

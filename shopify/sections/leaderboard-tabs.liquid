@@ -81,7 +81,7 @@
     {% if section.settings.footer_image %}
       <img src="{{ section.settings.footer_image | image_url }}" alt="living in fantasy" class="top-image" />
     {% else %}
-      <img src="{{ 'living-in-fantasy.png' | asset_url }}" alt="living in fantasy" class="top-image" />
+      <img src="{{ 'thegame-living-in-fantasy.png' | asset_url }}" alt="living in fantasy" class="top-image" />
     {% endif %}
 
     <p style="font-size: 0.9rem; opacity: 0.8;">{{ section.settings.update_text | default: 'Updated:' }} {{ 'now' | date: '%B %d, %Y at %I:%M %p' }}</p>

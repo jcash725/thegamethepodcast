@@ -3,9 +3,9 @@
    ========================================================================== */
 @font-face {
   font-family: 'The Game';
-  src: url('{{ "the-game-font-regular.woff2" | asset_url }}') format('woff2'),
-       url('{{ "the-game-font-regular.woff" | asset_url }}') format('woff'),
-       url('{{ "the-game-font.ttf" | asset_url }}') format('truetype');
+  src: url('thegame-the-game-font-regular.woff2') format('woff2'),
+       url('thegame-the-game-font-regular.woff') format('woff'),
+       url('thegame-the-game-font.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -22,17 +22,29 @@
 
 body {
   font-family: Montserrat, 'Arial Black', sans-serif;
-  background: url('{{ "field-bg.png" | asset_url }}') center center / cover no-repeat;
+  background: url('thegame-field-bg.png') center center / cover no-repeat;
   min-height: 100vh;
   color: #333;
   position: relative;
   overflow-x: hidden;
 }
 
+/* Leaderboard specific container - override theme styles */
+.leaderboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: block !important;
+  grid-template-columns: none !important;
+}
+
+/* Also apply to generic container within leaderboard */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  display: block !important;
+  grid-template-columns: none !important;
 }
 
 /* ==========================================================================
@@ -53,6 +65,10 @@ body {
   text-align: center;
   color: white;
   padding: 20px 0;
+  /* Override theme grid styling */
+  display: block !important;
+  grid-template-columns: none !important;
+  grid-template-areas: none !important;
 }
 
 .season-title {
@@ -129,6 +145,11 @@ table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
+  box-shadow:none;
+}
+
+table:not([class]) td, table:not([class]) th {
+  border:0
 }
 
 thead {
@@ -162,7 +183,6 @@ th:last-child {
 
 tbody tr {
   background: transparent;
-  border-bottom: 1px solid rgba(26, 54, 93, 0.1);
   transition: all 0.3s ease;
 }
 
