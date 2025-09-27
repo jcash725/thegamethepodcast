@@ -1,0 +1,87 @@
+name: Weekly Fantasy Data Update
+
+on:
+  schedule:
+    # Run every Tuesday at 8 AM UTC (adjust timezone as needed)
+    - cron: '0 8 * * 2'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Calculate current NFL week
+      id: nfl_week
+      run: |
+        # NFL Season 2025 started September 4, 2025 (Week 1)
+        # Calculate weeks since then
+        NFL_START_DATE="2025-09-04"
+        CURRENT_DATE=$(date +%Y-%m-%d)
+
+        # Calculate days since NFL season started
+        if command -v python3 &> /dev/null; then
+          WEEK=$(python3 -c "
+        from datetime import datetime
+        start = datetime.strptime('$NFL_START_DATE', '%Y-%m-%d')
+        current = datetime.strptime('$CURRENT_DATE', '%Y-%m-%d')
+        days_diff = (current - start).days
+        week = max(1, min(18, (days_diff // 7) + 1))
+        print(week)
+        ")
+        else
+          # Fallback calculation using date
+          START_EPOCH=$(date -d "$NFL_START_DATE" +%s)
+          CURRENT_EPOCH=$(date -d "$CURRENT_DATE" +%s)
+          DAYS_DIFF=$(( (CURRENT_EPOCH - START_EPOCH) / 86400 ))
+          WEEK=$(( (DAYS_DIFF / 7) + 1 ))
+
+          # Ensure week is between 1 and 18
+          if [ $WEEK -lt 1 ]; then
+            WEEK=1
+          elif [ $WEEK -gt 18 ]; then
+            WEEK=18
+          fi
+        fi
+
+        echo "Calculated NFL Week: $WEEK"
+        echo "week=$WEEK" >> $GITHUB_OUTPUT
+
+    - name: Generate weekly data and update Shopify
+      run: |
+        echo "Generating data for NFL Week ${{ steps.nfl_week.outputs.week }}"
+        node generate-html-tabs.js ${{ steps.nfl_week.outputs.week }}
+        cp docs/weekly-data.json shopify/assets/thegame-weekly-data.json
+
+    - name: Verify files updated
+      run: |
+        echo "Files updated:"
+        ls -la docs/weekly-data.json shopify/assets/thegame-weekly-data.json
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add docs/weekly-data.json shopify/assets/thegame-weekly-data.json
+
+        # Only commit if there are changes
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "🤖 Weekly fantasy data update - $(date +'%Y-%m-%d')"
+          git push
+        fi

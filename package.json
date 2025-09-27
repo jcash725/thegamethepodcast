@@ -5,7 +5,9 @@
   "main": "generate-html-tabs.js",
   "type": "module",
   "scripts": {
-    "generate-tabs": "node generate-html-tabs.js"
+    "generate-tabs": "node generate-html-tabs.js",
+    "update-shopify": "node generate-html-tabs.js && cp docs/weekly-data.json shopify/assets/thegame-weekly-data.json",
+    "update-shopify-week": "node generate-html-tabs.js \"$WEEK\" && cp docs/weekly-data.json shopify/assets/thegame-weekly-data.json"
   },
   "dependencies": {
     "node-fetch": "^3.3.2"

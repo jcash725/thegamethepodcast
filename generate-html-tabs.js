@@ -74,7 +74,11 @@ async function getTopScorersForWeek(week = 1, existingFlexSettings = {}) {
       // Process rosters for season leaders using fpts (season total fantasy points)
       for (const roster of rosters) {
         const user = userMap[roster.owner_id];
-        const seasonPoints = roster.settings?.fpts || 0;
+        const fpts = roster.settings?.fpts || 0;
+        const fpts_decimal = roster.settings?.fpts_decimal || 0;
+        const seasonPoints = parseFloat(fpts) + (parseFloat(fpts_decimal) / 100);
+
+        console.log(`User: ${user?.display_name}, Raw fpts: ${fpts}, fpts_decimal: ${fpts_decimal}, Combined seasonPoints: ${seasonPoints}`);
 
         if (user && seasonPoints > 0) {
           const teamName = user?.metadata?.team_name || user?.display_name || 'No Team Name';

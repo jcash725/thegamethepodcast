@@ -10,9 +10,9 @@
        ========================================================================== */
     @font-face {
       font-family: 'The Game';
-      src: url('./the-game-font-regular.woff2') format('woff2'),
-           url('./the-game-font-regular.woff') format('woff'),
-           url('./the-game-font.ttf') format('truetype');
+      src: url('The GAME FONT REGULAR.woff2') format('woff2'),
+           url('The GAME FONT REGULAR.woff') format('woff'),
+           url('The GAME FONT.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
       font-display: swap;
@@ -29,7 +29,7 @@
     
     body {
       font-family: Montserrat, 'Arial Black', sans-serif;
-      background: url('field-bg.png') center center / cover no-repeat;
+      background: url('thegame-field-bg.png') center center / cover no-repeat;
       min-height: 100vh;
       color: #333;
       position: relative;
@@ -116,60 +116,6 @@
     }
     
     .tab-content.active {
-      display: block;
-      animation: fadeIn 0.3s ease-in-out;
-    }
-
-    /* Category tabs for flex types */
-    .category-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      margin-bottom: 20px;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 8px;
-      border-radius: 8px;
-      justify-content: center;
-    }
-
-    .category-tab-button {
-      background: rgba(26, 54, 93, 0.7);
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-    }
-
-    .category-tab-button:hover {
-      background: rgba(45, 74, 102, 0.8);
-      transform: translateY(-1px);
-    }
-
-    .category-tab-button.active {
-      background: linear-gradient(135deg, #DC143C, #B91C1C);
-      color: white;
-      transform: translateY(-1px);
-      box-shadow: 0 3px 10px rgba(220, 20, 60, 0.3);
-    }
-
-    .category-content {
-      display: none;
-    }
-
-    .category-content.active {
-      display: block;
-    }
-
-    .week-content {
-      display: none;
-    }
-
-    .week-content.active {
       display: block;
       animation: fadeIn 0.3s ease-in-out;
     }
@@ -503,31 +449,21 @@
   <div class="container">
     <header class="header">
       <div class="top-image-container">
-        <img src="thegame_logo.png" alt="The Game Header" class="top-image" />
+        <img src="thegame-thegame_logo.png" alt="The Game Header" class="top-image" />
       </div>
       
-    <!-- Weekly Tabs -->
-    <div class="tabs">
-      <button class="tab-button active" onclick="showWeek(1)">Week 1</button>
-      <button class="tab-button" onclick="showWeek(2)">Week 2</button>
-      <button class="tab-button" onclick="showWeek('season')">Season Leaders</button>
+ <div class="tabs">
+      <button class="tab-button active" onclick="showTab('oneflex')">1-Flex Champions</button>
+      <button class="tab-button" onclick="showTab('twoflex')">2-Flex Champions</button>
     </div>
 
-    <div class="season-title">LEADERBOARD</div>
+      <div class="season-title">LEADERBOARD</div>
     </header>
     
    
     
-    <!-- Week 1 Content -->
-    <div id="week1" class="week-content active">
-      <!-- Category tabs for this week -->
-      <div class="category-tabs">
-        <button class="category-tab-button active" onclick="showCategory(1, 'oneflex')">1-Flex Leagues</button>
-        <button class="category-tab-button" onclick="showCategory(1, 'twoflex')">2-Flex Leagues</button>
-      </div>
-
-      <!-- 1-Flex content for Week 1 -->
-      <div id="week1-oneflex" class="category-content active">
+    <!-- 1-Flex Leaderboard -->
+    <div id="oneflex" class="tab-content active">
       <div class="leaderboard-section">
         <div class="league-table">
           <table>
@@ -540,144 +476,155 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><div class="rank-circle">1</div></td>
-                <td class="team-cell">
-                  <div class="team-name">sacks in the city</div>
-                  <div class="username">@sarahswift05</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">They CeeDee Rollin'</div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">165.92</div>
-                </td>
-              </tr>
-              <tr>
-                <td><div class="rank-circle">2</div></td>
-                <td class="team-cell">
-                  <div class="team-name">thegamethepodcast</div>
-                  <div class="username">@thegamethepodcast</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">For the Sourdough of it All</div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">162.26</div>
-                </td>
-              </tr>
-              <tr>
-                <td><div class="rank-circle">3</div></td>
-                <td class="team-cell">
-                  <div class="team-name">Allen's Avengers </div>
-                  <div class="username">@kelseycarlson91</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">Gronkey Kong</div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">157.36</div>
-                </td>
-              </tr>
-              <tr>
-                <td><div class="rank-circle">4</div></td>
-                <td class="team-cell">
-                  <div class="team-name">i love burrowritos </div>
-                  <div class="username">@kendakenn</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">Breaking the Glass Steeling</div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">156.82</div>
-                </td>
-              </tr>
-              <tr>
-                <td><div class="rank-circle">5</div></td>
-                <td class="team-cell">
-                  <div class="team-name">timberlee05</div>
-                  <div class="username">@timberlee05</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">Can't Fight the Steeling:</div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">154.68</div>
-                </td>
-              </tr>
-              <tr>
-                <td><div class="rank-circle">6</div></td>
-                <td class="team-cell">
-                  <div class="team-name">My dream team…cute.</div>
-                  <div class="username">@breezymercedes</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">Dak to the Future</div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">154.26</div>
-                </td>
-              </tr>
-              <tr>
-                <td><div class="rank-circle">7</div></td>
-                <td class="team-cell">
-                  <div class="team-name">Chesapeake Chicks 🏈 💜</div>
-                  <div class="username">@tayrobertson</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">Lamar You Serious</div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">152.18</div>
-                </td>
-              </tr>
-              <tr>
-                <td><div class="rank-circle">8</div></td>
-                <td class="team-cell">
-                  <div class="team-name">Njigbas in Paris</div>
-                  <div class="username">@Candrus0206</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">Devonta Swifties</div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">151.32</div>
-                </td>
-              </tr>
-              <tr>
-                <td><div class="rank-circle">9</div></td>
-                <td class="team-cell">
-                  <div class="team-name">thegamethepodcast</div>
-                  <div class="username">@thegamethepodcast</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">Hawk Tua</div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">149.06</div>
-                </td>
-              </tr>
-              <tr>
-                <td><div class="rank-circle">10</div></td>
-                <td class="team-cell">
-                  <div class="team-name">Death By A Thousand Punts</div>
-                  <div class="username">@smashley93</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">Hey Darnold</div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">145.98</div>
-                </td>
-              </tr>
+              
+    <tr>
+      <td><div class="rank-circle">1</div></td>
+      <td class="team-cell">
+        <div class="team-name">Lights Camera Jackson</div>
+        <div class="username">@kmtay21</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">No Pain, No Gainwell</div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">296.00</div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td><div class="rank-circle">2</div></td>
+      <td class="team-cell">
+        <div class="team-name">thegamethepodcast</div>
+        <div class="username">@thegamethepodcast</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">Lamar You Serious</div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">295.00</div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td><div class="rank-circle">3</div></td>
+      <td class="team-cell">
+        <div class="team-name">Allen’s Avengers </div>
+        <div class="username">@kelseycarlson91</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">Gronkey Kong</div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">293.00</div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td><div class="rank-circle">4</div></td>
+      <td class="team-cell">
+        <div class="team-name">Slay the Play 💅🏽🏈</div>
+        <div class="username">@renfootball26</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">Dak to the Future</div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">293.00</div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td><div class="rank-circle">5</div></td>
+      <td class="team-cell">
+        <div class="team-name">thegamethepodcast</div>
+        <div class="username">@thegamethepodcast</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">Je Ne Sequon</div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">292.00</div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td><div class="rank-circle">6</div></td>
+      <td class="team-cell">
+        <div class="team-name">thegamethepodcast</div>
+        <div class="username">@thegamethepodcast</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">Hawk Tua</div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">289.00</div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td><div class="rank-circle">7</div></td>
+      <td class="team-cell">
+        <div class="team-name">Its Gonna Be Maye</div>
+        <div class="username">@patsfan3</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">Pats on the Back</div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">288.00</div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td><div class="rank-circle">8</div></td>
+      <td class="team-cell">
+        <div class="team-name">chubba chubba choo choo 🚂</div>
+        <div class="username">@pooptarts8008</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">Charbonnet Sauvignon</div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">287.00</div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td><div class="rank-circle">9</div></td>
+      <td class="team-cell">
+        <div class="team-name">thegamethepodcast</div>
+        <div class="username">@thegamethepodcast</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">How I Metcalf Your Mother</div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">286.00</div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td><div class="rank-circle">10</div></td>
+      <td class="team-cell">
+        <div class="team-name">Puka Shells</div>
+        <div class="username">@samrmcc</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">Loving Him Was Redzone</div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">284.00</div>
+      </td>
+    </tr>
+  
             </tbody>
           </table>
         </div>
       </div>
-      </div>
-
-      <!-- 2-Flex content for Week 1 -->
-      <div id="week1-twoflex" class="category-content">
+    </div>
+    
+    <!-- 2-Flex Leaderboard -->
+    <div id="twoflex" class="tab-content">
       <div class="leaderboard-section">
         <div class="league-table">
           <table>
@@ -690,811 +637,178 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><div class="rank-circle">1</div></td>
-                <td class="team-cell">
-                  <div class="team-name">thegamethepodcast</div>
-                  <div class="username">@thegamethepodcast</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">Brock You LIke a Hurricante</div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">187.66</div>
-                </td>
-              </tr>
-              <tr>
-                <td><div class="rank-circle">2</div></td>
-                <td class="team-cell">
-                  <div class="team-name">MissAdventures</div>
-                  <div class="username">@MissAdventures</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">PACHECO THE RING CAMERAS</div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">175.26</div>
-                </td>
-              </tr>
-              <tr>
-                <td><div class="rank-circle">3</div></td>
-                <td class="team-cell">
-                  <div class="team-name">emilyinphilly</div>
-                  <div class="username">@emilyinphilly</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">Brown Eyed Girl </div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">173.86</div>
-                </td>
-              </tr>
-              <tr>
-                <td><div class="rank-circle">4</div></td>
-                <td class="team-cell">
-                  <div class="team-name">Lights, Kamara, Action</div>
-                  <div class="username">@CortneyT</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">Lamar the Merrier</div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">173.26</div>
-                </td>
-              </tr>
-              <tr>
-                <td><div class="rank-circle">5</div></td>
-                <td class="team-cell">
-                  <div class="team-name">Digital Kamara</div>
-                  <div class="username">@gogirls1</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">Third and Long Live</div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">172.12</div>
-                </td>
-              </tr>
-              <tr>
-                <td><div class="rank-circle">6</div></td>
-                <td class="team-cell">
-                  <div class="team-name">burrowed treasure</div>
-                  <div class="username">@heatherd006</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">Whodey and the Joefish</div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">169.28</div>
-                </td>
-              </tr>
-              <tr>
-                <td><div class="rank-circle">7</div></td>
-                <td class="team-cell">
-                  <div class="team-name">Jet Tua Holiday</div>
-                  <div class="username">@kede16</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">Olave Maria </div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">166.88</div>
-                </td>
-              </tr>
-              <tr>
-                <td><div class="rank-circle">8</div></td>
-                <td class="team-cell">
-                  <div class="team-name">Big Digg Energy</div>
-                  <div class="username">@Bettyestes00</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">Hunter Wives</div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">166.32</div>
-                </td>
-              </tr>
-              <tr>
-                <td><div class="rank-circle">9</div></td>
-                <td class="team-cell">
-                  <div class="team-name">thegamethepodcast</div>
-                  <div class="username">@thegamethepodcast</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">Nice to Sea You</div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">165.62</div>
-                </td>
-              </tr>
-              <tr>
-                <td><div class="rank-circle">10</div></td>
-                <td class="team-cell">
-                  <div class="team-name">thegamethepodcast</div>
-                  <div class="username">@thegamethepodcast</div>
-                </td>
-                <td class="league-cell">
-                  <div class="league-name">Santosrini Vacation</div>
-                </td>
-                <td class="points-cell">
-                  <div class="total-points">163.02</div>
-                </td>
-              </tr>
+              
+    <tr>
+      <td><div class="rank-circle">1</div></td>
+      <td class="team-cell">
+        <div class="team-name">Jet Tua Holiday</div>
+        <div class="username">@kede16</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">Olave Maria </div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">330.0</div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td><div class="rank-circle">2</div></td>
+      <td class="team-cell">
+        <div class="team-name">Digital Kamara</div>
+        <div class="username">@gogirls1</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">Third and Long Live</div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">325.0</div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td><div class="rank-circle">3</div></td>
+      <td class="team-cell">
+        <div class="team-name">thegamethepodcast</div>
+        <div class="username">@thegamethepodcast</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">Brown Eyed Girl </div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">323.0</div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td><div class="rank-circle">4</div></td>
+      <td class="team-cell">
+        <div class="team-name">Herbie Fully Loaded</div>
+        <div class="username">@amart0319</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">Allen the Hips</div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">321.0</div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td><div class="rank-circle">5</div></td>
+      <td class="team-cell">
+        <div class="team-name">ans0606</div>
+        <div class="username">@ans0606</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">Lamar the Merrier</div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">316.0</div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td><div class="rank-circle">6</div></td>
+      <td class="team-cell">
+        <div class="team-name">thegamethepodcast</div>
+        <div class="username">@thegamethepodcast</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">Brock You LIke a Hurricante</div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">314.0</div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td><div class="rank-circle">7</div></td>
+      <td class="team-cell">
+        <div class="team-name">burrowed treasure</div>
+        <div class="username">@heatherd006</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">Whodey and the Joefish</div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">313.0</div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td><div class="rank-circle">8</div></td>
+      <td class="team-cell">
+        <div class="team-name">I call GIBBS!</div>
+        <div class="username">@Hkay724</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">The Summer I Turned Purdy</div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">312.0</div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td><div class="rank-circle">9</div></td>
+      <td class="team-cell">
+        <div class="team-name">Kittle Corn</div>
+        <div class="username">@summertime98</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">Allen the Hips</div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">311.0</div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td><div class="rank-circle">10</div></td>
+      <td class="team-cell">
+        <div class="team-name">Big Digg Energy</div>
+        <div class="username">@Bettyestes00</div>
+      </td>
+      <td class="league-cell">
+        <div class="league-name">Hunter Wives</div>
+      </td>
+      <td class="points-cell">
+        <div class="total-points">311.0</div>
+      </td>
+    </tr>
+  
             </tbody>
           </table>
         </div>
       </div>
-      </div>
     </div>
-
-    <!-- Week 2 Content -->
-    <div id="week2" class="week-content">
-      <!-- Category tabs for this week -->
-      <div class="category-tabs">
-        <button class="category-tab-button active" onclick="showCategory(2, 'oneflex')">1-Flex Leagues</button>
-        <button class="category-tab-button" onclick="showCategory(2, 'twoflex')">2-Flex Leagues</button>
-      </div>
-
-      <!-- 1-Flex content for Week 2 -->
-      <div id="week2-oneflex" class="category-content active">
-        <div class="leaderboard-section">
-          <div class="league-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>NO</th>
-                  <th>TEAM</th>
-                  <th>LEAGUE</th>
-                  <th>PTS</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><div class="rank-circle">1</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">thegamethepodcast</div>
-                    <div class="username">@thegamethepodcast</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">I Tua You Were Trouble</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">185.74</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">2</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">Its Gonna Be Maye</div>
-                    <div class="username">@patsfan3</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Pats on the Back</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">179.56</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">3</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">thegamethepodcast</div>
-                    <div class="username">@thegamethepodcast</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">A QUEEN IS NEVER LATE</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">177.44</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">4</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">Lights Camera Jackson</div>
-                    <div class="username">@kmtay21</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">No Pain, No Gainwell</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">177.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">5</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">BabyGotDak</div>
-                    <div class="username">@cynnthiaaa</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Here for the DCC</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">172.40</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">6</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">Touchdown Divas😛💅🏼</div>
-                    <div class="username">@mk2003</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Griddy Little Liars</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">171.18</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">7</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">Slay the Play 💅🏽🏈</div>
-                    <div class="username">@renfootball26</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Dak to the Future</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">170.30</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">8</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">thegamethepodcast</div>
-                    <div class="username">@thegamethepodcast</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Lamar You Serious</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">170.14</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">9</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">Renegade</div>
-                    <div class="username">@Wattage03</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Breaking the Glass Steeling</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">168.96</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">10</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">superlamario</div>
-                    <div class="username">@kennaaa05</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Love Story</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">163.90</div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2-Flex content for Week 2 -->
-      <div id="week2-twoflex" class="category-content">
-        <div class="leaderboard-section">
-          <div class="league-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>NO</th>
-                  <th>TEAM</th>
-                  <th>LEAGUE</th>
-                  <th>PTS</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><div class="rank-circle">1</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">No, This is Patrick</div>
-                    <div class="username">@djbirds23</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Pink Toney Club</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">191.50</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">2</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">My TDs are Real</div>
-                    <div class="username">@jries</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Pink Pony Chubb: </div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">185.08</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">3</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">CMC Ya Later</div>
-                    <div class="username">@morganshutter</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Sacks and the City </div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">180.74</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">4</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">DontJoeChasinWaterfalls</div>
-                    <div class="username">@Krod26</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">NOTHING BEATS A JET(S) 2 HOLIDAY</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">179.46</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">5</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">Herbie Fully Loaded</div>
-                    <div class="username">@amart0319</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Allen the Hips</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">177.98</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">6</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">thegamethepodcast</div>
-                    <div class="username">@thegamethepodcast</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Brown Eyed Girl </div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">177.50</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">7</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">Who'sAfraidOfLittleOldTee</div>
-                    <div class="username">@kerituom</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Bo Meets World</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">177.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">8</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">TDs and Double D's</div>
-                    <div class="username">@blitzandblooms</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Love Island USA</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">175.30</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">9</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">Th3BearNecessities</div>
-                    <div class="username">@Th3BearNecessities</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Santosrini Vacation</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">173.52</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">10</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">CeeDeez Nutz</div>
-                    <div class="username">@lexibg</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">I Love You, but Goff My Lawn</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">172.84</div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Season Leaders Content -->
-    <div id="weekseason" class="week-content">
-      <!-- Category tabs for season -->
-      <div class="category-tabs">
-        <button class="category-tab-button active" onclick="showCategory('season', 'oneflex')">1-Flex Season Leaders</button>
-        <button class="category-tab-button" onclick="showCategory('season', 'twoflex')">2-Flex Season Leaders</button>
-      </div>
-
-      <!-- 1-Flex Season Leaders -->
-      <div id="weekseason-oneflex" class="category-content active">
-        <div class="leaderboard-section">
-          <div class="league-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>NO</th>
-                  <th>TEAM</th>
-                  <th>LEAGUE</th>
-                  <th>TOTAL PTS</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="top-scorer">
-                  <td><div class="rank-circle">1</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">Lights Camera Jackson</div>
-                    <div class="username">@kmtay21</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">No Pain, No Gainwell</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">296.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">2</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">thegamethepodcast</div>
-                    <div class="username">@thegamethepodcast</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Lamar You Serious</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">295.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">3</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">Allen's Avengers</div>
-                    <div class="username">@kelseycarlson91</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Gronkey Kong</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">293.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">4</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">Slay the Play 💅🏽🏈</div>
-                    <div class="username">@renfootball26</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Dak to the Future</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">293.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">5</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">thegamethepodcast</div>
-                    <div class="username">@thegamethepodcast</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Je Ne Sequon</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">292.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">6</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">thegamethepodcast</div>
-                    <div class="username">@thegamethepodcast</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Hawk Tua</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">289.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">7</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">Its Gonna Be Maye</div>
-                    <div class="username">@patsfan3</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Pats on the Back</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">288.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">8</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">chubba chubba choo choo 🚂</div>
-                    <div class="username">@pooptarts8008</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Charbonnet Sauvignon</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">287.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">9</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">thegamethepodcast</div>
-                    <div class="username">@thegamethepodcast</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">How I Metcalf Your Mother</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">286.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">10</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">Puka Shells</div>
-                    <div class="username">@samrmcc</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Loving Him Was Redzone</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">284.00</div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2-Flex Season Leaders -->
-      <div id="weekseason-twoflex" class="category-content">
-        <div class="leaderboard-section">
-          <div class="league-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>NO</th>
-                  <th>TEAM</th>
-                  <th>LEAGUE</th>
-                  <th>TOTAL PTS</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="top-scorer">
-                  <td><div class="rank-circle">1</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">Jet Tua Holiday</div>
-                    <div class="username">@kede16</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Olave Maria</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">330.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">2</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">Digital Kamara</div>
-                    <div class="username">@gogirls1</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Third and Long Live</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">325.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">3</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">thegamethepodcast</div>
-                    <div class="username">@thegamethepodcast</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Brown Eyed Girl</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">323.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">4</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">Herbie Fully Loaded</div>
-                    <div class="username">@amart0319</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Allen the Hips</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">321.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">5</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">ans0606</div>
-                    <div class="username">@ans0606</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Lamar the Merrier</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">316.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">6</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">thegamethepodcast</div>
-                    <div class="username">@thegamethepodcast</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Brock You LIke a Hurricante</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">314.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">7</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">burrowed treasure</div>
-                    <div class="username">@heatherd006</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Whodey and the Joefish</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">313.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">8</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">I call GIBBS!</div>
-                    <div class="username">@Hkay724</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">The Summer I Turned Purdy</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">312.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">9</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">Kittle Corn</div>
-                    <div class="username">@summertime98</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Allen the Hips</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">311.00</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><div class="rank-circle">10</div></td>
-                  <td class="team-cell">
-                    <div class="team-name">Big Digg Energy</div>
-                    <div class="username">@Bettyestes00</div>
-                  </td>
-                  <td class="league-cell">
-                    <div class="league-name">Hunter Wives</div>
-                  </td>
-                  <td class="points-cell">
-                    <div class="total-points">311.00</div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    
     <footer class="footer">
-      <img src="living-in-fantasy.png" alt="living in fantasy" class="top-image" />
+      <img src="thegame-living-in-fantasy.png" alt="living in fantasy" class="top-image" />
 
-      <p style="font-size: 0.9rem; opacity: 0.8;">Updated: 9/16/2025, 8:27:08 PM</p>
+      <p style="font-size: 0.9rem; opacity: 0.8;">Updated: 9/22/2025, 11:21:14 PM</p>
     </footer>
   </div>
 
   <script>
-    function showWeek(week) {
-      // Hide all week contents
-      document.querySelectorAll('.week-content').forEach(content => {
+    function showTab(tabName) {
+      // Hide all tab contents
+      document.querySelectorAll('.tab-content').forEach(content => {
         content.classList.remove('active');
       });
-
+      
       // Remove active class from all tab buttons
       document.querySelectorAll('.tab-button').forEach(button => {
         button.classList.remove('active');
       });
-
-      // Show selected week content
-      const targetId = week === 'season' ? 'weekseason' : 'week' + week;
-      document.getElementById(targetId).classList.add('active');
-
+      
+      // Show selected tab content
+      document.getElementById(tabName).classList.add('active');
+      
       // Add active class to selected tab button
       event.target.classList.add('active');
-
-      // Show default category (1-flex) for the selected week
-      showCategory(week, 'oneflex');
     }
-
-    function showCategory(week, category) {
-      // Hide all category contents for this week
-      document.querySelectorAll(`#week${week}-oneflex, #week${week}-twoflex`).forEach(content => {
-        content.classList.remove('active');
-      });
-
-      // Remove active class from category tab buttons in the active week
-      const activeWeek = week === 'season' ? 'weekseason' : 'week' + week;
-      document.querySelector('#' + activeWeek + ' .category-tabs').querySelectorAll('.category-tab-button').forEach(button => {
-        button.classList.remove('active');
-      });
-
-      // Show selected category content
-      document.getElementById(`week${week}-${category}`).classList.add('active');
-
-      // Add active class to selected category button
-      event.target.classList.add('active');
-    }
-
-    // No need for data loading since everything is hardcoded in HTML
   </script>
 </body>
 </html>
