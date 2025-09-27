@@ -229,17 +229,32 @@ function loadExistingData() {
 }
 
 
-function saveWeeklyData(allData) {
+function saveWeeklyData(allData, currentWeek) {
   // Ensure docs directory exists
   if (!fs.existsSync('docs')) {
     fs.mkdirSync('docs', { recursive: true });
   }
-  
+
+  // Save the main consolidated data file
   fs.writeFileSync(DATA_FILE, JSON.stringify(allData, null, 2));
+
+  // Save individual weekly data files for comparison
+  const weeklyDataFile = `docs/week-${currentWeek}-data.json`;
+  const weekData = {
+    week: currentWeek,
+    data: allData.weeks[currentWeek],
+    generatedAt: new Date().toISOString(),
+    seasonLeaders: allData.seasonLeaders
+  };
+  fs.writeFileSync(weeklyDataFile, JSON.stringify(weekData, null, 2));
 
   // Also update the Shopify JSON file
   const shopifyDataFile = 'shopify/assets/thegame-weekly-data.json';
   fs.writeFileSync(shopifyDataFile, JSON.stringify(allData, null, 2));
+
+  // Save weekly Shopify file too for backup
+  const shopifyWeeklyFile = `shopify/assets/week-${currentWeek}-data.json`;
+  fs.writeFileSync(shopifyWeeklyFile, JSON.stringify(weekData, null, 2));
 }
 
 function generateTabbedHTML(allData) {
@@ -1320,7 +1335,7 @@ async function main() {
     allData.lastUpdated = new Date().toISOString();
     
     // Save updated data
-    saveWeeklyData(allData);
+    saveWeeklyData(allData, week);
     
     // Generate HTML
     const html = generateTabbedHTML(allData);

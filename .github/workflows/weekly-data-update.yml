@@ -10,6 +10,9 @@ jobs:
   update-data:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -70,18 +73,24 @@ jobs:
     - name: Verify files updated
       run: |
         echo "Files updated:"
-        ls -la docs/weekly-data.json shopify/assets/thegame-weekly-data.json
+        ls -la docs/ | grep -E "(weekly-data\.json|week-.*-data\.json)"
+        ls -la shopify/assets/ | grep -E "(thegame-weekly-data\.json|week-.*-data\.json)"
 
     - name: Commit and push changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add docs/weekly-data.json shopify/assets/thegame-weekly-data.json
+
+        # Add all data files (main files + weekly files)
+        git add docs/weekly-data.json docs/week-*-data.json
+        git add shopify/assets/thegame-weekly-data.json shopify/assets/week-*-data.json
+        git add docs/index.html docs/shopify.html
 
         # Only commit if there are changes
         if git diff --staged --quiet; then
           echo "No changes to commit"
         else
-          git commit -m "🤖 Weekly fantasy data update - $(date +'%Y-%m-%d')"
+          WEEK_NUM=${{ steps.nfl_week.outputs.week }}
+          git commit -m "🤖 Week ${WEEK_NUM} fantasy data update - $(date +'%Y-%m-%d')"
           git push
         fi
