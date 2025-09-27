@@ -64,6 +64,27 @@ export class SleeperAPI {
     return await response.json();
   }
 
+  async getPlayersInfo(playerIds) {
+    // Sleeper API provides all players in one call
+    const url = `${BASE_URL}/players/nfl`;
+    console.log(`🌐 GET ${url} (fetching player info for ${playerIds.length} players)`);
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch players: ${response.statusText}`);
+    }
+    const allPlayers = await response.json();
+
+    // Filter to only the players we need
+    const requestedPlayers = {};
+    playerIds.forEach(playerId => {
+      if (allPlayers[playerId]) {
+        requestedPlayers[playerId] = allPlayers[playerId];
+      }
+    });
+
+    return requestedPlayers;
+  }
+
   async delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }

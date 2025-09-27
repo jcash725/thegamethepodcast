@@ -35,6 +35,13 @@ async function getTopScorersForWeek(week = 1, existingFlexSettings = {}) {
     let twoFlexTopScorer = null;
     let twoFlexTopLeague = null;
 
+    // Track bench scoring champions for both flex types
+    let oneFlexTopBenchTeam = null;
+    let twoFlexTopBenchTeam = null;
+
+    // Track bench players across all leagues for position analysis
+    let allBenchPlayers = new Map(); // playerId -> { teamCount, score }
+
     for (const league of leagues) {
       console.log(`Processing league: ${league.name}`);
       
@@ -122,13 +129,16 @@ async function getTopScorersForWeek(week = 1, existingFlexSettings = {}) {
           };
         }
       }
-      
+
+      // Process bench scoring for this league
+      const benchData = await processBenchScoring(matchups, userMap, rosterMap, league.name, flexCount, allBenchPlayers);
+
       if (topScore > overallTopScore) {
         overallTopScore = topScore;
         overallTopScorer = topScorer;
         overallTopLeague = league.name;
       }
-      
+
       // Track flex-specific champions
       if (flexCount === 1) {
         if (topScore > oneFlexTopScore) {
@@ -136,6 +146,12 @@ async function getTopScorersForWeek(week = 1, existingFlexSettings = {}) {
           oneFlexTopScorer = topScorer;
           oneFlexTopLeague = league.name;
         }
+
+        // Track top bench team for 1-flex leagues
+        if (benchData.topBenchTeam && (!oneFlexTopBenchTeam || benchData.topBenchTeam.benchPoints > oneFlexTopBenchTeam.benchPoints)) {
+          oneFlexTopBenchTeam = benchData.topBenchTeam;
+        }
+
         oneFlexLeagues.push({
           leagueName: league.name,
           topScorer: topScorer?.display_name || 'Unknown',
@@ -149,6 +165,12 @@ async function getTopScorersForWeek(week = 1, existingFlexSettings = {}) {
           twoFlexTopScorer = topScorer;
           twoFlexTopLeague = league.name;
         }
+
+        // Track top bench team for 2-flex leagues
+        if (benchData.topBenchTeam && (!twoFlexTopBenchTeam || benchData.topBenchTeam.benchPoints > twoFlexTopBenchTeam.benchPoints)) {
+          twoFlexTopBenchTeam = benchData.topBenchTeam;
+        }
+
         twoFlexLeagues.push({
           leagueName: league.name,
           topScorer: topScorer?.display_name || 'Unknown',
@@ -169,6 +191,68 @@ async function getTopScorersForWeek(week = 1, existingFlexSettings = {}) {
     // Limit to top 10 for each category for display/storage
     oneFlexLeagues = oneFlexLeagues.slice(0, 10);
     twoFlexLeagues = twoFlexLeagues.slice(0, 10);
+
+    // Process bench players by position
+    let topBenchPlayersByPosition = {
+      QB: { points: 0, player: null, team: null },
+      RB: { points: 0, player: null, team: null },
+      WR: { points: 0, player: null, team: null },
+      TE: { points: 0, player: null, team: null },
+      K: { points: 0, player: null, team: null },
+      DEF: { points: 0, player: null, team: null }
+    };
+
+    if (allBenchPlayers.size > 0) {
+      console.log(`Looking up position data for ${allBenchPlayers.size} bench players...`);
+
+      // Get player info for all bench players
+      const playerIds = Array.from(allBenchPlayers.keys());
+      const playersInfo = await api.getPlayersInfo(playerIds);
+
+      // Find top 5 most commonly owned bench players for each position
+      // First, group players by position
+      const playersByPosition = {
+        QB: [], RB: [], WR: [], TE: [], K: [], DEF: []
+      };
+
+      for (const [playerId, benchData] of allBenchPlayers) {
+        const playerInfo = playersInfo[playerId];
+        if (!playerInfo || !playerInfo.position) continue;
+
+        const position = playerInfo.position;
+        if (playersByPosition[position]) {
+          playersByPosition[position].push({
+            playerId,
+            benchData,
+            playerInfo
+          });
+        }
+      }
+
+      // For each position, find the top 5 most commonly owned players
+      for (const [position, players] of Object.entries(playersByPosition)) {
+        if (players.length === 0) continue;
+
+        // Sort by: 1) Team count (descending), 2) Weekly score (descending)
+        players.sort((a, b) => {
+          if (b.benchData.teamCount !== a.benchData.teamCount) {
+            return b.benchData.teamCount - a.benchData.teamCount;
+          }
+          return b.benchData.score - a.benchData.score;
+        });
+
+        // Take top 5 and format them
+        const top5Players = players.slice(0, 5).map(player => ({
+          name: `${player.playerInfo.first_name || ''} ${player.playerInfo.last_name || ''}`.trim() || 'Unknown',
+          team: player.playerInfo.team || 'FA',
+          position: position,
+          teamCount: player.benchData.teamCount,
+          score: player.benchData.score
+        }));
+
+        topBenchPlayersByPosition[position] = top5Players;
+      }
+    }
     
     return {
       week,
@@ -193,6 +277,11 @@ async function getTopScorersForWeek(week = 1, existingFlexSettings = {}) {
       },
       twoFlexTopScore,
       twoFlexTopLeague,
+      // Bench scoring champions
+      oneFlexTopBenchTeam,
+      twoFlexTopBenchTeam,
+      // Top bench players by position
+      topBenchPlayersByPosition,
       totalLeagues: leagues.length,
       oneFlexCount: oneFlexLeagues.length,
       twoFlexCount: twoFlexLeagues.length,
@@ -226,6 +315,60 @@ function loadExistingData() {
     console.log('No existing data found, starting fresh');
   }
   return { weeks: {}, leagueFlexSettings: {}, lastUpdated: new Date().toLocaleString() };
+}
+
+// Function to process bench scoring data from matchups
+async function processBenchScoring(matchups, userMap, rosterMap, leagueName, flexCount, allBenchPlayers) {
+  let topBenchPoints = 0;
+  let topBenchTeam = null;
+
+  for (const matchup of matchups) {
+    if (!matchup.players_points || !matchup.starters) continue;
+
+    const ownerId = rosterMap[matchup.roster_id];
+    const user = ownerId && userMap[ownerId] ? userMap[ownerId] : null;
+    if (!user) continue;
+
+    const teamName = user?.metadata?.team_name || user?.display_name || 'No Team Name';
+
+    // Calculate bench points (players not in starters)
+    const starterIds = new Set(matchup.starters);
+    let benchPoints = 0;
+
+    for (const [playerId, points] of Object.entries(matchup.players_points)) {
+      if (!starterIds.has(playerId) && points > 0) {
+        benchPoints += points;
+
+        // Track this bench player across all leagues
+        if (!allBenchPlayers.has(playerId)) {
+          allBenchPlayers.set(playerId, {
+            teamCount: 0,
+            score: 0
+          });
+        }
+
+        const playerData = allBenchPlayers.get(playerId);
+        playerData.teamCount += 1;
+        playerData.score = points; // All leagues have same scoring
+      }
+    }
+
+    // Track top bench points
+    if (benchPoints > topBenchPoints) {
+      topBenchPoints = benchPoints;
+      topBenchTeam = {
+        teamName,
+        username: user.display_name,
+        leagueName,
+        benchPoints: parseFloat(benchPoints.toFixed(2)),
+        flexCount
+      };
+    }
+  }
+
+  return {
+    topBenchTeam
+  };
 }
 
 
@@ -382,7 +525,55 @@ function generateTabbedHTML(allData) {
           <div class="champion-league">Check back after games begin</div>
         </div>
         `}
-        
+
+        ${weekData.oneFlexTopBenchTeam ? `
+        <div class="champion-card bench-champion">
+          <h2>🪑 Week ${week} 1-Flex Bench Champion</h2>
+          <div class="champion-name">${weekData.oneFlexTopBenchTeam.teamName}</div>
+          <div class="champion-username">@${weekData.oneFlexTopBenchTeam.username}</div>
+          <div class="champion-score">${weekData.oneFlexTopBenchTeam.benchPoints} bench pts</div>
+          <div class="champion-league">from "${weekData.oneFlexTopBenchTeam.leagueName}"</div>
+        </div>
+        ` : ''}
+
+        ${weekData.twoFlexTopBenchTeam ? `
+        <div class="champion-card bench-champion">
+          <h2>🪑 Week ${week} 2-Flex Bench Champion</h2>
+          <div class="champion-name">${weekData.twoFlexTopBenchTeam.teamName}</div>
+          <div class="champion-username">@${weekData.twoFlexTopBenchTeam.username}</div>
+          <div class="champion-score">${weekData.twoFlexTopBenchTeam.benchPoints} bench pts</div>
+          <div class="champion-league">from "${weekData.twoFlexTopBenchTeam.leagueName}"</div>
+        </div>
+        ` : ''}
+
+        ${weekData.topBenchPlayersByPosition ? `
+        <div class="bench-players-section">
+          <h3>🏆 Top 5 Most Common Bench Players by Position</h3>
+          <div class="bench-positions-grid">
+            ${Object.entries(weekData.topBenchPlayersByPosition).filter(([pos, players]) => players && players.length > 0).map(([position, players]) => `
+              <div class="position-section">
+                <h4 class="position-title">${position}</h4>
+                <div class="position-players">
+                  ${players.map((player, index) => `
+                    <div class="bench-player-row">
+                      <div class="player-rank">${index + 1}</div>
+                      <div class="player-info">
+                        <div class="player-name">${player.name}</div>
+                        <div class="player-team">${player.team}</div>
+                      </div>
+                      <div class="player-stats">
+                        <div class="team-count">${player.teamCount} teams</div>
+                        <div class="weekly-score">${(player.score || 0).toFixed(1)} pts</div>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        ` : ''}
+
         ${weekData.oneFlexCount > 0 ? `
         <div class="league-table">
           <div class="table-header">
@@ -779,6 +970,106 @@ function generateTabbedHTML(allData) {
     .champion-card h2 {
       font-size: 2rem;
       margin-bottom: 15px;
+    }
+
+    .bench-champion {
+      background: linear-gradient(135deg, #8B4513, #A0522D) !important;
+    }
+
+    .bench-players-section {
+      margin: 30px 0;
+    }
+
+    .bench-players-section h3 {
+      text-align: center;
+      color: white;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+
+    .bench-positions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 20px;
+      margin: 0 auto;
+      max-width: 1400px;
+    }
+
+    .position-section {
+      background: linear-gradient(135deg, #2D4A22, #3A5F2A);
+      border-radius: 10px;
+      padding: 20px;
+      color: white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .position-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #90EE90;
+      margin-bottom: 15px;
+      text-align: center;
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+      padding-bottom: 8px;
+    }
+
+    .position-players {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .bench-player-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .player-rank {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #FFD700;
+      min-width: 25px;
+      text-align: center;
+    }
+
+    .player-info {
+      flex: 1;
+    }
+
+    .player-name {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 2px;
+    }
+
+    .player-team {
+      font-size: 0.85rem;
+      color: #CCC;
+    }
+
+    .player-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-align: right;
+      font-size: 0.8rem;
+    }
+
+    .team-count {
+      font-weight: bold;
+      color: #90EE90;
+    }
+
+    .total-points {
+      color: #FFD700;
+    }
+
+    .best-score {
+      color: #FFA500;
     }
     
     .champion-name {
@@ -1192,6 +1483,27 @@ function generateTabbedHTML(allData) {
       .footer {
         margin-top: 20px;
         font-size: 0.85rem;
+      }
+
+      .bench-positions-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .position-section {
+        padding: 15px;
+      }
+
+      .bench-player-row {
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+      }
+
+      .player-stats {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
       }
     }
     
