@@ -233,12 +233,12 @@ async function getTopScorersForWeek(week = 1, existingFlexSettings = {}) {
       for (const [position, players] of Object.entries(playersByPosition)) {
         if (players.length === 0) continue;
 
-        // Sort by: 1) Team count (descending), 2) Weekly score (descending)
+        // Sort by: 1) Weekly score (descending), 2) Team count (descending)
         players.sort((a, b) => {
-          if (b.benchData.teamCount !== a.benchData.teamCount) {
-            return b.benchData.teamCount - a.benchData.teamCount;
+          if (b.benchData.score !== a.benchData.score) {
+            return b.benchData.score - a.benchData.score;
           }
-          return b.benchData.score - a.benchData.score;
+          return b.benchData.teamCount - a.benchData.teamCount;
         });
 
         // Take top 5 and format them

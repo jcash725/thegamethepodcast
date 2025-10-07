@@ -117,14 +117,34 @@
       <!-- Bench content for this week -->
       <div id="week{{ week }}-bench" class="category-content">
         <div class="bench-section">
-          <!-- Bench Champions -->
-          <div id="bench-champions-{{ week }}" class="bench-champions-container">
-            <!-- Will be populated by JavaScript -->
+
+          <!-- 1-Flex Bench Champion -->
+          <div class="leaderboard-section">
+            <h3 class="bench-title">🪑 1-Flex Bench Champion</h3>
+            <div class="league-table">
+              <table>
+                <tbody id="one-flex-bench-{{ week }}">
+                  <!-- Will be populated by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 2-Flex Bench Champion -->
+          <div class="leaderboard-section">
+            <h3 class="bench-title">🪑 2-Flex Bench Champion</h3>
+            <div class="league-table">
+              <table>
+                <tbody id="two-flex-bench-{{ week }}">
+                  <!-- Will be populated by JavaScript -->
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <!-- Top Bench Players by Position -->
           <div class="bench-players-section">
-            <h3>🏆 Top 5 Highest Scoring Bench Players by Position</h3>
+            <h3 class="bench-title">🏆 Top 5 Highest Scoring Bench Players by Position</h3>
             <div id="bench-players-{{ week }}" class="bench-positions-grid">
               <!-- Will be populated by JavaScript -->
             </div>
@@ -235,12 +255,12 @@
   .week-content {
     display: none;
   }
-  
+
   .week-content.active {
     display: block;
     animation: fadeIn 0.3s ease-in-out;
   }
-  
+
   .category-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -251,7 +271,7 @@
     border-radius: 8px;
     justify-content: center;
   }
-  
+
   .category-tab-button {
     background: rgba(26, 54, 93, 0.7);
     color: white;
@@ -264,25 +284,158 @@
     transition: all 0.3s ease;
     text-transform: uppercase;
   }
-  
+
   .category-tab-button:hover {
     background: rgba(45, 74, 102, 0.8);
     transform: translateY(-1px);
   }
-  
+
   .category-tab-button.active {
     background: linear-gradient(135deg, #DC143C, #B91C1C);
     color: white;
     transform: translateY(-1px);
     box-shadow: 0 3px 10px rgba(220, 20, 60, 0.3);
   }
-  
+
   .category-content {
     display: none;
   }
-  
+
   .category-content.active {
     display: block;
+  }
+
+  /* Bench champion titles */
+  .bench-title {
+    color: #DC143C;
+    font-family: 'The Game', 'Bebas Neue', 'Arial Black', sans-serif;
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Hide the rank column for bench champions */
+  .hidden-rank-cell {
+    display: none !important;
+  }
+
+  /* Add spacing between bench sections */
+  .leaderboard-section {
+    margin-bottom: 40px;
+  }
+
+  .bench-players-section {
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  /* Match table width and column sizes to other tabs */
+  .bench-section table {
+    table-layout: fixed !important;
+  }
+
+  .bench-section table td:nth-child(2) {
+    width: 40% !important;
+  }
+
+  .bench-section table td:nth-child(3) {
+    width: 40% !important;
+  }
+
+  .bench-section table td:last-child {
+    width: 20% !important;
+  }
+
+  /* Ensure bench champion rows match standard table row height exactly */
+  .bench-section table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: none !important;
+  }
+
+  .bench-section tbody tr {
+    background: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .bench-section tbody tr:hover {
+    background: rgba(255,255,255,0.1);
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .bench-section table td {
+    vertical-align: middle;
+    position: relative;
+    padding: 8px 6px;
+    border: none;
+  }
+
+  .bench-section table td::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    clip-path: polygon(15px 0%, calc(100% - 15px) 0%, 100% 15px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0% calc(100% - 15px), 0% 15px);
+    z-index: -1;
+    transition: all 0.3s ease;
+  }
+
+  /* Navy octagon for points column */
+  .bench-section td:last-child::before {
+    background: #1a365d;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  /* White octagon for team and league columns */
+  .bench-section td:nth-child(2)::before,
+  .bench-section td:nth-child(3)::before {
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  /* Hover effects */
+  .bench-section tbody tr:hover td:last-child::before {
+    background: #2d4a66;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .bench-section tbody tr:hover td:nth-child(2)::before,
+  .bench-section tbody tr:hover td:nth-child(3)::before {
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .bench-section .team-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: rgba(26, 54, 93, 0.9);
+  }
+
+  .bench-section .username {
+    font-size: 1rem;
+    margin-bottom: 3px;
+    color: rgba(26, 54, 93, 0.9);
+  }
+
+  .bench-section .league-name {
+    font-size: 1rem;
+    color: rgba(26, 54, 93, 0.9);
+  }
+
+  .bench-section .total-points {
+    font-size: 2rem;
+    font-family: 'The Game', 'Bebas Neue', 'Arial Black', sans-serif;
+    font-weight: 400;
+    color: #ffffff;
   }
 
   /* Champion card styles */
@@ -500,36 +653,46 @@
   function populateBenchData(weekNum, weekData) {
     console.log(`📊 Populating bench data for week ${weekNum}`);
 
-    // Populate bench champions
-    const championsContainer = document.getElementById(`bench-champions-${weekNum}`);
-    if (championsContainer) {
-      let championsHTML = '';
+    // Populate 1-Flex bench champion table
+    const oneFlexContainer = document.getElementById(`one-flex-bench-${weekNum}`);
+    if (oneFlexContainer && weekData.oneFlexTopBenchTeam) {
+      const oneFlexHTML = `
+        <tr class="champion">
+          <td class="hidden-rank-cell"></td>
+          <td class="team-cell">
+            <div class="team-name">${weekData.oneFlexTopBenchTeam.teamName}</div>
+            <div class="username">@${weekData.oneFlexTopBenchTeam.username}</div>
+          </td>
+          <td class="league-cell">
+            <div class="league-name">${weekData.oneFlexTopBenchTeam.leagueName}</div>
+          </td>
+          <td class="points-cell">
+            <div class="total-points">${weekData.oneFlexTopBenchTeam.benchPoints}</div>
+          </td>
+        </tr>
+      `;
+      oneFlexContainer.innerHTML = oneFlexHTML;
+    }
 
-      if (weekData.oneFlexTopBenchTeam) {
-        championsHTML += `
-          <div class="champion-card bench-champion">
-            <h2>🪑 Week ${weekNum} 1-Flex Bench Champion</h2>
-            <div class="champion-name">${weekData.oneFlexTopBenchTeam.teamName}</div>
-            <div class="champion-username">@${weekData.oneFlexTopBenchTeam.username}</div>
-            <div class="champion-score">${weekData.oneFlexTopBenchTeam.benchPoints} bench pts</div>
-            <div class="champion-league">from "${weekData.oneFlexTopBenchTeam.leagueName}"</div>
-          </div>
-        `;
-      }
-
-      if (weekData.twoFlexTopBenchTeam) {
-        championsHTML += `
-          <div class="champion-card bench-champion">
-            <h2>🪑 Week ${weekNum} 2-Flex Bench Champion</h2>
-            <div class="champion-name">${weekData.twoFlexTopBenchTeam.teamName}</div>
-            <div class="champion-username">@${weekData.twoFlexTopBenchTeam.username}</div>
-            <div class="champion-score">${weekData.twoFlexTopBenchTeam.benchPoints} bench pts</div>
-            <div class="champion-league">from "${weekData.twoFlexTopBenchTeam.leagueName}"</div>
-          </div>
-        `;
-      }
-
-      championsContainer.innerHTML = championsHTML;
+    // Populate 2-Flex bench champion table
+    const twoFlexContainer = document.getElementById(`two-flex-bench-${weekNum}`);
+    if (twoFlexContainer && weekData.twoFlexTopBenchTeam) {
+      const twoFlexHTML = `
+        <tr class="champion">
+          <td class="hidden-rank-cell"></td>
+          <td class="team-cell">
+            <div class="team-name">${weekData.twoFlexTopBenchTeam.teamName}</div>
+            <div class="username">@${weekData.twoFlexTopBenchTeam.username}</div>
+          </td>
+          <td class="league-cell">
+            <div class="league-name">${weekData.twoFlexTopBenchTeam.leagueName}</div>
+          </td>
+          <td class="points-cell">
+            <div class="total-points">${weekData.twoFlexTopBenchTeam.benchPoints}</div>
+          </td>
+        </tr>
+      `;
+      twoFlexContainer.innerHTML = twoFlexHTML;
     }
 
     // Populate bench players by position
@@ -590,7 +753,7 @@
 
 {% schema %}
 {
-  "name": "Dynamic Leaderboard",
+  "name": "Leaderboard with Bench",
   "settings": [
     {
       "type": "header",
