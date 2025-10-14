@@ -1,0 +1,709 @@
+{% comment %}
+  Complete Dynamic Leaderboard Section
+  Structure: Weekly tabs -> 1-Flex/2-Flex categories -> Season Leaders
+  Uses JSON data or metafields for automatic updates
+{% endcomment %}
+
+{{ 'thegame-leaderboard.css' | asset_url | stylesheet_tag }}
+{%- comment -%} Removed external JS file for all-teams test version {%- endcomment -%}
+
+<div class="leaderboard-container" data-json-url="{{ 'thegame-weekly-data-all-teams.json' | asset_url }}">
+  <header class="header">
+    <div class="top-image-container">
+      <img src="{{ 'thegame-thegame_logo.png' | asset_url }}" alt="The Game Header" class="top-image" />
+    </div>
+    
+    <!-- Weekly Tabs -->
+    <div class="tabs">
+      {% for i in (1..section.settings.total_weeks) %}
+        <button class="tab-button {% if i == section.settings.active_week %}active{% endif %}" onclick="showWeek({{ i }})">Week {{ i }}</button>
+      {% endfor %}
+      <button class="tab-button" onclick="showWeek('season')">Season Leaders</button>
+    </div>
+
+    <div class="season-title">LEADERBOARD</div>
+  </header>
+
+  <!-- Weekly Content -->
+  {% for week in (1..section.settings.total_weeks) %}
+    <div id="week{{ week }}" class="week-content {% if week == section.settings.active_week %}active{% endif %}">
+      
+      <!-- Category tabs for this week -->
+      <div class="category-tabs">
+        <button class="category-tab-button active" onclick="showCategory({{ week }}, 'oneflex')">1-Flex Leagues</button>
+        <button class="category-tab-button" onclick="showCategory({{ week }}, 'twoflex')">2-Flex Leagues</button>
+        <button class="category-tab-button" onclick="showCategory({{ week }}, 'bench')">Bench Champions</button>
+      </div>
+
+      <!-- 1-Flex content for this week -->
+      <div id="week{{ week }}-oneflex" class="category-content active">
+        <div class="leaderboard-section">
+          <div class="league-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>NO</th>
+                  <th>TEAM</th>
+                  <th>LEAGUE</th>
+                  <th>PTS</th>
+                </tr>
+              </thead>
+              <tbody id="week{{ week }}-oneflex">
+                <!-- Data will be populated by JavaScript -->
+                <tr>
+                  <td colspan="4" class="loading">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2-Flex content for this week -->
+      <div id="week{{ week }}-twoflex" class="category-content">
+        <div class="leaderboard-section">
+          <div class="league-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>NO</th>
+                  <th>TEAM</th>
+                  <th>LEAGUE</th>
+                  <th>PTS</th>
+                </tr>
+              </thead>
+              <tbody id="week{{ week }}-twoflex">
+                <!-- Data will be populated by JavaScript -->
+                <tr>
+                  <td colspan="4" class="loading">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bench content for this week -->
+      <div id="week{{ week }}-bench" class="category-content">
+        <div class="bench-section">
+
+          <!-- 1-Flex Bench Champion -->
+          <div class="leaderboard-section">
+            <h3 class="bench-title">🪑 1-Flex Bench Champion</h3>
+            <div class="league-table">
+              <table>
+                <tbody id="one-flex-bench-{{ week }}">
+                  <!-- Will be populated by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 2-Flex Bench Champion -->
+          <div class="leaderboard-section">
+            <h3 class="bench-title">🪑 2-Flex Bench Champion</h3>
+            <div class="league-table">
+              <table>
+                <tbody id="two-flex-bench-{{ week }}">
+                  <!-- Will be populated by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Top Bench Players by Position -->
+          <div class="bench-players-section">
+            <h3 class="bench-title">🏆 Top 5 Highest Scoring Bench Players by Position</h3>
+            <div id="bench-players-{{ week }}" class="bench-positions-grid">
+              <!-- Will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  {% endfor %}
+
+  <!-- Season Leaders Content -->
+  <div id="weekseason" class="week-content">
+    
+    <!-- Category tabs for season -->
+    <div class="category-tabs">
+      <button class="category-tab-button active" onclick="showCategory('season', 'oneflex')">1-Flex Season Leaders</button>
+      <button class="category-tab-button" onclick="showCategory('season', 'twoflex')">2-Flex Season Leaders</button>
+    </div>
+
+    <!-- 1-Flex Season Leaders -->
+    <div id="weekseason-oneflex" class="category-content active">
+      <div class="leaderboard-section">
+        <div class="league-table">
+          <table>
+            <thead>
+              <tr>
+                <th>NO</th>
+                <th>TEAM</th>
+                <th>LEAGUE</th>
+                <th>TOTAL PTS</th>
+              </tr>
+            </thead>
+            <tbody id="weekseason-oneflex">
+              <!-- Data will be populated by JavaScript -->
+              <tr>
+                <td colspan="4" class="loading">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2-Flex Season Leaders -->
+    <div id="weekseason-twoflex" class="category-content">
+      <div class="leaderboard-section">
+        <div class="league-table">
+          <table>
+            <thead>
+              <tr>
+                <th>NO</th>
+                <th>TEAM</th>
+                <th>LEAGUE</th>
+                <th>TOTAL PTS</th>
+              </tr>
+            </thead>
+            <tbody id="weekseason-twoflex">
+              <!-- Data will be populated by JavaScript -->
+              <tr>
+                <td colspan="4" class="loading">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+  <footer class="footer">
+    <p>Updated: {{ 'now' | date: '%B %d, %Y at %I:%M %p' }}</p>
+
+    <img src="{{ 'thegame-living-in-fantasy.png' | asset_url }}" alt="living in fantasy" class="top-image" />
+  </footer>
+</div>
+
+
+<style>
+  /* Additional styles for nested tabs */
+  .week-content {
+    display: none;
+  }
+
+  .week-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .category-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px;
+    border-radius: 8px;
+    justify-content: center;
+  }
+
+  .category-tab-button {
+    background: rgba(26, 54, 93, 0.7);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+  }
+
+  .category-tab-button:hover {
+    background: rgba(45, 74, 102, 0.8);
+    transform: translateY(-1px);
+  }
+
+  .category-tab-button.active {
+    background: linear-gradient(135deg, #DC143C, #B91C1C);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(220, 20, 60, 0.3);
+  }
+
+  .category-content {
+    display: none;
+  }
+
+  .category-content.active {
+    display: block;
+  }
+
+  /* Bench champion titles */
+  .bench-title {
+    color: #DC143C;
+    font-family: 'The Game', 'Bebas Neue', 'Arial Black', sans-serif;
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Hide the rank column for bench champions */
+  .hidden-rank-cell {
+    display: none !important;
+  }
+
+  /* Add spacing between bench sections */
+  .leaderboard-section {
+    margin-bottom: 40px;
+  }
+
+  .bench-players-section {
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  /* Match table width and column sizes to other tabs */
+  .bench-section table {
+    table-layout: fixed !important;
+  }
+
+  .bench-section table td:nth-child(2) {
+    width: 40% !important;
+  }
+
+  .bench-section table td:nth-child(3) {
+    width: 40% !important;
+  }
+
+  .bench-section table td:last-child {
+    width: 20% !important;
+  }
+
+  /* Ensure bench champion rows match standard table row height exactly */
+  .bench-section table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: none !important;
+  }
+
+  .bench-section tbody tr {
+    background: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .bench-section tbody tr:hover {
+    background: rgba(255,255,255,0.1);
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .bench-section table td {
+    vertical-align: middle;
+    position: relative;
+    padding: 8px 6px;
+    border: none;
+  }
+
+  .bench-section table td::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    clip-path: polygon(15px 0%, calc(100% - 15px) 0%, 100% 15px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0% calc(100% - 15px), 0% 15px);
+    z-index: -1;
+    transition: all 0.3s ease;
+  }
+
+  /* Navy octagon for points column */
+  .bench-section td:last-child::before {
+    background: #1a365d;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  /* White octagon for team and league columns */
+  .bench-section td:nth-child(2)::before,
+  .bench-section td:nth-child(3)::before {
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  /* Hover effects */
+  .bench-section tbody tr:hover td:last-child::before {
+    background: #2d4a66;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .bench-section tbody tr:hover td:nth-child(2)::before,
+  .bench-section tbody tr:hover td:nth-child(3)::before {
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .bench-section .team-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: rgba(26, 54, 93, 0.9);
+  }
+
+  .bench-section .username {
+    font-size: 1rem;
+    margin-bottom: 3px;
+    color: rgba(26, 54, 93, 0.9);
+  }
+
+  .bench-section .league-name {
+    font-size: 1rem;
+    color: rgba(26, 54, 93, 0.9);
+  }
+
+  .bench-section .total-points {
+    font-size: 2rem;
+    font-family: 'The Game', 'Bebas Neue', 'Arial Black', sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+  }
+
+  /* Champion card styles */
+  .champion-card {
+    background: linear-gradient(135deg, #1a365d, #2d4a66);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px 0;
+    text-align: center;
+    color: white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .champion-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .champion-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #FFD700;
+  }
+
+  .champion-username {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    opacity: 0.9;
+  }
+
+  .champion-score {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #90EE90;
+  }
+
+  .champion-league {
+    font-size: 1rem;
+    opacity: 0.8;
+    font-style: italic;
+  }
+
+  /* Mobile styles for category tabs */
+  @media (max-width: 768px) {
+    .category-tab-button {
+      font-size: 0.8rem;
+      padding: 6px 12px;
+    }
+
+    .champion-card {
+      padding: 20px;
+      margin: 15px 0;
+    }
+
+    .champion-card h2 {
+      font-size: 1.2rem;
+    }
+
+    .champion-name {
+      font-size: 1.4rem;
+    }
+
+    .champion-score {
+      font-size: 1.6rem;
+    }
+  }
+</style>
+
+<script>
+  function showWeek(week) {
+    // Hide all week contents
+    document.querySelectorAll('.week-content').forEach(content => {
+      content.classList.remove('active');
+    });
+    
+    // Remove active class from all tab buttons
+    document.querySelectorAll('.tab-button').forEach(button => {
+      button.classList.remove('active');
+    });
+    
+    // Show selected week content
+    document.getElementById('week' + week).classList.add('active');
+    
+    // Add active class to selected tab button
+    event.target.classList.add('active');
+    
+    // Show default category (1-flex) for the selected week
+    showCategory(week, 'oneflex');
+  }
+  
+  function showCategory(week, category) {
+    // Hide all category contents for this week
+    document.querySelectorAll(`#week${week}-oneflex, #week${week}-twoflex, #week${week}-bench`).forEach(content => {
+      content.classList.remove('active');
+    });
+
+    // Remove active class from category tab buttons in the active week
+    document.querySelector('#week' + week + ' .category-tabs').querySelectorAll('.category-tab-button').forEach(button => {
+      button.classList.remove('active');
+    });
+
+    // Show selected category content
+    document.getElementById(`week${week}-${category}`).classList.add('active');
+
+    // Add active class to selected category button
+    event.target.classList.add('active');
+  }
+
+  // Load real data from JSON asset
+  async function loadLeaderboardData() {
+    console.log('🚀 loadLeaderboardData() started');
+
+    try {
+      const url = '{{ "thegame-weekly-data.json" | asset_url }}';
+      console.log('📡 Fetching data from:', url);
+
+      const response = await fetch(url);
+      console.log('📥 Response status:', response.status);
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      console.log('✅ Data loaded successfully:', data);
+
+      // Replace sample data with real data
+      populateLeaderboards(data);
+      console.log('🎯 Tables populated');
+    } catch (error) {
+      console.error('❌ Error loading leaderboard data:', error);
+      console.log('🔄 Falling back to sample data');
+    }
+  }
+
+  function populateLeaderboards(data) {
+    // Process each week
+    Object.keys(data.weeks).forEach(weekNum => {
+      const weekData = data.weeks[weekNum];
+
+      // Get the arrays
+      const oneFlexResults = weekData.oneFlexLeagues || [];
+      const twoFlexResults = weekData.twoFlexLeagues || [];
+
+      // Populate 1-flex table for this week
+      populateTable(`week${weekNum}-oneflex`, oneFlexResults);
+
+      // Populate 2-flex table for this week
+      populateTable(`week${weekNum}-twoflex`, twoFlexResults);
+
+      // Populate bench data for this week
+      populateBenchData(weekNum, weekData);
+    });
+
+    // Also populate season leaders if available
+    if (data.seasonLeaders) {
+      populateTable('weekseason-oneflex', data.seasonLeaders.oneFlexUsers || []);
+      populateTable('weekseason-twoflex', data.seasonLeaders.twoFlexUsers || []);
+    }
+  }
+
+  function populateTable(containerId, results) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+      return;
+    }
+
+    const tbody = container.querySelector('tbody');
+    if (!tbody) {
+      return;
+    }
+
+    // Clear existing rows
+    tbody.innerHTML = '';
+
+    // Add new rows
+    results.forEach((result, index) => {
+      const rank = index + 1;
+      const rowClass = rank === 1 ? 'champion' : rank <= 3 ? 'podium' : '';
+
+      const row = document.createElement('tr');
+      row.className = rowClass;
+      row.innerHTML = `
+        <td><div class="rank-circle">${rank}</div></td>
+        <td class="team-cell">
+          <div class="team-name">${result.teamName || result.team_name || 'Unknown Team'}</div>
+          <div class="username">@${result.topScorer || result.username || 'Unknown User'}</div>
+        </td>
+        <td class="league-cell">
+          <div class="league-name">${result.leagueName || result.league_name || 'Unknown League'}</div>
+        </td>
+        <td class="points-cell">
+          <div class="total-points">${result.totalPoints || result.topScore || result.points || '0'}</div>
+        </td>
+      `;
+      tbody.appendChild(row);
+    });
+  }
+
+  function populateBenchData(weekNum, weekData) {
+    // Populate 1-Flex bench champion table
+    const oneFlexContainer = document.getElementById(`one-flex-bench-${weekNum}`);
+    if (oneFlexContainer && weekData.oneFlexTopBenchTeam) {
+      const oneFlexHTML = `
+        <tr class="champion">
+          <td class="hidden-rank-cell"></td>
+          <td class="team-cell">
+            <div class="team-name">${weekData.oneFlexTopBenchTeam.teamName}</div>
+            <div class="username">@${weekData.oneFlexTopBenchTeam.username}</div>
+          </td>
+          <td class="league-cell">
+            <div class="league-name">${weekData.oneFlexTopBenchTeam.leagueName}</div>
+          </td>
+          <td class="points-cell">
+            <div class="total-points">${weekData.oneFlexTopBenchTeam.benchPoints}</div>
+          </td>
+        </tr>
+      `;
+      oneFlexContainer.innerHTML = oneFlexHTML;
+    }
+
+    // Populate 2-Flex bench champion table
+    const twoFlexContainer = document.getElementById(`two-flex-bench-${weekNum}`);
+    if (twoFlexContainer && weekData.twoFlexTopBenchTeam) {
+      const twoFlexHTML = `
+        <tr class="champion">
+          <td class="hidden-rank-cell"></td>
+          <td class="team-cell">
+            <div class="team-name">${weekData.twoFlexTopBenchTeam.teamName}</div>
+            <div class="username">@${weekData.twoFlexTopBenchTeam.username}</div>
+          </td>
+          <td class="league-cell">
+            <div class="league-name">${weekData.twoFlexTopBenchTeam.leagueName}</div>
+          </td>
+          <td class="points-cell">
+            <div class="total-points">${weekData.twoFlexTopBenchTeam.benchPoints}</div>
+          </td>
+        </tr>
+      `;
+      twoFlexContainer.innerHTML = twoFlexHTML;
+    }
+
+    // Populate bench players by position
+    const playersContainer = document.getElementById(`bench-players-${weekNum}`);
+    if (playersContainer && weekData.topBenchPlayersByPosition) {
+      let playersHTML = '';
+
+      Object.entries(weekData.topBenchPlayersByPosition).forEach(([position, players]) => {
+        if (players && players.length > 0) {
+          playersHTML += `
+            <div class="position-section">
+              <h4 class="position-title">${position}</h4>
+              <div class="position-players">
+                ${players.map((player, index) => `
+                  <div class="bench-player-row">
+                    <div class="player-rank">${index + 1}</div>
+                    <div class="player-info">
+                      <div class="player-name">${player.name}</div>
+                      <div class="player-team">${player.team}</div>
+                    </div>
+                    <div class="team-count">${player.teamCount} teams</div>
+                    <div class="weekly-score">${parseFloat(player.score).toFixed(1)} pts</div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        }
+      });
+
+      playersContainer.innerHTML = playersHTML;
+    }
+  }
+
+  // Load data when page loads
+  console.log('🔧 Script loaded, setting up event listeners');
+
+  // Try multiple ways to ensure the function runs
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('📅 DOMContentLoaded fired');
+    loadLeaderboardData();
+  });
+
+  // Backup: run after a short delay
+  setTimeout(function() {
+    console.log('⏰ Timeout backup fired');
+    loadLeaderboardData();
+  }, 1000);
+
+  // Also try immediate execution if DOM already loaded
+  if (document.readyState === 'loading') {
+    console.log('📖 Document still loading, waiting for DOMContentLoaded');
+  } else {
+    console.log('✅ Document already loaded, running immediately');
+    loadLeaderboardData();
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Leaderboard with Bench",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Week Settings"
+    },
+    {
+      "type": "number",
+      "id": "total_weeks",
+      "label": "Total Weeks",
+      "default": 5
+    },
+    {
+      "type": "number",
+      "id": "active_week",
+      "label": "Active Week (Default)",
+      "default": 5
+    },
+    {
+      "type": "paragraph",
+      "content": "This section displays leaderboard data dynamically. Update the Liquid code to connect to your data source (metafields, external API, etc.)"
+    }
+  ]
+}
+{% endschema %}

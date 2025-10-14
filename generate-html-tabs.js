@@ -94,21 +94,17 @@ async function getTopScorersForWeek(week = 1, existingFlexSettings = {}) {
             topScorer: user.display_name,
             teamName: teamName,
             flexCount: flexCount,
-            totalPoints: seasonPoints,
-            weeksPlayed: week, // Current week number
-            averagePoints: seasonPoints / week
+            totalPoints: seasonPoints
           };
 
           if (flexCount === 1) {
             oneFlexSeasonLeaders.push(userEntry);
-            // Keep only top 10, sorted by total points
+            // Keep all teams, sorted by total points
             oneFlexSeasonLeaders.sort((a, b) => b.totalPoints - a.totalPoints);
-            oneFlexSeasonLeaders = oneFlexSeasonLeaders.slice(0, 10);
           } else if (flexCount === 2) {
             twoFlexSeasonLeaders.push(userEntry);
-            // Keep only top 10, sorted by total points
+            // Keep all teams, sorted by total points
             twoFlexSeasonLeaders.sort((a, b) => b.totalPoints - a.totalPoints);
-            twoFlexSeasonLeaders = twoFlexSeasonLeaders.slice(0, 10);
           }
         }
       }
@@ -184,13 +180,9 @@ async function getTopScorersForWeek(week = 1, existingFlexSettings = {}) {
       await api.delay(100);
     }
     
-    // Sort leagues by top score descending and limit to top 10
+    // Sort leagues by top score descending - keep all teams
     oneFlexLeagues.sort((a, b) => b.topScore - a.topScore);
     twoFlexLeagues.sort((a, b) => b.topScore - a.topScore);
-    
-    // Limit to top 10 for each category for display/storage
-    oneFlexLeagues = oneFlexLeagues.slice(0, 10);
-    twoFlexLeagues = twoFlexLeagues.slice(0, 10);
 
     // Process bench players by position
     let topBenchPlayersByPosition = {
@@ -391,13 +383,53 @@ function saveWeeklyData(allData, currentWeek) {
   };
   fs.writeFileSync(weeklyDataFile, JSON.stringify(weekData, null, 2));
 
-  // Also update the Shopify JSON file
-  const shopifyDataFile = 'shopify/assets/thegame-weekly-data.json';
-  fs.writeFileSync(shopifyDataFile, JSON.stringify(allData, null, 2));
+  // Create ALL TEAMS version of the data (no limits)
+  const allTeamsData = JSON.parse(JSON.stringify(allData)); // Deep clone
 
-  // Save weekly Shopify file too for backup
+  // Create TOP 10 version of the data (current behavior)
+  const top10Data = JSON.parse(JSON.stringify(allData)); // Deep clone
+
+  // Apply top 10 limits to each week
+  Object.keys(top10Data.weeks).forEach(week => {
+    const weekData = top10Data.weeks[week];
+    if (weekData.oneFlexLeagues) {
+      weekData.oneFlexLeagues = weekData.oneFlexLeagues.slice(0, 10);
+    }
+    if (weekData.twoFlexLeagues) {
+      weekData.twoFlexLeagues = weekData.twoFlexLeagues.slice(0, 10);
+    }
+  });
+
+  // Apply top 10 limits to season leaders
+  if (top10Data.seasonLeaders) {
+    if (top10Data.seasonLeaders.oneFlexUsers) {
+      top10Data.seasonLeaders.oneFlexUsers = top10Data.seasonLeaders.oneFlexUsers.slice(0, 10);
+    }
+    if (top10Data.seasonLeaders.twoFlexUsers) {
+      top10Data.seasonLeaders.twoFlexUsers = top10Data.seasonLeaders.twoFlexUsers.slice(0, 10);
+    }
+  }
+
+  // Save both versions to Shopify assets
+  const shopifyTop10File = 'shopify/assets/thegame-weekly-data.json';
+  const shopifyAllTeamsFile = 'shopify/assets/thegame-weekly-data-all-teams.json';
+
+  fs.writeFileSync(shopifyTop10File, JSON.stringify(top10Data, null, 2));
+  fs.writeFileSync(shopifyAllTeamsFile, JSON.stringify(allTeamsData, null, 2));
+
+  // Save both versions to test folder
+  const shopifyTestTop10File = 'shopify-test/assets/thegame-weekly-data.json';
+  const shopifyTestAllTeamsFile = 'shopify-test/assets/thegame-weekly-data-all-teams.json';
+
+  fs.writeFileSync(shopifyTestTop10File, JSON.stringify(top10Data, null, 2));
+  fs.writeFileSync(shopifyTestAllTeamsFile, JSON.stringify(allTeamsData, null, 2));
+
+  // Save weekly backup files
   const shopifyWeeklyFile = `shopify/assets/week-${currentWeek}-data.json`;
+  const shopifyTestWeeklyFile = `shopify-test/assets/week-${currentWeek}-data.json`;
+
   fs.writeFileSync(shopifyWeeklyFile, JSON.stringify(weekData, null, 2));
+  fs.writeFileSync(shopifyTestWeeklyFile, JSON.stringify(weekData, null, 2));
 }
 
 function generateTabbedHTML(allData) {
@@ -655,7 +687,6 @@ function generateTabbedHTML(allData) {
         </div>
       </td>
       <td class="points">${user.totalPoints.toFixed(2)}</td>
-      <td class="average-points">${user.averagePoints.toFixed(1)}</td>
     </tr>
   `).join('');
 
@@ -671,7 +702,6 @@ function generateTabbedHTML(allData) {
       </div>
       <div class="season-points-mobile">
         <div class="points-mobile">${user.totalPoints.toFixed(2)}</div>
-        <div class="average-mobile">Avg: ${user.averagePoints.toFixed(1)}</div>
       </div>
     </div>
   `).join('');
@@ -687,7 +717,6 @@ function generateTabbedHTML(allData) {
         </div>
       </td>
       <td class="points">${user.totalPoints.toFixed(2)}</td>
-      <td class="average-points">${user.averagePoints.toFixed(1)}</td>
     </tr>
   `).join('');
 
@@ -703,7 +732,6 @@ function generateTabbedHTML(allData) {
       </div>
       <div class="season-points-mobile">
         <div class="points-mobile">${user.totalPoints.toFixed(2)}</div>
-        <div class="average-mobile">Avg: ${user.averagePoints.toFixed(1)}</div>
       </div>
     </div>
   `).join('');
@@ -735,7 +763,7 @@ function generateTabbedHTML(allData) {
         <div class="champion-name">${seasonLeaders.oneFlexSeasonLeader.teamName}</div>
         <div class="champion-username">@${seasonLeaders.oneFlexSeasonLeader.topScorer}</div>
         <div class="champion-score">${seasonLeaders.oneFlexSeasonLeader.totalPoints.toFixed(2)} pts</div>
-        <div class="champion-league">from "${seasonLeaders.oneFlexSeasonLeader.leagueName}" (${seasonLeaders.oneFlexSeasonLeader.averagePoints.toFixed(1)} avg)</div>
+        <div class="champion-league">from "${seasonLeaders.oneFlexSeasonLeader.leagueName}"</div>
       </div>
       ` : ''}
 
@@ -745,7 +773,7 @@ function generateTabbedHTML(allData) {
         <div class="champion-name">${seasonLeaders.twoFlexSeasonLeader.teamName}</div>
         <div class="champion-username">@${seasonLeaders.twoFlexSeasonLeader.topScorer}</div>
         <div class="champion-score">${seasonLeaders.twoFlexSeasonLeader.totalPoints.toFixed(2)} pts</div>
-        <div class="champion-league">from "${seasonLeaders.twoFlexSeasonLeader.leagueName}" (${seasonLeaders.twoFlexSeasonLeader.averagePoints.toFixed(1)} avg)</div>
+        <div class="champion-league">from "${seasonLeaders.twoFlexSeasonLeader.leagueName}"</div>
       </div>
       ` : ''}
       
@@ -762,7 +790,6 @@ function generateTabbedHTML(allData) {
                 <th>League Name</th>
                 <th>Team & Owner</th>
                 <th>Total Points</th>
-                <th>Average</th>
               </tr>
             </thead>
             <tbody>
@@ -793,7 +820,6 @@ function generateTabbedHTML(allData) {
                 <th>League Name</th>
                 <th>Team & Owner</th>
                 <th>Total Points</th>
-                <th>Average</th>
               </tr>
             </thead>
             <tbody>
