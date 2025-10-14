@@ -1,0 +1,628 @@
+{
+  "week": 6,
+  "data": {
+    "week": 6,
+    "userName": "thegamethepodcast",
+    "oneFlexLeagues": [
+      {
+        "leagueName": "First Down Bad",
+        "topScorer": "amirahjh",
+        "teamName": "Big Ballin 😌",
+        "topScore": 170.68,
+        "flexCount": 1
+      },
+      {
+        "leagueName": "Mr. Steel Your Girl",
+        "topScorer": "ZeBae",
+        "teamName": "Lace & Linebackers",
+        "topScore": 165.64,
+        "flexCount": 1
+      },
+      {
+        "leagueName": "They CeeDee Rollin'",
+        "topScorer": "sarahswift05",
+        "teamName": "sacks in the city",
+        "topScore": 163.48,
+        "flexCount": 1
+      },
+      {
+        "leagueName": "Lamar You Serious",
+        "topScorer": "littlebaby00",
+        "teamName": "littlebaby00",
+        "topScore": 163.46,
+        "flexCount": 1
+      },
+      {
+        "leagueName": "I Tua You Were Trouble",
+        "topScorer": "joeyyyygro10",
+        "teamName": "joeyyyygro10",
+        "topScore": 162.84,
+        "flexCount": 1
+      },
+      {
+        "leagueName": "For Kyron Out Loud",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "topScore": 160.78,
+        "flexCount": 1
+      },
+      {
+        "leagueName": "Go Birds",
+        "topScorer": "ash4thebirds",
+        "teamName": "Real Hot Girl Blitz",
+        "topScore": 160.54,
+        "flexCount": 1
+      },
+      {
+        "leagueName": "Fly Eagles Fly",
+        "topScorer": "wordykate",
+        "teamName": "Honey Bijan Mustard",
+        "topScore": 157.84,
+        "flexCount": 1
+      },
+      {
+        "leagueName": "The Grid Reaper",
+        "topScorer": "mayacohen",
+        "teamName": "Serving Punt ✨",
+        "topScore": 157.34,
+        "flexCount": 1
+      },
+      {
+        "leagueName": "Gibbs Me More",
+        "topScorer": "angie1933",
+        "teamName": "Sippen Charbonnet 🥂",
+        "topScore": 156.14,
+        "flexCount": 1
+      }
+    ],
+    "twoFlexLeagues": [
+      {
+        "leagueName": "Pink Toney Club",
+        "topScorer": "whitleyb17",
+        "teamName": "whitleyb17",
+        "topScore": 202.3,
+        "flexCount": 2
+      },
+      {
+        "leagueName": "Shake it Goff",
+        "topScorer": "clumsyempire7",
+        "teamName": "Chase Me, Daddy",
+        "topScore": 193.68,
+        "flexCount": 2
+      },
+      {
+        "leagueName": "Life of a Joe Girl",
+        "topScorer": "bellahreed",
+        "teamName": "bellahreed",
+        "topScore": 183.6,
+        "flexCount": 2
+      },
+      {
+        "leagueName": "Pink Pony Chubb: ",
+        "topScorer": "chmielionaire",
+        "teamName": "Let Bijans Be Bijans",
+        "topScore": 181.36,
+        "flexCount": 2
+      },
+      {
+        "leagueName": "Baby Got DAK",
+        "topScorer": "casgonzalez",
+        "teamName": "Purdy Brock Stars ✨",
+        "topScore": 176.84,
+        "flexCount": 2
+      },
+      {
+        "leagueName": "Karma",
+        "topScorer": "ovariesb4brovaries",
+        "teamName": "Serving Punt",
+        "topScore": 175.84,
+        "flexCount": 2
+      },
+      {
+        "leagueName": "BEG, BURROW, STEAL",
+        "topScorer": "sanota",
+        "teamName": "Beauty and the Blitz",
+        "topScore": 175.08,
+        "flexCount": 2
+      },
+      {
+        "leagueName": "Getting Jeanty With It",
+        "topScorer": "DocMonster01",
+        "teamName": "The Season I Won Fantasy",
+        "topScore": 173.32,
+        "flexCount": 2
+      },
+      {
+        "leagueName": "Brock You LIke a Hurricante",
+        "topScorer": "haleselisabeth",
+        "teamName": "The Season I turned Purdy",
+        "topScore": 172.94,
+        "flexCount": 2
+      },
+      {
+        "leagueName": "Hurts Like That Only Happens Once ",
+        "topScorer": "hlaw13",
+        "teamName": "It's Gonna Be Maye",
+        "topScore": 172.34,
+        "flexCount": 2
+      }
+    ],
+    "overallTopScorer": {
+      "display_name": "whitleyb17",
+      "teamName": "whitleyb17"
+    },
+    "overallTopScore": 202.3,
+    "overallTopLeague": "Pink Toney Club",
+    "oneFlexTopScorer": {
+      "display_name": "amirahjh",
+      "teamName": "Big Ballin 😌"
+    },
+    "oneFlexTopScore": 170.68,
+    "oneFlexTopLeague": "First Down Bad",
+    "twoFlexTopScorer": {
+      "display_name": "whitleyb17",
+      "teamName": "whitleyb17"
+    },
+    "twoFlexTopScore": 202.3,
+    "twoFlexTopLeague": "Pink Toney Club",
+    "oneFlexTopBenchTeam": {
+      "teamName": "Ball Too Well",
+      "username": "savannahgrace",
+      "leagueName": "Love Story",
+      "benchPoints": 100.74,
+      "flexCount": 1
+    },
+    "twoFlexTopBenchTeam": {
+      "teamName": "BUC-EE’s ",
+      "username": "jericahollenbaugh",
+      "leagueName": "Sass Interference",
+      "benchPoints": 122,
+      "flexCount": 2
+    },
+    "topBenchPlayersByPosition": {
+      "QB": [
+        {
+          "name": "Patrick Mahomes",
+          "team": "KC",
+          "position": "QB",
+          "teamCount": 8,
+          "score": 31.48
+        },
+        {
+          "name": "Drake Maye",
+          "team": "NE",
+          "position": "QB",
+          "teamCount": 40,
+          "score": 27.24
+        },
+        {
+          "name": "Jaxson Dart",
+          "team": "NYG",
+          "position": "QB",
+          "teamCount": 31,
+          "score": 23.6
+        },
+        {
+          "name": "Daniel Jones",
+          "team": "IND",
+          "position": "QB",
+          "teamCount": 29,
+          "score": 23.48
+        },
+        {
+          "name": "Jayden Daniels",
+          "team": "WAS",
+          "position": "QB",
+          "teamCount": 19,
+          "score": 22.64
+        }
+      ],
+      "RB": [
+        {
+          "name": "Bijan Robinson",
+          "team": "ATL",
+          "position": "RB",
+          "teamCount": 12,
+          "score": 35.8
+        },
+        {
+          "name": "Rico Dowdle",
+          "team": "CAR",
+          "position": "RB",
+          "teamCount": 16,
+          "score": 33.9
+        },
+        {
+          "name": "Josh Jacobs",
+          "team": "GB",
+          "position": "RB",
+          "teamCount": 11,
+          "score": 32
+        },
+        {
+          "name": "Cam Skattebo",
+          "team": "NYG",
+          "position": "RB",
+          "teamCount": 26,
+          "score": 31
+        },
+        {
+          "name": "D'Andre Swift",
+          "team": "CHI",
+          "position": "RB",
+          "teamCount": 39,
+          "score": 25.5
+        }
+      ],
+      "WR": [
+        {
+          "name": "Drake London",
+          "team": "ATL",
+          "position": "WR",
+          "teamCount": 15,
+          "score": 31.8
+        },
+        {
+          "name": "George Pickens",
+          "team": "DAL",
+          "position": "WR",
+          "teamCount": 4,
+          "score": 31.8
+        },
+        {
+          "name": "Kayshon Boutte",
+          "team": "NE",
+          "position": "WR",
+          "teamCount": 6,
+          "score": 26.3
+        },
+        {
+          "name": "Ja'Marr Chase",
+          "team": "CIN",
+          "position": "WR",
+          "teamCount": 3,
+          "score": 25.1
+        },
+        {
+          "name": "Brian Thomas",
+          "team": "JAX",
+          "position": "WR",
+          "teamCount": 16,
+          "score": 23
+        }
+      ],
+      "TE": [
+        {
+          "name": "Dallas Goedert",
+          "team": "PHI",
+          "position": "TE",
+          "teamCount": 26,
+          "score": 26
+        },
+        {
+          "name": "Tyler Warren",
+          "team": "IND",
+          "position": "TE",
+          "teamCount": 8,
+          "score": 18.3
+        },
+        {
+          "name": "Sam LaPorta",
+          "team": "DET",
+          "position": "TE",
+          "teamCount": 11,
+          "score": 16.5
+        },
+        {
+          "name": "Zach Ertz",
+          "team": "WAS",
+          "position": "TE",
+          "teamCount": 34,
+          "score": 16.3
+        },
+        {
+          "name": "Michael Mayer",
+          "team": "LV",
+          "position": "TE",
+          "teamCount": 2,
+          "score": 16
+        }
+      ],
+      "K": [
+        {
+          "name": "Cameron Dicker",
+          "team": "LAC",
+          "position": "K",
+          "teamCount": 5,
+          "score": 17
+        },
+        {
+          "name": "Jake Moody",
+          "team": "CHI",
+          "position": "K",
+          "teamCount": 1,
+          "score": 15
+        },
+        {
+          "name": "Chris Boswell",
+          "team": "PIT",
+          "position": "K",
+          "teamCount": 14,
+          "score": 14
+        },
+        {
+          "name": "Chad Ryland",
+          "team": "ARI",
+          "position": "K",
+          "teamCount": 3,
+          "score": 11
+        },
+        {
+          "name": "Jason Myers",
+          "team": "SEA",
+          "position": "K",
+          "teamCount": 2,
+          "score": 10
+        }
+      ],
+      "DEF": [
+        {
+          "name": "Los Angeles Rams",
+          "team": "LAR",
+          "position": "DEF",
+          "teamCount": 10,
+          "score": 19
+        },
+        {
+          "name": "Las Vegas Raiders",
+          "team": "LV",
+          "position": "DEF",
+          "teamCount": 1,
+          "score": 17
+        },
+        {
+          "name": "Denver Broncos",
+          "team": "DEN",
+          "position": "DEF",
+          "teamCount": 3,
+          "score": 13
+        },
+        {
+          "name": "Tampa Bay Buccaneers",
+          "team": "TB",
+          "position": "DEF",
+          "teamCount": 5,
+          "score": 12
+        },
+        {
+          "name": "Seattle Seahawks",
+          "team": "SEA",
+          "position": "DEF",
+          "teamCount": 6,
+          "score": 11
+        }
+      ]
+    },
+    "totalLeagues": 106,
+    "oneFlexCount": 10,
+    "twoFlexCount": 10,
+    "lastUpdated": "10/14/2025, 8:29:42 AM"
+  },
+  "generatedAt": "2025-10-14T08:29:42.527Z",
+  "seasonLeaders": {
+    "oneFlexUsers": [
+      {
+        "leagueName": "Gronkey Kong",
+        "topScorer": "kelseycarlson91",
+        "teamName": "Allen’s Avengers ",
+        "flexCount": 1,
+        "totalPoints": 872.48,
+        "weeksPlayed": 6,
+        "averagePoints": 145.41333333333333
+      },
+      {
+        "leagueName": "Lamar You Serious",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 1,
+        "totalPoints": 851.18,
+        "weeksPlayed": 6,
+        "averagePoints": 141.86333333333332
+      },
+      {
+        "leagueName": "Here for the DCC",
+        "topScorer": "hanabanans",
+        "teamName": "Dungeon Crawler Cowboys",
+        "flexCount": 1,
+        "totalPoints": 845.68,
+        "weeksPlayed": 6,
+        "averagePoints": 140.94666666666666
+      },
+      {
+        "leagueName": "We Built This Griddy:",
+        "topScorer": "LexiSchneider",
+        "teamName": "Griddy Up",
+        "flexCount": 1,
+        "totalPoints": 841.16,
+        "weeksPlayed": 6,
+        "averagePoints": 140.19333333333333
+      },
+      {
+        "leagueName": "They CeeDee Rollin'",
+        "topScorer": "sarahswift05",
+        "teamName": "sacks in the city",
+        "flexCount": 1,
+        "totalPoints": 832.06,
+        "weeksPlayed": 6,
+        "averagePoints": 138.67666666666665
+      },
+      {
+        "leagueName": "First Down Bad",
+        "topScorer": "amirahjh",
+        "teamName": "Big Ballin 😌",
+        "flexCount": 1,
+        "totalPoints": 829.86,
+        "weeksPlayed": 6,
+        "averagePoints": 138.31
+      },
+      {
+        "leagueName": "For Kyron Out Loud",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 1,
+        "totalPoints": 828.66,
+        "weeksPlayed": 6,
+        "averagePoints": 138.10999999999999
+      },
+      {
+        "leagueName": "Dak to the Future",
+        "topScorer": "Codex7L",
+        "teamName": "Saquon Deez TDs",
+        "flexCount": 1,
+        "totalPoints": 828.58,
+        "weeksPlayed": 6,
+        "averagePoints": 138.09666666666666
+      },
+      {
+        "leagueName": "Charbonnet Sauvignon",
+        "topScorer": "pooptarts8008",
+        "teamName": "chubba chubba choo choo 🚂",
+        "flexCount": 1,
+        "totalPoints": 827.22,
+        "weeksPlayed": 6,
+        "averagePoints": 137.87
+      },
+      {
+        "leagueName": "Dak to the Future",
+        "topScorer": "breezymercedes",
+        "teamName": "My dream team…cute.",
+        "flexCount": 1,
+        "totalPoints": 823.08,
+        "weeksPlayed": 6,
+        "averagePoints": 137.18
+      }
+    ],
+    "twoFlexUsers": [
+      {
+        "leagueName": "Brown Eyed Girl ",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 2,
+        "totalPoints": 1016.56,
+        "weeksPlayed": 6,
+        "averagePoints": 169.42666666666665
+      },
+      {
+        "leagueName": "Allen the Hips",
+        "topScorer": "summertime98",
+        "teamName": "Kittle Corn",
+        "flexCount": 2,
+        "totalPoints": 962.48,
+        "weeksPlayed": 6,
+        "averagePoints": 160.41333333333333
+      },
+      {
+        "leagueName": "Getting Jeanty With It",
+        "topScorer": "DocMonster01",
+        "teamName": "The Season I Won Fantasy",
+        "flexCount": 2,
+        "totalPoints": 956.08,
+        "weeksPlayed": 6,
+        "averagePoints": 159.34666666666666
+      },
+      {
+        "leagueName": "Shake it Goff",
+        "topScorer": "clumsyempire7",
+        "teamName": "Chase Me, Daddy",
+        "flexCount": 2,
+        "totalPoints": 952.82,
+        "weeksPlayed": 6,
+        "averagePoints": 158.80333333333334
+      },
+      {
+        "leagueName": "Olave Maria ",
+        "topScorer": "kede16",
+        "teamName": "Jet Tua Holiday",
+        "flexCount": 2,
+        "totalPoints": 937.38,
+        "weeksPlayed": 6,
+        "averagePoints": 156.23
+      },
+      {
+        "leagueName": "Bo Meets World",
+        "topScorer": "kerituom",
+        "teamName": "WhosAfraidOfLtleOldMcCfry",
+        "flexCount": 2,
+        "totalPoints": 928.52,
+        "weeksPlayed": 6,
+        "averagePoints": 154.75333333333333
+      },
+      {
+        "leagueName": "Kittle Me This",
+        "topScorer": "thegamethepodcast",
+        "teamName": "thegamethepodcast",
+        "flexCount": 2,
+        "totalPoints": 924.3,
+        "weeksPlayed": 6,
+        "averagePoints": 154.04999999999998
+      },
+      {
+        "leagueName": "PACHECO THE RING CAMERAS",
+        "topScorer": "Milliekla",
+        "teamName": "Milliekla",
+        "flexCount": 2,
+        "totalPoints": 924,
+        "weeksPlayed": 6,
+        "averagePoints": 154
+      },
+      {
+        "leagueName": "ALLEN THE STALLION",
+        "topScorer": "rebelgrrl",
+        "teamName": "rebelgrrl",
+        "flexCount": 2,
+        "totalPoints": 915.48,
+        "weeksPlayed": 6,
+        "averagePoints": 152.58
+      },
+      {
+        "leagueName": "Pink Toney Club",
+        "topScorer": "chiefslover1989",
+        "teamName": "Ball Too Well ",
+        "flexCount": 2,
+        "totalPoints": 910.38,
+        "weeksPlayed": 6,
+        "averagePoints": 151.73
+      }
+    ],
+    "overallSeasonLeader": {
+      "leagueName": "Brown Eyed Girl ",
+      "topScorer": "thegamethepodcast",
+      "teamName": "thegamethepodcast",
+      "flexCount": 2,
+      "totalPoints": 1016.56,
+      "weeksPlayed": 6,
+      "averagePoints": 169.42666666666665
+    },
+    "oneFlexSeasonLeader": {
+      "leagueName": "Gronkey Kong",
+      "topScorer": "kelseycarlson91",
+      "teamName": "Allen’s Avengers ",
+      "flexCount": 1,
+      "totalPoints": 872.48,
+      "weeksPlayed": 6,
+      "averagePoints": 145.41333333333333
+    },
+    "twoFlexSeasonLeader": {
+      "leagueName": "Brown Eyed Girl ",
+      "topScorer": "thegamethepodcast",
+      "teamName": "thegamethepodcast",
+      "flexCount": 2,
+      "totalPoints": 1016.56,
+      "weeksPlayed": 6,
+      "averagePoints": 169.42666666666665
+    },
+    "totalWeeks": 6,
+    "oneFlexCount": 10,
+    "twoFlexCount": 10
+  }
+}
