@@ -4,6 +4,7 @@ import path from 'path';
 
 const USERNAME = 'thegamethepodcast';
 const DATA_FILE = 'docs/weekly-data.json';
+const ALL_TEAMS_DATA_FILE = 'shopify/assets/thegame-weekly-data-all-teams.json';
 
 async function getTopScorersForWeek(week = 1, existingFlexSettings = {}) {
   const api = new SleeperAPI();
@@ -299,8 +300,16 @@ async function getTopScorersForWeek(week = 1, existingFlexSettings = {}) {
 
 function loadExistingData() {
   try {
+    // Try to load from all-teams file first to preserve all historical data
+    if (fs.existsSync(ALL_TEAMS_DATA_FILE)) {
+      const data = fs.readFileSync(ALL_TEAMS_DATA_FILE, 'utf8');
+      console.log('Loading existing data from all-teams file to preserve all historical data');
+      return JSON.parse(data);
+    }
+    // Fallback to regular data file
     if (fs.existsSync(DATA_FILE)) {
       const data = fs.readFileSync(DATA_FILE, 'utf8');
+      console.log('Loading existing data from docs file');
       return JSON.parse(data);
     }
   } catch (error) {
