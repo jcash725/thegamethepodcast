@@ -11276,6 +11276,13 @@
           "flexCount": 1
         },
         {
+          "leagueName": "Gibbs Me More",
+          "topScorer": "caseyrae21",
+          "teamName": "Buck wild",
+          "topScore": 121.8,
+          "flexCount": 1
+        },
+        {
           "leagueName": "Fly Eagles Fly",
           "topScorer": "stalheebs",
           "teamName": "3rdtimesthecharm",
@@ -11290,13 +11297,6 @@
           "flexCount": 1
         },
         {
-          "leagueName": "Gibbs Me More",
-          "topScorer": "caseyrae21",
-          "teamName": "Buck wild",
-          "topScore": 120.8,
-          "flexCount": 1
-        },
-        {
           "leagueName": "First Down Bad",
           "topScorer": "Chels333",
           "teamName": "Reverse Cowboys",
@@ -11304,17 +11304,17 @@
           "flexCount": 1
         },
         {
+          "leagueName": "Pats on the Back",
+          "topScorer": "danichavez7",
+          "teamName": "We Built This Griddy",
+          "topScore": 117.22,
+          "flexCount": 1
+        },
+        {
           "leagueName": "I'm Sorry Ms. Jackson",
           "topScorer": "strommelissa",
           "teamName": "the 1 (yard line)",
           "topScore": 116.54,
-          "flexCount": 1
-        },
-        {
-          "leagueName": "Pats on the Back",
-          "topScorer": "danichavez7",
-          "teamName": "We Built This Griddy",
-          "topScore": 116.22,
           "flexCount": 1
         },
         {
@@ -11339,6 +11339,13 @@
           "flexCount": 1
         },
         {
+          "leagueName": "For Kyron Out Loud",
+          "topScorer": "818valleygirl",
+          "teamName": "818valleygirl",
+          "topScore": 114.42,
+          "flexCount": 1
+        },
+        {
           "leagueName": "How I Metcalf Your Mother",
           "topScorer": "changethewhirled",
           "teamName": "puka puka Egbuka? ",
@@ -11350,13 +11357,6 @@
           "topScorer": "battlecopus",
           "teamName": "Back that pASS up! ",
           "topScore": 114.14,
-          "flexCount": 1
-        },
-        {
-          "leagueName": "For Kyron Out Loud",
-          "topScorer": "818valleygirl",
-          "teamName": "818valleygirl",
-          "topScore": 113.42,
           "flexCount": 1
         },
         {
@@ -11374,6 +11374,13 @@
           "flexCount": 1
         },
         {
+          "leagueName": "They CeeDee Rollin'",
+          "topScorer": "kklozano",
+          "teamName": "Burrow Me A Touchdown",
+          "topScore": 109.4,
+          "flexCount": 1
+        },
+        {
           "leagueName": "Micah Drop",
           "topScorer": "SnoozinSusan",
           "teamName": "Alls fair in Loveland war",
@@ -11385,13 +11392,6 @@
           "topScorer": "8marissa8",
           "teamName": "8marissa8",
           "topScore": 108.7,
-          "flexCount": 1
-        },
-        {
-          "leagueName": "They CeeDee Rollin'",
-          "topScorer": "kklozano",
-          "teamName": "Burrow Me A Touchdown",
-          "topScore": 108.4,
           "flexCount": 1
         },
         {
@@ -11540,7 +11540,7 @@
           "leagueName": "All About That Pace",
           "topScorer": "victoriaj7",
           "teamName": "The Life of a Joe Girl",
-          "topScore": 138.94,
+          "topScore": 139.94,
           "flexCount": 2
         },
         {
@@ -11638,14 +11638,14 @@
           "leagueName": "Whodey and the Joefish",
           "topScorer": "hannaaxxariel",
           "teamName": "Joe Money, Joe Problems",
-          "topScore": 127.1,
+          "topScore": 128.1,
           "flexCount": 2
         },
         {
           "leagueName": "That's So Raven(s)",
           "topScorer": "DanaB25",
           "teamName": "Nacua Matata",
-          "topScore": 126.42,
+          "topScore": 127.42,
           "flexCount": 2
         },
         {
@@ -11663,17 +11663,17 @@
           "flexCount": 2
         },
         {
+          "leagueName": "Mike Drop",
+          "topScorer": "saraad",
+          "teamName": "Barbie’s Teamhouse",
+          "topScore": 125.1,
+          "flexCount": 2
+        },
+        {
           "leagueName": "BTS",
           "topScorer": "Sherwood11",
           "teamName": "Sherwood11",
           "topScore": 125,
-          "flexCount": 2
-        },
-        {
-          "leagueName": "Mike Drop",
-          "topScorer": "saraad",
-          "teamName": "Barbie’s Teamhouse",
-          "topScore": 124.1,
           "flexCount": 2
         },
         {
@@ -12118,7 +12118,7 @@
       "totalLeagues": 106,
       "oneFlexCount": 48,
       "twoFlexCount": 58,
-      "lastUpdated": "1/6/2026, 8:38:08 AM"
+      "lastUpdated": "1/13/2026, 8:37:55 AM"
     }
   },
   "leagueFlexSettings": {
@@ -20666,5 +20666,5 @@
     "oneFlexCount": 532,
     "twoFlexCount": 669
   },
-  "lastUpdated": "2026-01-06T08:38:08.553Z"
+  "lastUpdated": "2026-01-13T08:37:55.860Z"
 }
