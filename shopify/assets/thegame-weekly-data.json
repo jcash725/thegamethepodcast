@@ -11953,7 +11953,7 @@
           },
           {
             "name": "Kenneth Gainwell",
-            "team": "PIT",
+            "team": "TB",
             "position": "RB",
             "teamCount": 21,
             "score": 21.4
@@ -12057,7 +12057,7 @@
           },
           {
             "name": "Zane Gonzalez",
-            "team": "ATL",
+            "team": "FA",
             "position": "K",
             "teamCount": 1,
             "score": 16
@@ -12118,7 +12118,7 @@
       "totalLeagues": 106,
       "oneFlexCount": 48,
       "twoFlexCount": 58,
-      "lastUpdated": "3/3/2026, 8:50:39 AM"
+      "lastUpdated": "3/10/2026, 8:51:55 AM"
     }
   },
   "leagueFlexSettings": {
@@ -20666,5 +20666,5 @@
     "oneFlexCount": 532,
     "twoFlexCount": 669
   },
-  "lastUpdated": "2026-03-03T08:50:39.458Z"
+  "lastUpdated": "2026-03-10T08:51:55.424Z"
 }
