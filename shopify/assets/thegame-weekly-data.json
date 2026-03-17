@@ -12057,7 +12057,7 @@
           },
           {
             "name": "Zane Gonzalez",
-            "team": "FA",
+            "team": "MIA",
             "position": "K",
             "teamCount": 1,
             "score": 16
@@ -12118,7 +12118,7 @@
       "totalLeagues": 106,
       "oneFlexCount": 48,
       "twoFlexCount": 58,
-      "lastUpdated": "3/10/2026, 8:51:55 AM"
+      "lastUpdated": "3/17/2026, 8:59:22 AM"
     }
   },
   "leagueFlexSettings": {
@@ -20666,5 +20666,5 @@
     "oneFlexCount": 532,
     "twoFlexCount": 669
   },
-  "lastUpdated": "2026-03-10T08:51:55.424Z"
+  "lastUpdated": "2026-03-17T08:59:22.076Z"
 }
