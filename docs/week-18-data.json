@@ -1008,9 +1008,9 @@
     "totalLeagues": 106,
     "oneFlexCount": 48,
     "twoFlexCount": 58,
-    "lastUpdated": "5/19/2026, 11:26:00 AM"
+    "lastUpdated": "6/2/2026, 12:08:58 PM"
   },
-  "generatedAt": "2026-05-19T11:26:00.336Z",
+  "generatedAt": "2026-06-02T12:08:58.489Z",
   "seasonLeaders": {
     "oneFlexUsers": [
       {
@@ -2947,7 +2947,7 @@
       },
       {
         "leagueName": "For the Sourdough of it All",
-        "topScorer": "leximfnevel",
+        "topScorer": "leximfn",
         "teamName": "Seal Team Nix🇺🇸",
         "flexCount": 1,
         "totalPoints": 1554.16
